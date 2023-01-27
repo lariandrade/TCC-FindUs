@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="1010px" viewBox="0 0 1920 1010" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+    <title>BG</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <g id="BG" transform="translate(-462.000000, -641.000000)">
+                <polygon id="Rectangle" fill="#F6F8F9" transform="translate(962.918528, 837.564592) rotate(-33.000000) translate(-962.918528, -837.564592) " points="649.869651 399.89187 1825.94646 1163.64508 1753.47761 1275.23731 99.8906007 1246.78534"></polygon>
+                <path d="M2489.6253,657.641185 L2453.88822,1681.01739 L1540.88754,798.108495 C1512.61346,771.742485 1511.06666,727.447936 1537.43267,699.173851 L1622.96607,627.376777 C1657.35136,628.577538 2418.98867,655.174499 2489.6253,657.641185 Z" id="Rectangle" fill="#504CE5" transform="translate(2004.126233, 1154.197085) rotate(-2.000000) translate(-2004.126233, -1154.197085) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
