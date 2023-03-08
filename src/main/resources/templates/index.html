@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
 	<meta charset="UTF-8">
@@ -38,8 +38,8 @@
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
 						<a href="index-2.html" class="logo">
-							<img src="images/logo.svg" class="dark-logo" alt="Lavinya" />
-							<img src="images/logo-white.svg" class="light-logo" alt="Lavinya" />
+							<img src="images/logo.svg" class="dark-logo" alt="Logo FindUs" />
+							<img src="images/logo-white.svg" class="light-logo" alt="Logo FindUs" />
 						</a>
 						<!-- ***** Logo End ***** -->
 
@@ -47,7 +47,7 @@
 
 						<!-- ***** Header Buttons Start ***** -->
 						<ul class="header-buttons">
-							<li><a class="btn-nav-line" href="login-c.html" style="border: none;">Login</a></li>
+							<li><a class="btn-nav-line" th:href="@{/login-c}" style="border: none;">Login</a></li>
 							<li><a class="btn-nav-primary" href="#">Divulgar</a></li>
 							<li><a class="btn-nav-primary" href="#"
 									style="background-color: #FF8E66; border: #FF8E66; color: white;">Contratar</a>
