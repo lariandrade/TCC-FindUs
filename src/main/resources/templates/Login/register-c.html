@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
 	<meta charset="UTF-8">
@@ -37,7 +37,7 @@
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a href="index.html" class="logo">
+						<a th:href="@{/../index}" class="logo">
 							<img src="images/logo.svg" class="dark-logo" alt="Logo FindUs" />
 							<img src="images/logo-white.svg" class="light-logo" alt="Logo FindUs" />
 						</a>
