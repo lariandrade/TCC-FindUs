@@ -51,109 +51,113 @@
 
 
 	<!-- ***** Welcome Area Start ***** -->
-	<div class="container" id="login">
-		<div class="row">
-			<div class="col-lg-6 mobile-bottom-fix align-self-center">
-				<br><br><br><br>
-				<h2>Seja muito bem-vindo ao FindUs</h2>
-				<h5>Fale um pouco sobre você</h5>
-				<br>
-				<div class="contact-form">
-					<div class="row">
-						<div class="col-lg-12">
-							<label>Nome completo</label>
-							<input type="text" placeholder="Insira aqui seu nome e sobrenome">
-						</div>
+	<form action="/cadastro" method="POST" >
 
-						<div class="col-lg-6 col-md-12 col-sm-12">
-							<label>CPF/CNPJ</label>
-							<input type="number" placeholder="000.000.000-00">
-						</div>
-						<div class="col-lg-6 col-md-12 col-sm-12">
-							<label>Telefone</label>
-							<input type="tel" placeholder="(DD) 0 0000-0000">
-						</div>
+		<div class="container" id="login">
+			<div class="row">
+				<div class="col-lg-6 mobile-bottom-fix align-self-center">
+					<br><br><br><br>
+					<h2>Seja muito bem-vindo ao FindUs</h2>
+					<h5>Fale um pouco sobre você</h5>
+					<br>
+					<div class="contact-form">
+						<div class="row">
+							<div class="col-lg-12">
+								<label>Nome completo</label>
+								<input type="text" name="userNome" placeholder="Insira aqui seu nome e sobrenome">
+							</div>
 
-						<div class="col-lg-12">
-							<label>E-mail</label>
-							<input type="text" placeholder="Insira aqui seu e-mail">
-						</div>
+							<div class="col-lg-6 col-md-12 col-sm-12">
+								<label>CPF/CNPJ</label>
+								<input type="number" name="userCPF_CNPJ" placeholder="000.000.000-00">
+							</div>
+							<div class="col-lg-6 col-md-12 col-sm-12">
+								<label>Telefone</label>
+								<input type="tel" name= "userTelefone" placeholder="(DD) 0 0000-0000">
+							</div>
 
-						<div class="col-lg-6 col-md-12 col-sm-12">
-							<label>Senha</label>
-							<input type="password" placeholder="Insira aqui sua senha">
-						</div>
-						<div class="col-lg-6 col-md-12 col-sm-12">
-							<label>Confirme a senha</label>
-							<input type="password" placeholder="Insira novamente sua senha">
-						</div>
+							<div class="col-lg-12">
+								<label>E-mail</label>
+								<input type="email" name="userEmail" placeholder="Insira aqui seu e-mail">
+							</div>
 
-						<br>
+							<div class="col-lg-6 col-md-12 col-sm-12">
+								<label>Senha</label>
+								<input type="password"  name="userSenha" placeholder="Insira aqui sua senha">
+							</div>
+							<div class="col-lg-6 col-md-12 col-sm-12">
+								<label>Confirme a senha</label>
+								<input type="password" name="confirmarSenha" placeholder="Insira novamente sua senha">
+							</div>
 
-						<div class="col-lg-12">
-							<label>Nome do negócio</label>
-							<input type="text" placeholder="Insira o nome do seu negócio">
-						</div>
-						<div class="col-lg-12">
-							<label>Segmentos</label>
-							<select name="segmento" id="segments">
-								<option value="alimentos">Alimentos no geral</option>
-								<option value="moda">Moda</option>
-								<option value="eventos">Eventos e viagens</option>
-								<option value="estetica">Estética e cuidados pessoais</option>
-								<option value="tecnologia">Tecnologia</option>
-								<option value="infantil">Infantil</option>
-								<option value="natureza">Produtos naturais e agricultura</option>
-							</select>
-						</div>
-
-
-						<div class="col-lg-12">
-							<br><br>
-							<button class="primary-btn" style="width: 100%;">Continuar</button>
-						</div>
-						<div class="col-lg-12" style="align-items: center;">
 							<br>
-							<p>Já possui uma conta? <a href="login-c.html">Faça o login</a></p>
+
+							<div class="col-lg-12">
+								<label>Nome do negócio</label>
+								<input type="text" name = "tipoIdentidade" placeholder="Insira o nome do seu negócio">
+							</div>
+							<div class="col-lg-12">
+								<label>Segmentos</label>
+								<select name="segmento" id="segments">
+									<option value="alimentos">Alimentos no geral</option>
+									<option value="moda">Moda</option>
+									<option value="eventos">Eventos e viagens</option>
+									<option value="estetica">Estética e cuidados pessoais</option>
+									<option value="tecnologia">Tecnologia</option>
+									<option value="infantil">Infantil</option>
+									<option value="natureza">Produtos naturais e agricultura</option>
+								</select>
+							</div>
+
+
+							<div class="col-lg-12">
+								<br><br>
+								<button type="submit" class="primary-btn" style="width: 100%;">Cadastrar</button>
+							</div>
+							<div class="col-lg-12" style="align-items: center;">
+								<br>
+								<p>Já possui uma conta? <a href="login-c.html">Faça o login</a></p>
+							</div>
 						</div>
 					</div>
+
+					<!-- <br><br><br>
+                    <div class="row">
+                        <p>Você já sabe os serviços necessários para digitalizar seu negócio?
+                            Caso ainda não saiba, lhe preparamos um teste rápido para descobrir.</p>
+                        <button class="primary-btn" style="width: 100%;">Escolher serviços</button>
+                        <br>
+                        <button class="primary-btn" style="width: 100%;">Fazer o teste</button>
+                    </div>
+
+                    <br><br><br>
+                    <div class="row">
+                        <p>Escolha os serviços que deseja contratar:</p>
+                        <br>
+                        <div class="row">
+                            <button class="secondary-btn" style="width: 150px; height: 150px; margin:15px;">Site</button>
+                            <button class="secondary-btn"
+                                style="width: 150px; height: 150px; margin:15px;">Marketplace</button>
+                            <button class="secondary-btn" style="width: 150px; height: 150px; margin:15px;">Redes
+                                Sociais</button>
+                            <button class="secondary-btn" style="width: 150px; height: 150px; margin:15px;">Consultoria de
+                                Marketing</button>
+                            <button class="secondary-btn" style="width: 150px; height: 150px; margin:15px;">Identidade
+                                Visual</button>
+                            <button class="secondary-btn"
+                                style="width: 150px; height: 150px; margin:15px;">Re-Design</button>
+                        </div>
+                    </div> -->
 				</div>
 
-				<br><br><br>
-				<div class="row">
-					<p>Você já sabe os serviços necessários para digitalizar seu negócio?
-						Caso ainda não saiba, lhe preparamos um teste rápido para descobrir.</p>
-					<button class="primary-btn" style="width: 100%;">Escolher serviços</button>
-					<br>
-					<button class="primary-btn" style="width: 100%;">Fazer o teste</button>
+				<div class="col-lg-6 mobile-bottom-fix align-self-center">
+					<img src="images/photos/screen/1.jpg" alt="" class="img-fluid">
 				</div>
-
-				<br><br><br>
-				<div class="row">
-					<p>Escolha os serviços que deseja contratar:</p>
-					<br>
-					<div class="row">
-						<button class="secondary-btn" style="width: 150px; height: 150px; margin:15px;">Site</button>
-						<button class="secondary-btn"
-							style="width: 150px; height: 150px; margin:15px;">Marketplace</button>
-						<button class="secondary-btn" style="width: 150px; height: 150px; margin:15px;">Redes
-							Sociais</button>
-						<button class="secondary-btn" style="width: 150px; height: 150px; margin:15px;">Consultoria de
-							Marketing</button>
-						<button class="secondary-btn" style="width: 150px; height: 150px; margin:15px;">Identidade
-							Visual</button>
-						<button class="secondary-btn"
-							style="width: 150px; height: 150px; margin:15px;">Re-Design</button>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-lg-6 mobile-bottom-fix align-self-center">
-				<img src="images/photos/screen/1.jpg" alt="" class="img-fluid">
 			</div>
 		</div>
-	</div>
-	<!-- ***** Welcome Area End ***** -->
+		<!-- ***** Welcome Area End ***** -->
+
+	</form>
 
 
 	<!-- jQuery -->
