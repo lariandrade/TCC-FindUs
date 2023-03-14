@@ -13,17 +13,17 @@ public class HomeController{
         return mv;
     }
 
-    @GetMapping("/login-c")
-    public ModelAndView logoc()
+    @GetMapping("/login")
+    public ModelAndView login()
     {
-        ModelAndView mv = new ModelAndView("login/login-c");
+        ModelAndView mv = new ModelAndView("login/login");
         return mv;
     }
 
-    @GetMapping("/login-p")
-    public ModelAndView logop()
+    @GetMapping("/remember")
+    public ModelAndView remember()
     {
-        ModelAndView mv = new ModelAndView("login/login-p");
+        ModelAndView mv = new ModelAndView("login/reset-senha");
         return mv;
     }
 
