@@ -31,10 +31,11 @@ public class LoginController {
         Usuario userVerif = this.usuarioRepository.Login(user.getUserSenha(), user.getUserEmail());
         if(userVerif != null){
             return "/home";
+        } else {
+            model.addAttribute("erro", "Usuário ou senha inválidos.");
+            return "login/login";
         }
 
-        model.addAttribute("erro", "Usuário ou senha inválidos.");
-        return "login/login";
     }
 
     @GetMapping("/remember")
