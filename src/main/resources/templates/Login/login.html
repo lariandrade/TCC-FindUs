@@ -56,32 +56,35 @@
 			<div class="col-lg-6 mobile-bottom-fix align-self-center">
 				<br><br><br>
 				<h2>Bem vindo(a) de volta!</h2>
-				<p>Deseja entrar como:</p>
 				<br>
 				<br>
-				<div class="contact-form">
-					<div class="row">
-						<div class="col-lg-12">
-							<label>E-mail</label>
-							<input type="text" placeholder="Insira aqui seu e-mail">
-						</div>
-						<div class="col-lg-12">
-							<label>Senha</label>
-							<input type="password" placeholder="Insira aqui sua senha">
-						</div>
-						<div class="col-lg-12">
-							<button class="primary-btn" style="width: 100%;">Entrar</button>
-						</div>
-						<div class="col-lg-12">
-							<br>
-							<a th:href="@{/remember}">Esqueceu sua senha?</a>
-						</div>
-						<div class="col-lg-12" style="align-items: center;">
-							<br>
-							<p>Não possui uma conta? <a th:href="@{/register}">Cadastre-se</a></p>
+				<form action="/entrar" method="POST">
+					<div class="contact-form">
+						<div class="row">
+							<div class="col-lg-12">
+								<label>E-mail</label>
+								<input type="text" name="userEmail" placeholder="Insira aqui seu e-mail">
+							</div>
+							<div class="col-lg-12">
+								<label>Senha</label>
+								<input type="password" name="userSenha" placeholder="Insira aqui sua senha">
+							</div>
+							<div th:if="${erro != null}" th:text="${erro}" class="alert alert-danger" role="alert"></div>
+							<div class="col-lg-12">
+								<button class="primary-btn" style="width: 100%;">Entrar</button>
+							</div>
+							<div class="col-lg-12">
+								<br>
+								<a th:href="@{/remember}">Esqueceu sua senha?</a>
+							</div>
+							<div class="col-lg-12" style="align-items: center;">
+								<br>
+								<p>Não possui uma conta? <a th:href="@{/register}">Cadastre-se</a></p>
+							</div>
 						</div>
 					</div>
-				</div>
+				</form>
+
 			</div>
 
 			<div class="col-lg-6 mobile-bottom-fix align-self-center">

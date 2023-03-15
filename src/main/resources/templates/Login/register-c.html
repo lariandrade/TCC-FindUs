@@ -37,7 +37,7 @@
 				<div class="col-12">
 					<nav class="main-nav">
 						<!-- ***** Logo Start ***** -->
-						<a th:href="@{/../index}" class="logo">
+						<a th:href="@{/}" class="logo">
 							<img src="images/logo.svg" class="dark-logo" alt="Logo FindUs" />
 							<img src="images/logo-white.svg" class="light-logo" alt="Logo FindUs" />
 						</a>
@@ -109,14 +109,12 @@
 								</select>
 							</div>
 
+							<label class="check-container">Li e concordo com o termo de aceite.</label>
+							<button type="submit" class="primary-btn" style="width: 100%;">Cadastrar</button>
 
-							<div class="col-lg-12">
-								<br><br>
-								<button type="submit" class="primary-btn" style="width: 100%;">Cadastrar</button>
-							</div>
 							<div class="col-lg-12" style="align-items: center;">
 								<br>
-								<p>Já possui uma conta? <a href="login-c.html">Faça o login</a></p>
+								<p>Já possui uma conta? <a th:href="@{/login}">Faça o login</a></p>
 							</div>
 						</div>
 					</div>
