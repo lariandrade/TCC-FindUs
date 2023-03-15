@@ -45,6 +45,16 @@ public class LoginController {
         return mv;
     }
 
+    @PostMapping("/reset")
+    public String reset(Usuario userMod)
+    {
+        Usuario reset = this.usuarioRepository.Remember(userMod.getUserEmail());
+        if(reset != null){
+            usuarioRepository.save(userMod);
+            return "home";
+        }
+        return "index";
 
+    }
 }
 
