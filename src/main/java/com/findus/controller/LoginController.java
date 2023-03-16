@@ -50,7 +50,10 @@ public class LoginController {
     {
         Usuario reset = this.usuarioRepository.Remember(userMod.getUserEmail());
         if(reset != null){
-            usuarioRepository.save(userMod);
+
+            reset.setUserSenha(userMod.getUserSenha());
+            reset.setConfirmarSenha(userMod.getUserSenha());
+            this.usuarioRepository.save(reset);
             return "home";
         }
         return "index";
