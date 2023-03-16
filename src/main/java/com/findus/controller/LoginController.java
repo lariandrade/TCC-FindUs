@@ -46,7 +46,7 @@ public class LoginController {
     }
 
     @PostMapping("/reset")
-    public String reset(Usuario userMod)
+    public String reset(Model model, Usuario userMod)
     {
         Usuario reset = this.usuarioRepository.Remember(userMod.getUserEmail());
         if(reset != null){
@@ -54,9 +54,12 @@ public class LoginController {
             reset.setUserSenha(userMod.getUserSenha());
             reset.setConfirmarSenha(userMod.getUserSenha());
             this.usuarioRepository.save(reset);
-            return "home";
+            return "login/login";
+        } else {
+            model.addAttribute("error", "E-mail não cadastrado.");
+            return "login/reset-senha";
         }
-        return "index";
+
 
     }
 }
