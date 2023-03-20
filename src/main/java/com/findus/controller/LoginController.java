@@ -52,7 +52,6 @@ public class LoginController {
         if(reset != null){
 
             reset.setUserSenha(userMod.getUserSenha());
-            reset.setConfirmarSenha(userMod.getUserSenha());
             this.usuarioRepository.save(reset);
             return "login/login";
         } else {

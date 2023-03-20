@@ -1,39 +1,5 @@
-/* ----------------------------------------------------------------------------------------
-Template: Lavinya - Software HTML Template
-Version: 1.0.0
-Author: tempload - support@tempload.com
- -----------------------------------------------------------------------------------------*/
-/* ---------------------------------------------
-Table of contents
-------------------------------------------------
-01. font & reset css
-02. reset
-03. global styles
-04. welcome
-05. header
-06. features
-07. home
-08. testimonials
-09. parallax
-10. pricing
-11. page
-12. faq
-13. release notes
-14. 404
-15. contact
-16. blog
-17. aside
-18. footer
-19. loader
-
---------------------------------------------- */
-/* 
----------------------------------------------
-font & reset css
---------------------------------------------- 
-*/
 @import url("https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&subset=latin-ext");
-/* 
+
 ---------------------------------------------
 reset
 --------------------------------------------- 
@@ -127,6 +93,11 @@ body {
 ::-moz-selection {
   background: #504CE5;
   color: #fff;
+}
+
+.checkbox input {
+  width: 10%;
+  height: 20px;
 }
 
 .section {

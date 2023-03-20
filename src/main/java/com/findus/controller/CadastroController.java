@@ -23,17 +23,17 @@ public class CadastroController {
         return mv;
     }
 
-    @GetMapping("/register-c")
+    @GetMapping("/cadastroCliente")
     public ModelAndView registroCliente()
     {
-        ModelAndView mv = new ModelAndView("login/register-c");
+        ModelAndView mv = new ModelAndView("login/registro-cliente");
         return mv;
     }
 
-    @GetMapping("/register-p")
+    @GetMapping("/cadastroPrestador")
     public ModelAndView registroPrestador()
     {
-        ModelAndView mv = new ModelAndView("login/register-p");
+        ModelAndView mv = new ModelAndView("login/registro-prestador");
         return mv;
     }
 

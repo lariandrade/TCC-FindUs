@@ -29,12 +29,6 @@ public class Usuario  {
     @Column(name = "userSenha", length = 8, nullable = false)
     private String userSenha;
 
-    @Column(name = "confirmarSenha", length = 8, nullable = false)
-    private String confirmarSenha;
-
-    @Column(name = "tipoIdentidade", length = 50, nullable = false)
-    private String tipoIdentidade;
-
     @Column(name = "segmento", length = 50, nullable = false)
     private String segmento;
 
