@@ -83,11 +83,11 @@
 
 						<div class="col-lg-6 col-md-12 col-sm-12">
 							<label>Senha</label>
-							<input type="password"  name="userSenha" placeholder="Insira aqui sua senha">
+							<input type="password"  name="userSenha" id="userSenha" placeholder="Insira aqui sua senha">
 						</div>
 						<div class="col-lg-6 col-md-12 col-sm-12">
 							<label>Confirme a senha</label>
-							<input type="password" name="confirmarSenha" placeholder="Insira novamente sua senha">
+							<input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Insira novamente sua senha">
 						</div>
 
 						<br>
@@ -108,15 +108,17 @@
 								<option value="DesignUIUX">Designer UI/UX</option>
 							</select>
 						</div>
-
-						<label class="check-container">Li e concordo com o termo de aceite.</label>
-						<button type="submit" class="primary-btn" style="width: 100%;">Cadastrar</button>
-
-						<div class="col-lg-12" style="align-items: center;">
-							<br>
-							<p>Já possui uma conta? <a th:href="@{/login}">Faça o login</a></p>
-						</div>
 					</div>
+				</div>
+
+				<input type="checkbox" class="checkbox"><span class="checkmark"></span>
+				<label class="check-container">Li e concordo com o termo de aceite.</label>
+
+				<button type="submit" id="cadastrar" class="primary-btn" style="width: 100%;">Cadastrar</button>
+
+				<div style="align-items: center;">
+					<br>
+					<p>Já possui uma conta? <a th:href="@{/login}">Faça o login</a></p>
 				</div>
 			</div>
 
@@ -145,6 +147,10 @@
 
 <!-- Global Init -->
 <script src="js/custom.js"></script>
+
+<!-- Customizações -->
+<script src="js/validarSenha.js"></script>
+
 </body>
 
 </html>
