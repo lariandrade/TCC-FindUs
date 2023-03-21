@@ -25,7 +25,7 @@ public class LoginController {
         ModelAndView mv = new ModelAndView("login/login");
         return mv;
     }
-    @PostMapping("/entrar")
+    @PostMapping("/inicio")
     public String entrar(Model model, Usuario user)
     {
         Usuario userVerif = this.usuarioRepository.Login(user.getUserSenha(), user.getUserEmail());
