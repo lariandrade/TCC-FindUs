@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,7 +34,8 @@
                     </svg>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li class="dropdown-item"><strong>Olá, <span th:text="${nomeUsuario}"></span>!</strong></li><hr>
+                    <li><a class="dropdown-item" th:href="@{/editarPerfil/{id}(id=${idUsuario})}">Visualizar Perfil</a></li>
                     <li><a class="dropdown-item" href="#">Sair</a></li>
                 </ul>
             </div>

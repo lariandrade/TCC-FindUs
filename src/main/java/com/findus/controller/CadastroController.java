@@ -41,7 +41,7 @@ public class CadastroController {
     public String salvaUsuario(Usuario usuario) {
 
         usuarioRepository.save(usuario);
-        return "home";
+        return "login/login";
     }
 
 }

@@ -30,6 +30,8 @@ public class LoginController {
     {
         Usuario userVerif = this.usuarioRepository.Login(user.getUserSenha(), user.getUserEmail());
         if(userVerif != null){
+            model.addAttribute("nomeUsuario", userVerif.getUserNome());
+            model.addAttribute("idUsuario", userVerif.getId_Usuario());
             return "/home";
         } else {
             model.addAttribute("erro", "Usuário ou senha inválidos.");
