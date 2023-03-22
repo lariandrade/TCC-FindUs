@@ -29,8 +29,11 @@ public class Usuario  {
     @Column(name = "userSenha", length = 8, nullable = false)
     private String userSenha;
 
-    @Column(name = "segmento", length = 50, nullable = false)
-    private String segmento;
+    @Column(name = "userSegmento", length = 50, nullable = false)
+    private String userSegmento;
+
+    @Column(name = "userTipo", length = 50, nullable = false)
+    private String userTipo;
 
     public Usuario() {
 

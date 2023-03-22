@@ -46,12 +46,12 @@ public class LoginController {
     }
 
     @PostMapping("/reset")
-    public String reset(Model model, Usuario userMod)
+    public String reset(Model model, Usuario userModif)
     {
-        Usuario reset = this.usuarioRepository.Remember(userMod.getUserEmail());
+        Usuario reset = this.usuarioRepository.Remember(userModif.getUserEmail());
         if(reset != null){
 
-            reset.setUserSenha(userMod.getUserSenha());
+            reset.setUserSenha(userModif.getUserSenha());
             this.usuarioRepository.save(reset);
             return "login/login";
         } else {
