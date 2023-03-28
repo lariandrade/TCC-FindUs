@@ -1,7 +1,9 @@
 package com.findus.controller;
 
-import com.findus.models.Usuario;
-import com.findus.repository.UsuarioRepository;
+import com.findus.models.Cliente;
+import com.findus.models.Prestador;
+import com.findus.repository.ClienteRepository;
+import com.findus.repository.PrestadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,9 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class CadastroController {
 
+    @Autowired
+    private ClienteRepository clienteRepository;
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private PrestadorRepository prestadorRepository;
 
     @GetMapping("/register")
     public ModelAndView registro()
@@ -23,25 +27,32 @@ public class CadastroController {
         return mv;
     }
 
-    @GetMapping("/cadastroCliente")
+    @GetMapping("/cadastrarCliente")
     public ModelAndView registroCliente()
     {
         ModelAndView mv = new ModelAndView("login/registro-cliente");
         return mv;
     }
 
-    @GetMapping("/cadastroPrestador")
+    @GetMapping("/cadastrarPrestador")
     public ModelAndView registroPrestador()
     {
         ModelAndView mv = new ModelAndView("login/registro-prestador");
         return mv;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/cadastro")
-    public String salvaUsuario(Usuario usuario) {
+    @RequestMapping(method = RequestMethod.POST, value = "/cadastroCliente")
+    public String criarCliente(Cliente cliente) {
+        clienteRepository.save(cliente);
+        return "login/login";
+    }
 
-        usuarioRepository.save(usuario);
+
+    @RequestMapping(method = RequestMethod.POST, value = "/cadastroPrestador")
+    public String criarPrestador(Prestador prestador) {
+        prestadorRepository.save(prestador);
         return "login/login";
     }
 
 }
+

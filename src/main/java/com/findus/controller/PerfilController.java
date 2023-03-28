@@ -1,20 +1,20 @@
 package com.findus.controller;
 
-import com.findus.models.Usuario;
-import com.findus.repository.UsuarioRepository;
+import com.findus.repository.ClienteRepository;
+import com.findus.repository.PrestadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PerfilController {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private ClienteRepository clienteRepository;
 
-    @GetMapping("/editarPerfil/{id_Usuario}")
+    @Autowired
+    private PrestadorRepository prestadorRepository;
+
+   /* @GetMapping("/editarPerfil/{id_Usuario}")
     public ModelAndView getEdit(@PathVariable("id_Usuario") Long id_Usuario) {
 
         Usuario resul = usuarioRepository.findById(id_Usuario).get();
@@ -29,6 +29,6 @@ public class PerfilController {
             return mv;
         }
 
-    }
+    }*/
 
 }

@@ -5,9 +5,10 @@ import lombok.*;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "Tb_Usuario")
-public class Usuario  {
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "userTipo", discriminatorType = DiscriminatorType.STRING)
+@MappedSuperclass
+public abstract class Usuario  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
