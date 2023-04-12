@@ -1,7 +1,8 @@
 package com.findus.models;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -35,6 +36,14 @@ public abstract class Usuario  {
 
     @Column(name = "userTipo", length = 50, nullable = false)
     private String userTipo;
+
+
+    @Column(name = "userDescricao", length = 250, nullable = false)
+    private String userDescricao;
+
+    @Lob
+    @Column(name = "userFoto", nullable = false)
+    private byte[] userFoto;
 
     public Usuario() {
 

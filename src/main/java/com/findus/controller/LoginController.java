@@ -42,11 +42,13 @@ public class LoginController {
 
         if (cliente != null) {
             model.addAttribute("nomeUsuario", cliente.getUserNome());
-            model.addAttribute("idUsuario", cliente.getId_Usuario());
+            //model.addAttribute("idUsuario", cliente.getId_Usuario());
+            model.addAttribute("idUsuario", cliente.getUserEmail());
             return "/home";
         } else if (prestador != null) {
             model.addAttribute("nomeUsuario", prestador.getUserNome());
-            model.addAttribute("idUsuario", prestador.getId_Usuario());
+            //model.addAttribute("idUsuario", prestador.getId_Usuario());
+            model.addAttribute("emailUser", prestador.getUserEmail());
             return "/home";
         } else {
             model.addAttribute("erro", "Usuário ou senha inválidos.");

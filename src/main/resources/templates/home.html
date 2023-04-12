@@ -35,7 +35,7 @@
                 </button>
                 <ul class="dropdown-menu">
                     <li class="dropdown-item"><strong>Olá, <span th:text="${nomeUsuario}"></span>!</strong></li><hr>
-                    <li><a class="dropdown-item" th:href="@{/editarPerfil/{id}(id=${idUsuario})}">Visualizar Perfil</a></li>
+                    <li><a class="dropdown-item" th:href="@{/visualizarPerfil/{id}(id=${emailUser})}">Visualizar Perfil</a>
                     <li><a class="dropdown-item" href="#">Sair</a></li>
                 </ul>
             </div>
