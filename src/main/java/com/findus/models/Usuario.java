@@ -20,10 +20,10 @@ public abstract class Usuario  {
     private String userNome;
 
     @Column(name = "userCPF_CNPJ", length = 14, nullable = false)
-    private Integer userCPF_CNPJ;
+    private String userCPF_CNPJ;
 
-    @Column(name = "userTelefone", length = 9, nullable = false)
-    private Integer userTelefone;
+    @Column(name = "userTelefone", length = 13, nullable = false)
+    private String userTelefone;
 
     @Column(name = "userEmail", length = 50, nullable = false)
     private String userEmail;
