@@ -107,12 +107,13 @@
 						</div>
 					</div>
 
-					<input type="checkbox" class="checkbox"><span class="checkmark"></span>
+					<input type="checkbox" class="checkbox" id="termos-de-uso"><span class="checkmark"></span>
 					<label class="check-container">
 						Li e concordo com o <a href="#" data-toggle="modal" data-target="#myModal">termo de aceite.</a>
 					</label>
 
-					<button type="submit" id="cadastrar" class="primary-btn" style="width: 100%;">Cadastrar</button>
+					<button type="submit" id="botao-enviar" class="primary-btn" style="width: 100%;" disabled>Cadastrar</button>
+
 
 					<div style="align-items: center;">
 						<br>
@@ -191,6 +192,23 @@
 	<!-- Adicionar o arquivo JavaScript do Bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+	<script>
+		// Obter o checkbox e o botão
+		var checkboxTermos = document.getElementById("termos-de-uso");
+		var botaoEnviar = document.getElementById("botao-enviar");
+
+		// Adicionar um evento de escuta ao checkbox
+		checkboxTermos.addEventListener("change", function() {
+			// Verificar se o checkbox está selecionado
+			if (checkboxTermos.checked) {
+				// Habilitar o botão
+				botaoEnviar.disabled = false;
+			} else {
+				// Desabilitar o botão
+				botaoEnviar.disabled = true;
+			}
+		});
+	</script>
 
 </body>
 
