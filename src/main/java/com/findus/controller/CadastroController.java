@@ -1,24 +1,13 @@
 package com.findus.controller;
 
-import com.findus.models.Prestador;
-import com.findus.repository.PrestadorRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.io.IOException;
 
 @Controller
 public class CadastroController {
 
 
-
-    @Autowired
-    private PrestadorRepository prestadorRepository;
 
     @GetMapping("/register")
     public ModelAndView registro()
@@ -42,15 +31,6 @@ public class CadastroController {
     }
 
 
-
-
-    @RequestMapping(method = RequestMethod.POST, value = "/cadastroPrestador")
-    public String criarPrestador(Prestador prestador, MultipartFile file) throws IOException {
-        byte[] fotoBytes = file.getBytes();
-        prestador.setUserFoto(fotoBytes);
-        prestadorRepository.save(prestador);
-        return "login/login";
-    }
 
 }
 

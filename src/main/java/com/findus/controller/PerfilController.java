@@ -1,7 +1,6 @@
 package com.findus.controller;
 
 import com.findus.models.Prestador;
-import com.findus.repository.ClienteRepository;
 import com.findus.repository.PrestadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -15,9 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class PerfilController {
-
-    @Autowired
-    private ClienteRepository clienteRepository;
 
     @Autowired
     private PrestadorRepository prestadorRepository;
