@@ -29,7 +29,6 @@
 	</div>
 	<!-- ***** Loader End ***** -->
 
-
 	<!-- ***** Header Area Start ***** -->
 	<header class="header-area light-header">
 		<div class="container">
@@ -109,8 +108,9 @@
 					</div>
 
 					<input type="checkbox" class="checkbox"><span class="checkmark"></span>
-					<label class="check-container">Li e concordo com o termo de aceite.</label>
-
+					<label class="check-container">
+						Li e concordo com o <a href="#" data-toggle="modal" data-target="#myModal">termo de aceite.</a>
+					</label>
 
 					<button type="submit" id="cadastrar" class="primary-btn" style="width: 100%;">Cadastrar</button>
 
@@ -129,6 +129,42 @@
 
 	</form>
 
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title" id="myModalLabel">Termos de uso do site.</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<p>Ao utilizar a Plataforma, o usuário reconhece e aceita todas as condições descritas neste termo.
+						Caso o usuário não concorde com algum dos termos descritos, deverá se abster de utilizar a plataforma findUs. </p>
+
+					<h4><b>Objetivo</b></h4>
+					<p>O objetivo da Plataforma é conectar empreendedores que desejam digitalizar seus negócios com profissionais qualificados para essa finalidade.</p>
+
+					<h4><b>Responsabilidades</b></h4>
+					<p>A Plataforma age apenas como intermediária no contato entre os usuários,
+						não tendo responsabilidade sobre as negociações e acordos firmados entre as partes. </p>
+					<p>A Plataforma não se responsabiliza pela veracidade das informações fornecidas pelos usuários
+						e não tem obrigação de fiscalizar ou controlar as informações postadas. </p>
+
+
+					<h4><b>Medidas de segurança</b></h4>
+					<p>A Plataforma disponibiliza a opção de denúncia por parte dos usuários para garantir que o conteúdo presente na plataforma esteja
+						em conformidade com os termos de utilização e evitando golpes.
+						Todo conteúdo recebido pelo suporte será avaliado para a tomada de ações corretivas de acordo com o tipo e gravidade da denúncia.</p>
+
+					<p>A Plataforma reserva-se o direito de modificar, a qualquer momento, os termos de uso aqui descritos,
+						visando aprimorar o sistema e melhorar a experiência do usuário.</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- jQuery -->
 	<script src="js/jquery-2.1.0.min.js"></script>
@@ -148,6 +184,13 @@
 
     <!-- Customizações -->
 	<script src="js/validarSenha.js"></script>
+
+	<!-- Adicionar o arquivo JavaScript do jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Adicionar o arquivo JavaScript do Bootstrap -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 
 </body>
 
