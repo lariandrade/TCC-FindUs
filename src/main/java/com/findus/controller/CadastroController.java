@@ -1,7 +1,6 @@
 package com.findus.controller;
 
 import com.findus.models.Prestador;
-import com.findus.repository.ClienteRepository;
 import com.findus.repository.PrestadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,8 +15,7 @@ import java.io.IOException;
 @Controller
 public class CadastroController {
 
-    @Autowired
-    private ClienteRepository clienteRepository;
+
 
     @Autowired
     private PrestadorRepository prestadorRepository;
@@ -43,12 +41,7 @@ public class CadastroController {
         return mv;
     }
 
-    /*@RequestMapping(method = RequestMethod.POST, value = "/cadastroCliente")
-    public String criarCliente(Cliente cliente, @RequestParam("userFoto") MultipartFile foto) throws IOException {
-        cliente.setUserFoto(foto.getBytes());
-        clienteRepository.save(cliente);
-        return "login/login";
-    }*/
+
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/cadastroPrestador")

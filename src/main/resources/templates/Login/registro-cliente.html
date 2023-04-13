@@ -50,7 +50,7 @@
 
 
 	<!-- ***** Welcome Area Start ***** -->
-	<form action="/cadastroCliente" method="POST" >
+	<form action="/cadastroCliente" method="POST" enctype="multipart/form-data">
 
 		<div class="container" id="login">
 			<div class="row">
@@ -87,6 +87,15 @@
 							<div class="col-lg-6 col-md-12 col-sm-12">
 								<label>Confirme a senha</label>
 								<input type="password" name="confirmarSenha" id="confirmarSenha"  placeholder="Insira novamente sua senha" required>
+							</div>
+
+							<div class="col-lg-12">
+								<label>Descrição</label>
+								<textarea type="text" name="userDescricao" id="userDescricao"  placeholder="Fale sobre você" required></textarea>
+							</div>
+
+							<div class="col-lg-12">
+								<label>Foto de Perfil</label><input type="file" name="file" id="file"  required>
 							</div>
 
 							<br>

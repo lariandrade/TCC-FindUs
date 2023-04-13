@@ -17,8 +17,9 @@ public class Cliente extends Usuario{
     @Column(name = "userID", nullable = false)
     private Long id_Usuario;
 
-    @Column(name = "teste", length = 50)
-    private String teste;
+    @Column(name = "userTipo", length = 50, nullable = false, insertable=false, updatable=false)
+    private String userTipo;
+
 
     public Cliente() {
 
