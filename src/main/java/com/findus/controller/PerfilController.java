@@ -43,7 +43,7 @@ public class PerfilController {
         model.addAttribute("prestador", prestador);
         model.addAttribute("email", prestador.getUserEmail());
 
-        return "perfil/perfil-prestador";
+        return "perfil/prestador/perfil-prestador";
 
     }
 
