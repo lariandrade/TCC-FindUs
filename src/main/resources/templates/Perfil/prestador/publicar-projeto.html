@@ -9,7 +9,7 @@
     <meta name="author" content="Codescandy" />
 
     <!-- Theme CSS-->
-    <link rel="stylesheet" href="css/theme.min.css" />
+    <link rel="stylesheet" href="../css/theme.min.css" />
 
     <title>Seu Perfil | Find Us - Digitalização de Negócios</title>
   </head>
@@ -31,55 +31,9 @@
     <main>
       <section class="pt-5 pb-5">
         <div class="container">
-          <!-- Content -->
           <div class="row mt-0 mt-md-4">
-            <!-- Card Left -->
-            <div class="col-lg-3 col-md-4 col-12">
-              <div class="col-12">
-                <!-- Card -->
-                <div class="card mb-4 card-hover">
-                  <div class="bg-light pb-6 pt-6">
-                    <div class="icon-shape icon-xxl position-relative card-img-top">
-                      <span class="position-absolute">
-                        <i class="bi bi-image fs-3 text-muted"></i> Alterar imagem</span>
-                      <input class="form-control border-0 opacity-0" type="file"/>
-                    </div>
-                  </div>
-
-                  <!-- Card body -->
-                  <div class="card-body">
-
-                    <!--<ul class="mb-3 list-inline d-flex justify-content-between">
-                      <li class="list-inline-item">
-                        <span class="badge bg-dark-soft">
-                          <i class="fe fe-bookmark"></i>Outros</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fe fe-eye"> 0</i>
-                      </li>
-                    </ul>-->
-
-                    <!--<div class="lh-1 mt-2 mb-2">
-                      <span>
-                        <i class="mdi mdi-star text-secondary me-n1"></i>
-                        <i class="mdi mdi-star text-secondary me-n1"></i>
-                        <i class="mdi mdi-star text-secondary me-n1"></i>
-                        <i class="mdi mdi-star text-secondary me-n1"></i>
-                        <i class="mdi mdi-star text-secondary"></i>
-                      </span>
-                      <span class="text-secondary">0.0</span>
-                      <span class="fs-6 text-muted">(0)</span>
-                    </div>-->
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card Right -->
-            <div class="col-lg-9 col-md-8 col-12">
-              <!-- Dados do Projeto -->
+            <div class="col-lg-9 col-md-8 col-12" style="margin:0 auto;">
               <div class="card mb-4">
-                <!-- Card header -->
                 <div class="card-header">
                   <h3 class="mb-0">Dados do Projeto</h3>
                   <p class="mb-0">
@@ -88,18 +42,19 @@
                     encontrem.
                   </p>
                 </div>
-                <!-- Card body -->
                 <div class="card-body">
                   <div>
                     <!-- Form -->
-                    <form class="row">
+                    <form class="row" action="/cadastrarProjeto" method="POST" enctype="multipart/form-data">
                       <!-- Title -->
+                      <input type="hidden" name="prestID" th:value="${identPrest}">
+
                       <div class="mb-3 col-12 col-md-12">
-                        <label class="form-label" for="project-title">Título do projeto</label>
+                        <label class="form-label" for="portTituloPrj">Título do projeto</label>
                         <input type="text" id="portTituloPrj" name="portTituloPrj" class="form-control" placeholder="Insira o nome do projeto" required />
                       </div>
                       <!-- Segment -->
-                      <div class="mb-3 col-12 col-md-12">
+                      <div class="mb-3 col-12 col-md-6">
                         <label class="form-label" for="portSegmento">Segmento</label>
                         <select id="portSegmento" name="portSegmento" aria-label="Segment select" class="form-select">
                           <option value="Alimentos e Bebidas" selected>
@@ -132,6 +87,13 @@
                           </option>
                         </select>
                       </div>
+                      <div class="mb-3 col-12 col-md-6">
+                        <label class="form-label">Imagem</label>
+                        <input type="file" name="foto" id="foto" class="form-control" required>
+                      </div>
+
+
+
                       <!-- Time -->
                       <div class="mb-3 col-12 col-md-6">
                         <label class="form-label" for="portTempo">Tempo de Trabalho</label>
@@ -155,31 +117,26 @@
                           </option>
                         </select>
                       </div>
+
+                      <div class="mb-3 col-12 col-md-12">
+                        <label class="form-label" for="portDescricao">Descrição do projeto</label>
+                        <input type="text" id="portDescricao" name="portDescricao" class="form-control" placeholder="Insira o nome do projeto" required/>
+                      </div>
+
+                      <!-- Button -->
+                      <div class="col-12 d-flex justify-content-end gap-2">
+                        <button class="btn btn-secondary">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Publicar</button>
+                      </div>
+
                     </form>
                   </div>
                 </div>
-              </div>
-
-              <!-- Conteúdo do Projeto -->
-              <div class="card mb-4">
-                <!-- Card header -->
-                <div class="card-header">
-                  <h3 class="mb-0">Descreva o projeto</h3>
-                  <input type="text" id="portDescricao" name="portDescricao" class="form-control" placeholder="Insira o nome do projeto" required/>
-                </div>
-
-              </div>
-
-              <!-- Button -->
-              <div class="col-12 d-flex justify-content-end gap-2">
-                <button class="btn btn-secondary">Cancelar</button>
-                <button class="btn btn-primary">Publicar</button>
               </div>
             </div>
           </div>
         </div>
       </section>
     </main>
-
   </body>
 </html>

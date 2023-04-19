@@ -7,13 +7,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="portifolio")
+@Table(name="portfolio")
 public class Portfolio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "prestID", nullable = false)
-    private Long prestID;
+    @Column(name = "portID", nullable = false)
+    private Long portID;
 
     @Column(name = "portTituloPrj", length = 255, nullable = false)
     private String portTituloPrj;
@@ -28,7 +28,7 @@ public class Portfolio {
     private String portOrcamento;
 
     @Lob
-    @Column(name = "portImagem", nullable = false, insertable=false)
+    @Column(name = "portImagem", nullable = false)
     private byte[] portImagem;
 
     @Column(name = "portClassificacao", length = 50, nullable = false)
