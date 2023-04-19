@@ -28,9 +28,6 @@
         background-image: url(../assets/images/background/background.svg);
         background-repeat: repeat;
         background-size: contain;" >
-
-
-
     <main>
       <section class="pt-5 pb-5">
         <div class="container">
@@ -99,12 +96,12 @@
                       <!-- Title -->
                       <div class="mb-3 col-12 col-md-12">
                         <label class="form-label" for="project-title">Título do projeto</label>
-                        <input type="text" id="project-title" class="form-control" placeholder="Insira o nome do projeto" required />
+                        <input type="text" id="portTituloPrj" name="portTituloPrj" class="form-control" placeholder="Insira o nome do projeto" required />
                       </div>
                       <!-- Segment -->
                       <div class="mb-3 col-12 col-md-12">
-                        <label class="form-label" for="segment">Segmento</label>
-                        <select id="segment" aria-label="Segment select" class="form-select">
+                        <label class="form-label" for="portSegmento">Segmento</label>
+                        <select id="portSegmento" name="portSegmento" aria-label="Segment select" class="form-select">
                           <option value="Alimentos e Bebidas" selected>
                             Alimentos e Bebidas
                           </option>
@@ -137,13 +134,13 @@
                       </div>
                       <!-- Time -->
                       <div class="mb-3 col-12 col-md-6">
-                        <label class="form-label" for="time">Tempo de Trabalho</label>
-                        <input type="number" id="time" class="form-control" placeholder="Em horas" required/>
+                        <label class="form-label" for="portTempo">Tempo de Trabalho</label>
+                        <input type="number" id="portTempo" name="portTempo" class="form-control" placeholder="Em horas" required/>
                       </div>
                       <!-- Price -->
                       <div class="mb-3 col-12 col-md-6">
-                        <label class="form-label" for="birth">Orçamento do projeto</label>
-                        <select id="price" aria-label="Price select" class="form-select">
+                        <label class="form-label" for="portOrcamento">Orçamento do projeto</label>
+                        <select id="portOrcamento" name="portOrcamento" aria-label="Price select" class="form-select">
                           <option value="Baixo">
                             Baixo (Menos de R$ 1.000)
                           </option>
@@ -168,7 +165,7 @@
                 <!-- Card header -->
                 <div class="card-header">
                   <h3 class="mb-0">Descreva o projeto</h3>
-                  <input type="text" id="project-title" class="form-control" placeholder="Insira o nome do projeto" required/>
+                  <input type="text" id="portDescricao" name="portDescricao" class="form-control" placeholder="Insira o nome do projeto" required/>
                 </div>
 
               </div>
