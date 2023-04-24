@@ -1,7 +1,9 @@
 package com.findus.controller;
 
+import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
 import com.findus.repository.PrestadorRepository;
+import com.findus.repository.PortfolioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,11 +14,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @Controller
 public class PerfilController {
 
     @Autowired
     private PrestadorRepository prestadorRepository;
+
+    @Autowired
+    private PortfolioRepository portfolioRepository;
 
    /* @GetMapping("/editarPerfil/{id_Usuario}")
     public ModelAndView getEdit(@PathVariable("id_Usuario") Long id_Usuario) {
@@ -43,6 +50,15 @@ public class PerfilController {
         model.addAttribute("prestador", prestador);
         model.addAttribute("email", prestador.getUserEmail());
         model.addAttribute("userID", prestador.getUserID());
+
+        List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
+
+        projetos.size();
+
+
+
+        model.addAttribute("prestador", prestador);
+        model.addAttribute("projetos", projetos);
 
         return "perfil/prestador/perfil-prestador";
 
