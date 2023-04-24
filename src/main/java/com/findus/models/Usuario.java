@@ -9,7 +9,7 @@ import lombok.Setter;
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "userTipo", discriminatorType = DiscriminatorType.STRING)
 @MappedSuperclass
-public abstract class Usuario  {
+public abstract class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,6 @@ public abstract class Usuario  {
 
     @Column(name = "userTipo", length = 50, nullable = false)
     private String userTipo;
-
 
     @Column(name = "userDescricao", length = 250, nullable = false)
     private String userDescricao;

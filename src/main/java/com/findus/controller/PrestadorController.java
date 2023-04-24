@@ -38,14 +38,14 @@ public class PrestadorController {
     }
 
     @GetMapping("/adicionar-projeto/{id}")
-    public String newProject(@PathVariable("id") String ID, Model model){
+    public String newProject(@PathVariable("id") String ID, Model model) {
         model.addAttribute("identPrest", ID);
 
         return "perfil/prestador/publicar-projeto";
     }
 
     @PostMapping("/cadastrarProjeto")
-    public String criaProjeto(Portfolio portfolio, MultipartFile foto, @RequestParam("prestID") String prestID, RedirectAttributes redirectAttributes) throws IOException{
+    public String criaProjeto(Portfolio portfolio, MultipartFile foto, @RequestParam("prestID") String prestID, RedirectAttributes redirectAttributes) throws IOException {
         Long idPrest = Long.parseLong(prestID);
         Prestador prestador = prestadorService.findById(idPrest);
         portfolio.setPrestador(prestador);
@@ -55,7 +55,7 @@ public class PrestadorController {
 
         portfolioRepository.save(portfolio);
 
-        redirectAttributes.addAttribute("id",prestador.getUserEmail());
+        redirectAttributes.addAttribute("id", prestador.getUserEmail());
         return "redirect:/visualizarPerfil/{id}";
     }
 }

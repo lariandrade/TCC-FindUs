@@ -10,11 +10,11 @@ import java.util.List;
 @Setter
 @DiscriminatorValue("prestador")
 @Entity
-@Table(name="prestador")
-public class Prestador extends Usuario{
+@Table(name = "prestador")
+public class Prestador extends Usuario {
 
 
-    @Column(name = "userTipo", length = 50, nullable = false, insertable=false, updatable=false)
+    @Column(name = "userTipo", length = 50, nullable = false, insertable = false, updatable = false)
     private String userTipo;
 
     @OneToMany(mappedBy = "prestador")

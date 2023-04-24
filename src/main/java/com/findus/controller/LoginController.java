@@ -23,19 +23,19 @@ public class LoginController {
     private PrestadorRepository prestadorRepository;
 
     @GetMapping("/")
-    public ModelAndView index(){
+    public ModelAndView index() {
         ModelAndView mv = new ModelAndView("index");
         return mv;
     }
+
     @GetMapping("/login")
-    public ModelAndView login()
-    {
+    public ModelAndView login() {
         ModelAndView mv = new ModelAndView("login/login");
         return mv;
     }
+
     @PostMapping("/inicio")
-    public String entrar(Model model, @RequestParam("userEmail") String email, @RequestParam("userSenha") String senha)
-    {
+    public String entrar(Model model, @RequestParam("userEmail") String email, @RequestParam("userSenha") String senha) {
 
         Cliente cliente = clienteRepository.findByUserEmailAndUserSenha(email, senha);
         Prestador prestador = prestadorRepository.findByUserEmailAndUserSenha(email, senha);
@@ -58,31 +58,27 @@ public class LoginController {
     }
 
     @GetMapping("/remember")
-    public ModelAndView remember()
-    {
+    public ModelAndView remember() {
         ModelAndView mv = new ModelAndView("login/reset-senha");
         return mv;
     }
 
     @PostMapping("/reset")
-    public String reset(Model model, @RequestParam("userEmail") String email, @RequestParam("userSenha") String senha )
-    {
+    public String reset(Model model, @RequestParam("userEmail") String email, @RequestParam("userSenha") String senha) {
         Cliente cliente = clienteRepository.findByUserEmail(email);
         Prestador prestador = prestadorRepository.findByUserEmail(email);
 
-        if(cliente != null){
+        if (cliente != null) {
             cliente.setUserSenha(senha);
             this.clienteRepository.save(cliente);
             return "login/login";
         }
 
-        if(prestador != null){
+        if (prestador != null) {
             prestador.setUserSenha(senha);
             this.prestadorRepository.save(prestador);
             return "login/login";
-        }
-
-        else {
+        } else {
             model.addAttribute("error", "E-mail não cadastrado.");
             return "login/reset-senha";
         }

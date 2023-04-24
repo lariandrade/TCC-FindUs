@@ -8,10 +8,10 @@ import lombok.Setter;
 @Setter
 @DiscriminatorValue("cliente")
 @Entity
-@Table(name="cliente")
-public class Cliente extends Usuario{
+@Table(name = "cliente")
+public class Cliente extends Usuario {
 
-    @Column(name = "userTipo", length = 50, nullable = false, insertable=false, updatable=false)
+    @Column(name = "userTipo", length = 50, nullable = false, insertable = false, updatable = false)
     private String userTipo;
 
     public Cliente() {

@@ -53,10 +53,6 @@ public class PerfilController {
 
         List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
 
-        projetos.size();
-
-
-
         model.addAttribute("prestador", prestador);
         model.addAttribute("projetos", projetos);
 
@@ -67,7 +63,7 @@ public class PerfilController {
     @GetMapping("/prestadorFotoPerfil/{id}")
     public ResponseEntity<byte[]> imagemPerfil(@PathVariable("id") String email, Model model) {
         Prestador prestador = prestadorRepository.findByUserEmail(email);
-        if(prestador == null || prestador.getUserFoto() == null) {
+        if (prestador == null || prestador.getUserFoto() == null) {
             return ResponseEntity.notFound().build();
         }
         HttpHeaders headers = new HttpHeaders();
