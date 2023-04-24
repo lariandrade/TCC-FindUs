@@ -40,7 +40,6 @@ public class PrestadorController {
     @GetMapping("/adicionar-projeto/{id}")
     public String newProject(@PathVariable("id") String ID, Model model) {
         model.addAttribute("identPrest", ID);
-
         return "perfil/prestador/publicar-projeto";
     }
 
