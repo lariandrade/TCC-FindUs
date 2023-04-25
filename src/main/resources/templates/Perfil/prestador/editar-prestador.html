@@ -105,44 +105,33 @@
                     <form class="row">
                       <!-- Name -->
                       <div class="mb-3 col-12 col-md-12">
-                        <label class="form-label" for="fname">Nome completo</label>
-                        <input
-                          type="text"
-                          id="fname"
-                          class="form-control"
-                          placeholder="Insira seu nome e sobrenome"
+                        <label class="form-label">Nome completo</label>
+                        <input type="text" name="userNome" class="form-control" placeholder="Insira seu nome e sobrenome"
                           th:value="${prestador.getUserNome}"
                           required
                         />
                       </div>
                       <!-- Phone -->
                       <div class="mb-3 col-12 col-md-6">
-                        <label class="form-label" for="phone">Telefone</label>
-                        <input type="text" id="phone" class="form-control" placeholder="(DD) 0 0000-0000"
+                        <label class="form-label">Telefone</label>
+                        <input type="text" name= "userTelefone" class="form-control" placeholder="(DD) 0 0000-0000"
                           th:value="${prestador.getUserTelefone}"
                           required
                         />
                       </div>
                       <!-- E-mail -->
                       <div class="mb-3 col-12 col-md-6">
-                        <label class="form-label" for="birth">E-mail</label>
-                        <input
-                          class="form-control flatpickr"
-                          type="email"
-                          placeholder="example@email.com"
+                        <label class="form-label">E-mail</label>
+                        <input class="form-control flatpickr" type="email" placeholder="example@email.com"
                           id="email"
-                          name="email"
+                          name="userEmail"
                           th:value="${prestador.getUserEmail}"
                         />
                       </div>
                       <!-- Password -->
                       <div class="mb-3 col-12 col-md-8">
-                        <label class="form-label" for="address">Senha</label>
-                        <input
-                          type="text"
-                          id="client-password"
-                          class="form-control"
-                          placeholder="*******"
+                        <label class="form-label">Senha</label>
+                        <input type="text" name="userSenha" class="form-control" placeholder="*******"
                           th:value="${prestador.getUserSenha}"
                           required
                         />
@@ -166,7 +155,7 @@
                       <!-- Name -->
                       <div class="mb-3 col-12 col-md-12">
                         <label class="form-label" for="career">Profissão</label>
-                        <select type="text" id="career" class="form-select" aria-label="Insira sua profissão">
+                        <select type="text" id="career" name="userSegmento" class="form-select" aria-label="Insira sua profissão">
                           <option value="Desenvolvedor WEB">
                             Desenvolvedor WEB
                           </option>
@@ -186,10 +175,9 @@
                           <option value="Outro">Outro</option>
                         </select>
                       </div>
-                      <!-- Phone -->
                       <div class="mb-3 col-12 col-md-12">
-                        <label class="form-label" for="pdesc">Descrição</label>
-                        <textarea id="pdesc" class="form-control" rows="5" th:text="${prestador.getUserDescricao}"></textarea>
+                        <label class="form-label">Descrição</label>
+                        <textarea name="userDescricao" class="form-control" rows="5" th:text="${prestador.getUserDescricao}"></textarea>
                       </div>
                       <div class="col-12">
                         <!-- Button -->
