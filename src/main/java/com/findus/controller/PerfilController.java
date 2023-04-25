@@ -25,23 +25,6 @@ public class PerfilController {
     @Autowired
     private PortfolioRepository portfolioRepository;
 
-   /* @GetMapping("/editarPerfil/{id_Usuario}")
-    public ModelAndView getEdit(@PathVariable("id_Usuario") Long id_Usuario) {
-
-        Usuario resul = usuarioRepository.findById(id_Usuario).get();
-
-        String tipoUsuario = resul.getUserTipo();
-
-        if(tipoUsuario.equals("prestador")){
-            ModelAndView mv = new ModelAndView("perfil/perfilPrestador");
-            return mv;
-        } else {
-            ModelAndView mv = new ModelAndView("perfil/perfilCliente");
-            return mv;
-        }
-
-    }*/
-
     @GetMapping("/visualizarPerfil/{id}")
     public String visualizarPrestador(@PathVariable("id") String email, Model model) {
 

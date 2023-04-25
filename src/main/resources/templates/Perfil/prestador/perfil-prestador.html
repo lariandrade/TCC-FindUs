@@ -67,7 +67,9 @@
                     <span th:text="${prestador.getUserDescricao}"></span>
                 </p>
 
-                <a href="#" class="btn btn-primary">Editar perfil</a>
+                <div class="mt-10 d-grid gap-2 mx-auto">
+                    <a th:href="@{/editarPrestador/{id}(id=${userID})}" class="btn btn-dark">Editar Perfil</a>
+                </div>
             </div>
         </div>
 

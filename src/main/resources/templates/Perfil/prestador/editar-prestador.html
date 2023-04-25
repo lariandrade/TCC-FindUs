@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Codescandy" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/css/theme.min.css" />
+    <title>Seu Perfil | Find Us - Digitalização de Negócios</title>
+  </head>
+
+  <body style="
+      background-color: #f5f5f3;
+      background-image: url(../assets/images/background/background.svg);
+      background-repeat: repeat;
+      background-size: contain;">
+
+    <main>
+      <section class="pt-5 pb-5">
+        <div class="container">
+          <!-- User info -->
+          <div class="row align-items-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+              <div class="card rounded-0 rounded-bottom px-4 pt-2 pb-4">
+                <div class="d-flex align-items-end justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <div class="lh-1">
+                      <h2 class="mb-0">Cleber Machado</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Content -->
+          <div class="row mt-0 mt-md-4">
+            <div class="col-lg-3 col-md-4 col-12">
+              <!-- Side navbar -->
+              <nav class="navbar navbar-expand-md navbar-light shadow-sm mb-4 mb-lg-0 sidenav">
+                <!-- Collapse navbar -->
+                <div class="collapse navbar-collapse" id="sidenav">
+                  <div class="navbar-nav flex-column">
+                    <span class="navbar-header">Navegação</span>
+                    <!-- List -->
+                    <ul class="list-unstyled ms-n2 mb-4">
+                      <!-- Nav item -->
+                      <li class="nav-item">
+                        <a class="nav-link" href="student-subscriptions.html"><i class="fe fe-calendar nav-icon"></i>Dados da Conta</a>
+                      </li>
+                      <!-- Nav item -->
+                      <li class="nav-item">
+                        <a class="nav-link" href="billing-info.html"><i class="fe fe-credit-card nav-icon"></i>Dados Profissionais</a>
+                      </li>
+                    </ul>
+
+                    <span class="navbar-header">Ações da Conta</span>
+                    <!-- List -->
+                    <ul class="list-unstyled ms-n2 mb-0">
+                      <!-- Nav item -->
+                      <li class="nav-item">
+                        <a class="nav-link" href="delete-profile.html"><i class="fe fe-trash nav-icon"></i>Deletar Perfil</a>
+                      </li>
+                      <!-- Nav item -->
+                      <li class="nav-item">
+                        <a class="nav-link" href="../index.html"><i class="fe fe-power nav-icon"></i>Sair</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+
+            <div class="col-lg-9 col-md-8 col-12">
+              <!-- Dados da Conta -->
+              <div class="card mb-4">
+                <!-- Card header -->
+                <div class="card-header">
+                  <h3 class="mb-0">Dados da Conta</h3>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                  <div
+                    class="d-lg-flex align-items-center justify-content-between"
+                  >
+                    <div class="d-flex align-items-center mb-4 mb-lg-0">
+                      <img
+                        src="../assets/images/avatar/avatar-7.jpg"
+                        id="img-uploaded"
+                        class="avatar-xl rounded-circle"
+                        alt=""
+                      />
+                      <div class="ms-3">
+                        <h4 class="mb-0">Imagem de perfil</h4>
+                        <p class="mb-0">PNG ou JPG de no máximo 800px de largura e altura.</p>
+                      </div>
+                    </div>
+                    <div>
+                      <a
+                       href="#" class="btn btn-outline-secondary btn-sm">Atualizar</a>
+                      <a href="#" class="btn btn-outline-danger btn-sm">Remover</a>
+                    </div>
+                  </div>
+                  <hr class="my-5" />
+                  <div>
+                    <h4 class="mb-4">Detalhes Pessoais</h4>
+                    <!-- Form -->
+                    <form class="row">
+                      <!-- Name -->
+                      <div class="mb-3 col-12 col-md-12">
+                        <label class="form-label" for="fname">Nome completo</label>
+                        <input
+                          type="text"
+                          id="fname"
+                          class="form-control"
+                          placeholder="Insira seu nome e sobrenome"
+                          value="Cleber Machado"
+                          required
+                        />
+                      </div>
+                      <!-- Phone -->
+                      <div class="mb-3 col-12 col-md-6">
+                        <label class="form-label" for="phone">Telefone</label>
+                        <input
+                          type="text"
+                          id="phone"
+                          class="form-control"
+                          placeholder="(DD) 0 0000-0000"
+                          value="(11) 9 1234-5698"
+                          required
+                        />
+                      </div>
+                      <!-- E-mail -->
+                      <div class="mb-3 col-12 col-md-6">
+                        <label class="form-label" for="birth">E-mail</label>
+                        <input
+                          class="form-control flatpickr"
+                          type="email"
+                          placeholder="example@email.com"
+                          id="email"
+                          name="email"
+                          value="natural.art@gmail.com"
+                        />
+                      </div>
+                      <!-- Password -->
+                      <div class="mb-3 col-12 col-md-8">
+                        <label class="form-label" for="address">Senha</label>
+                        <input
+                          type="password"
+                          id="client-password"
+                          class="form-control"
+                          placeholder="*******"
+                          value="aSenhaÉsenha"
+                          required
+                        />
+                      </div>
+                      <!-- Address -->
+                      <div class="mb-3 col-12 col-md-4 d-flex align-items-end">
+                        <button class="btn btn-primary">Alterar Senha</button>
+                      </div>
+                      <div class="col-12">
+                        <!-- Button -->
+                        <button class="btn btn-primary" type="submit">
+                          Atualizar
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dados Profissionais -->
+              <div class="card mb-4">
+                <!-- Card header -->
+                <div class="card-header">
+                  <h3 class="mb-0">Dados Profissionais</h3>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                  <div>
+                    <!-- Form -->
+                    <form class="row">
+                      <!-- Name -->
+                      <div class="mb-3 col-12 col-md-12">
+                        <label class="form-label" for="career">Profissão</label>
+                        <select
+                          type="text"
+                          id="career"
+                          class="form-select"
+                          aria-label="Insira sua profissão"
+                        >
+                          <option value="Desenvolvedor WEB">
+                            Desenvolvedor WEB
+                          </option>
+                          <option value="Desenvolvedor Mobile">
+                            Desenvolvedor Mobile
+                          </option>
+                          <option value="Analista de Marketing">
+                            Analista de Marketing
+                          </option>
+                          <option value="Consultor de Marketing">
+                            Consultor de Marketing
+                          </option>
+                          <option value="Designer Gráfico">
+                            Designer Gráfico
+                          </option>
+                          <option value="Designer UI/UX">Designer UI/UX</option>
+                          <option value="Outro">Outro</option>
+                        </select>
+                      </div>
+                      <!-- Phone -->
+                      <div class="mb-3 col-12 col-md-12">
+                        <label class="form-label" for="pdesc">Descrição</label>
+                        <textarea id="pdesc" class="form-control" rows="5"></textarea>
+                      </div>
+                      <div class="col-12">
+                        <!-- Button -->
+                        <button class="btn btn-primary" type="submit">
+                          Atualizar
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row align-items-center g-0 border-top py-2">
+          <!-- Desc -->
+          <div class="col-md-6 col-12 text-center text-md-start">
+            <span
+              >©
+              <span id="copyright">
+                <script>
+                  document
+                    .getElementById("copyright")
+                    .appendChild(
+                      document.createTextNode(new Date().getFullYear())
+                    );
+                </script> </span
+              >Find Us. Todos Direitos Reservados.</span
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="contatarprestador"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Contatar</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label"
+                  >Escreva uma mensagem para o prestador</label
+                >
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button type="button" class="btn btn-primary">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="denunciar"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Denunciar</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <p>
+                Sua denúncia será encaminhada para análise. Assim que a
+                avaliarmos, lhe encaminharemos um e-mail de resposta.
+              </p>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label"
+                  >Motivo da Denúncia:</label
+                >
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button type="button" class="btn btn-primary">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+
+    <!-- Libs JS -->
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
+
+    <!-- Theme JS -->
+    <script src="../assets/js/theme.min.js"></script>
+
+    <script src="../assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="../assets/libs/tippy.js/dist/tippy-bundle.umd.min.js"></script>
+
+    <script src="../assets/js/vendors/tooltip.js"></script>
+    <script src="../assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+    <script src="../assets/js/vendors/popup.js"></script>
+  </body>
+</html>

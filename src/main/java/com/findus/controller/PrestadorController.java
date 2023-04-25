@@ -57,4 +57,23 @@ public class PrestadorController {
         redirectAttributes.addAttribute("id", prestador.getUserEmail());
         return "redirect:/visualizarPerfil/{id}";
     }
+
+
+    @GetMapping("/editarPrestador/{id}")
+    public String visualizarPrestador(@PathVariable("id") String email, Model model) {
+
+        /*Prestador prestador = prestadorRepository.findByUserEmail(email);*/
+
+        /*model.addAttribute("prestador", prestador);
+        model.addAttribute("email", prestador.getUserEmail());
+        model.addAttribute("userID", prestador.getUserID());
+
+        List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
+
+        model.addAttribute("prestador", prestador);
+        model.addAttribute("projetos", projetos);*/
+
+        return "perfil/prestador/editar-prestador";
+
+    }
 }
