@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
@@ -29,7 +29,7 @@
                 <div class="d-flex align-items-end justify-content-between">
                   <div class="d-flex align-items-center">
                     <div class="lh-1">
-                      <h2 class="mb-0">Cleber Machado</h2>
+                      <h2 class="mb-0"> <span th:text="${prestador.getUserNome}"></span></h2>
                     </div>
                   </div>
                 </div>
@@ -117,19 +117,15 @@
                           id="fname"
                           class="form-control"
                           placeholder="Insira seu nome e sobrenome"
-                          value="Cleber Machado"
+                          th:value="${prestador.getUserNome}"
                           required
                         />
                       </div>
                       <!-- Phone -->
                       <div class="mb-3 col-12 col-md-6">
                         <label class="form-label" for="phone">Telefone</label>
-                        <input
-                          type="text"
-                          id="phone"
-                          class="form-control"
-                          placeholder="(DD) 0 0000-0000"
-                          value="(11) 9 1234-5698"
+                        <input type="text" id="phone" class="form-control" placeholder="(DD) 0 0000-0000"
+                          th:value="${prestador.getUserTelefone}"
                           required
                         />
                       </div>
@@ -142,30 +138,20 @@
                           placeholder="example@email.com"
                           id="email"
                           name="email"
-                          value="natural.art@gmail.com"
+                          th:value="${prestador.getUserEmail}"
                         />
                       </div>
                       <!-- Password -->
                       <div class="mb-3 col-12 col-md-8">
                         <label class="form-label" for="address">Senha</label>
                         <input
-                          type="password"
+                          type="text"
                           id="client-password"
                           class="form-control"
                           placeholder="*******"
-                          value="aSenhaÉsenha"
+                          th:value="${prestador.getUserSenha}"
                           required
                         />
-                      </div>
-                      <!-- Address -->
-                      <div class="mb-3 col-12 col-md-4 d-flex align-items-end">
-                        <button class="btn btn-primary">Alterar Senha</button>
-                      </div>
-                      <div class="col-12">
-                        <!-- Button -->
-                        <button class="btn btn-primary" type="submit">
-                          Atualizar
-                        </button>
                       </div>
                     </form>
                   </div>
@@ -186,12 +172,7 @@
                       <!-- Name -->
                       <div class="mb-3 col-12 col-md-12">
                         <label class="form-label" for="career">Profissão</label>
-                        <select
-                          type="text"
-                          id="career"
-                          class="form-select"
-                          aria-label="Insira sua profissão"
-                        >
+                        <select type="text" id="career" class="form-select" aria-label="Insira sua profissão">
                           <option value="Desenvolvedor WEB">
                             Desenvolvedor WEB
                           </option>
@@ -214,13 +195,11 @@
                       <!-- Phone -->
                       <div class="mb-3 col-12 col-md-12">
                         <label class="form-label" for="pdesc">Descrição</label>
-                        <textarea id="pdesc" class="form-control" rows="5"></textarea>
+                        <textarea id="pdesc" class="form-control" rows="5" th:text="${prestador.getUserDescricao}"></textarea>
                       </div>
                       <div class="col-12">
                         <!-- Button -->
-                        <button class="btn btn-primary" type="submit">
-                          Atualizar
-                        </button>
+                        <button class="btn btn-primary" type="submit">Atualizar</button>
                       </div>
                     </form>
                   </div>
@@ -254,98 +233,6 @@
         </div>
       </div>
     </footer>
-
-    <!-- Modal -->
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="contatarprestador"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Contatar</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="message-text" class="col-form-label"
-                  >Escreva uma mensagem para o prestador</label
-                >
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancelar
-            </button>
-            <button type="button" class="btn btn-primary">Enviar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="modal fade"
-      id="denunciar"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Denunciar</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <p>
-                Sua denúncia será encaminhada para análise. Assim que a
-                avaliarmos, lhe encaminharemos um e-mail de resposta.
-              </p>
-              <div class="mb-3">
-                <label for="message-text" class="col-form-label"
-                  >Motivo da Denúncia:</label
-                >
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancelar
-            </button>
-            <button type="button" class="btn btn-primary">Enviar</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Scripts -->
 
