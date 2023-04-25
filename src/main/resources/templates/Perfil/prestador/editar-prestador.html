@@ -1,206 +1,215 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
-  <head>
+<head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="Codescandy" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content="Codescandy"/>
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="/css/theme.min.css" />
+    <link rel="stylesheet" href="/css/theme.min.css"/>
     <title>Seu Perfil | Find Us - Digitalização de Negócios</title>
-  </head>
+</head>
 
-  <body style="
+<body style="
       background-color: #f5f5f3;
       background-image: url(../assets/images/background/background.svg);
       background-repeat: repeat;
       background-size: contain;">
 
-    <main>
-      <section class="pt-5 pb-5">
-        <div class="container">
-          <!-- User info -->
-          <div class="row align-items-center">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-12">
-              <div class="card rounded-0 rounded-bottom px-4 pt-2 pb-4">
-                <div class="d-flex align-items-end justify-content-between">
-                  <div class="d-flex align-items-center">
-                    <div class="lh-1">
-                      <h2 class="mb-0"> <span th:text="${prestador.getUserNome}"></span></h2>
+<main>
+    <section class="pt-5 pb-5">
+        <form method="POST" th:action="@{/alterarDadosPrestador/{id}(id=${prestador.getUserID})}" enctype="multipart/form-data">
+            <div class="container">
+                <input type="hidden"th:value="${prestador.getUserID}">
+                <!-- User info -->
+                <div class="row align-items-center">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                        <div class="card rounded-0 rounded-bottom px-4 pt-2 pb-4">
+                            <div class="d-flex align-items-end justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="lh-1">
+                                        <h2 class="mb-0"><span th:text="${prestador.getUserNome}"></span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- Content -->
-          <div class="row mt-0 mt-md-4">
-            <div class="col-lg-3 col-md-4 col-12">
-              <!-- Side navbar -->
-              <nav class="navbar navbar-expand-md navbar-light shadow-sm mb-4 mb-lg-0 sidenav">
-                <!-- Collapse navbar -->
-                <div class="collapse navbar-collapse" id="sidenav">
-                  <div class="navbar-nav flex-column">
-                    <span class="navbar-header">Navegação</span>
-                    <!-- List -->
-                    <ul class="list-unstyled ms-n2 mb-4">
-                      <!-- Nav item -->
-                      <li class="nav-item">
-                        <a class="nav-link" href="student-subscriptions.html"><i class="fe fe-calendar nav-icon"></i>Dados da Conta</a>
-                      </li>
-                      <!-- Nav item -->
-                      <li class="nav-item">
-                        <a class="nav-link" href="billing-info.html"><i class="fe fe-credit-card nav-icon"></i>Dados Profissionais</a>
-                      </li>
-                    </ul>
+                <!-- Content -->
+                <div class="row mt-0 mt-md-4">
+                    <div class="col-lg-3 col-md-4 col-12">
+                        <!-- Side navbar -->
+                        <nav class="navbar navbar-expand-md navbar-light shadow-sm mb-4 mb-lg-0 sidenav">
+                            <!-- Collapse navbar -->
+                            <div class="collapse navbar-collapse" id="sidenav">
+                                <div class="navbar-nav flex-column">
+                                    <span class="navbar-header">Navegação</span>
+                                    <!-- List -->
+                                    <ul class="list-unstyled ms-n2 mb-4">
+                                        <!-- Nav item -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="student-subscriptions.html"><i
+                                                    class="fe fe-calendar nav-icon"></i>Dados da Conta</a>
+                                        </li>
+                                        <!-- Nav item -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="billing-info.html"><i
+                                                    class="fe fe-credit-card nav-icon"></i>Dados Profissionais</a>
+                                        </li>
+                                    </ul>
 
-                    <span class="navbar-header">Ações da Conta</span>
-                    <!-- List -->
-                    <ul class="list-unstyled ms-n2 mb-0">
-                      <!-- Nav item -->
-                      <li class="nav-item">
-                        <a class="nav-link" href="delete-profile.html"><i class="fe fe-trash nav-icon"></i>Deletar Perfil</a>
-                      </li>
-                      <!-- Nav item -->
-                      <li class="nav-item">
-                        <a class="nav-link" href="../index.html"><i class="fe fe-power nav-icon"></i>Sair</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-            </div>
-
-            <div class="col-lg-9 col-md-8 col-12">
-              <!-- Dados da Conta -->
-              <div class="card mb-4">
-                <!-- Card header -->
-                <div class="card-header">
-                  <h3 class="mb-0">Dados da Conta</h3>
-                </div>
-                <!-- Card body -->
-                <div class="card-body">
-                  <div
-                    class="d-lg-flex align-items-center justify-content-between"
-                  >
-                    <div class="d-flex align-items-center mb-4 mb-lg-0">
-                      <img th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}" id="img-uploaded" class="avatar-xl rounded-circle" alt=""
-                      />
-                      <div class="ms-3">
-                        <h4 class="mb-0">Imagem de perfil</h4>
-                        <p class="mb-0">PNG ou JPG de no máximo 800px de largura e altura.</p>
-                      </div>
+                                    <span class="navbar-header">Ações da Conta</span>
+                                    <!-- List -->
+                                    <ul class="list-unstyled ms-n2 mb-0">
+                                        <!-- Nav item -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" th:href="@{/pageDeletarPrestador/{id}(id=${userID})}">
+                                                <i class="fe fe-trash nav-icon"></i>Deletar Perfil</a>
+                                        </li>
+                                        <!-- Nav item -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../index.html"><i
+                                                    class="fe fe-power nav-icon"></i>Sair</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
                     </div>
-                    <div>
-                      <a href="#" class="btn btn-outline-secondary btn-sm">Atualizar</a>
+
+                    <div class="col-lg-9 col-md-8 col-12">
+                        <!-- Dados da Conta -->
+                        <div class="card mb-4">
+                            <!-- Card header -->
+                            <div class="card-header">
+                                <h3 class="mb-0">Dados da Conta</h3>
+                            </div>
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div
+                                        class="d-lg-flex align-items-center justify-content-between"
+                                >
+                                    <div class="d-flex align-items-center mb-4 mb-lg-0">
+                                        <img th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}"
+                                             id="img-uploaded" class="avatar-xl rounded-circle" alt=""
+                                        />
+                                        <div class="ms-3">
+                                            <h4 class="mb-0">Imagem de perfil</h4>
+                                            <p class="mb-0">PNG ou JPG de no máximo 800px de largura e altura.</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="btn btn-outline-secondary btn-sm">Atualizar</a>
+                                    </div>
+                                </div>
+                                <hr class="my-5"/>
+                                <div>
+                                    <h4 class="mb-4">Detalhes Pessoais</h4>
+                                    <!-- Form -->
+                                        <!-- Name -->
+                                        <div class="mb-3 col-12 col-md-12">
+                                            <label class="form-label">Nome completo</label>
+                                            <input type="text" name="userNome" class="form-control"
+                                                   placeholder="Insira seu nome e sobrenome"
+                                                   th:value="${prestador.getUserNome}"
+                                                   required
+                                            />
+                                        </div>
+                                        <!-- Phone -->
+                                        <div class="mb-3 col-12 col-md-6">
+                                            <label class="form-label">Telefone</label>
+                                            <input type="text" name="userTelefone" class="form-control"
+                                                   placeholder="(DD) 0 0000-0000"
+                                                   th:value="${prestador.getUserTelefone}"
+                                                   required
+                                            />
+                                        </div>
+                                        <!-- E-mail -->
+                                        <div class="mb-3 col-12 col-md-6">
+                                            <label class="form-label">E-mail</label>
+                                            <input class="form-control flatpickr" type="email"
+                                                   placeholder="example@email.com"
+                                                   id="email"
+                                                   name="userEmail"
+                                                   th:value="${prestador.getUserEmail}"
+                                            />
+                                        </div>
+                                        <!-- Password -->
+                                        <div class="mb-3 col-12 col-md-8">
+                                            <label class="form-label">Senha</label>
+                                            <input type="text" name="userSenha" class="form-control"
+                                                   placeholder="*******"
+                                                   th:value="${prestador.getUserSenha}"
+                                                   required
+                                            />
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dados Profissionais -->
+                        <div class="card mb-4">
+                            <!-- Card header -->
+                            <div class="card-header">
+                                <h3 class="mb-0">Dados Profissionais</h3>
+                            </div>
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div>
+                                        <!-- Name -->
+                                        <div class="mb-3 col-12 col-md-12">
+                                            <label class="form-label" for="career">Profissão</label>
+                                            <select type="text" id="career" name="userSegmento" class="form-select"
+                                                    aria-label="Insira sua profissão">
+                                                <option value="Desenvolvedor WEB">
+                                                    Desenvolvedor WEB
+                                                </option>
+                                                <option value="Desenvolvedor Mobile">
+                                                    Desenvolvedor Mobile
+                                                </option>
+                                                <option value="Analista de Marketing">
+                                                    Analista de Marketing
+                                                </option>
+                                                <option value="Consultor de Marketing">
+                                                    Consultor de Marketing
+                                                </option>
+                                                <option value="Designer Gráfico">
+                                                    Designer Gráfico
+                                                </option>
+                                                <option value="Designer UI/UX">Designer UI/UX</option>
+                                                <option value="Outro">Outro</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3 col-12 col-md-12">
+                                            <label class="form-label">Descrição</label>
+                                            <textarea name="userDescricao" class="form-control" rows="5"
+                                                      th:text="${prestador.getUserDescricao}"></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <!-- Button -->
+                                            <button class="btn btn-primary" type="submit">Atualizar</button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <hr class="my-5" />
-                  <div>
-                    <h4 class="mb-4">Detalhes Pessoais</h4>
-                    <!-- Form -->
-                    <form class="row">
-                      <!-- Name -->
-                      <div class="mb-3 col-12 col-md-12">
-                        <label class="form-label">Nome completo</label>
-                        <input type="text" name="userNome" class="form-control" placeholder="Insira seu nome e sobrenome"
-                          th:value="${prestador.getUserNome}"
-                          required
-                        />
-                      </div>
-                      <!-- Phone -->
-                      <div class="mb-3 col-12 col-md-6">
-                        <label class="form-label">Telefone</label>
-                        <input type="text" name= "userTelefone" class="form-control" placeholder="(DD) 0 0000-0000"
-                          th:value="${prestador.getUserTelefone}"
-                          required
-                        />
-                      </div>
-                      <!-- E-mail -->
-                      <div class="mb-3 col-12 col-md-6">
-                        <label class="form-label">E-mail</label>
-                        <input class="form-control flatpickr" type="email" placeholder="example@email.com"
-                          id="email"
-                          name="userEmail"
-                          th:value="${prestador.getUserEmail}"
-                        />
-                      </div>
-                      <!-- Password -->
-                      <div class="mb-3 col-12 col-md-8">
-                        <label class="form-label">Senha</label>
-                        <input type="text" name="userSenha" class="form-control" placeholder="*******"
-                          th:value="${prestador.getUserSenha}"
-                          required
-                        />
-                      </div>
-                    </form>
-                  </div>
                 </div>
-              </div>
-
-              <!-- Dados Profissionais -->
-              <div class="card mb-4">
-                <!-- Card header -->
-                <div class="card-header">
-                  <h3 class="mb-0">Dados Profissionais</h3>
-                </div>
-                <!-- Card body -->
-                <div class="card-body">
-                  <div>
-                    <!-- Form -->
-                    <form class="row">
-                      <!-- Name -->
-                      <div class="mb-3 col-12 col-md-12">
-                        <label class="form-label" for="career">Profissão</label>
-                        <select type="text" id="career" name="userSegmento" class="form-select" aria-label="Insira sua profissão">
-                          <option value="Desenvolvedor WEB">
-                            Desenvolvedor WEB
-                          </option>
-                          <option value="Desenvolvedor Mobile">
-                            Desenvolvedor Mobile
-                          </option>
-                          <option value="Analista de Marketing">
-                            Analista de Marketing
-                          </option>
-                          <option value="Consultor de Marketing">
-                            Consultor de Marketing
-                          </option>
-                          <option value="Designer Gráfico">
-                            Designer Gráfico
-                          </option>
-                          <option value="Designer UI/UX">Designer UI/UX</option>
-                          <option value="Outro">Outro</option>
-                        </select>
-                      </div>
-                      <div class="mb-3 col-12 col-md-12">
-                        <label class="form-label">Descrição</label>
-                        <textarea name="userDescricao" class="form-control" rows="5" th:text="${prestador.getUserDescricao}"></textarea>
-                      </div>
-                      <div class="col-12">
-                        <!-- Button -->
-                        <button class="btn btn-primary" type="submit">Atualizar</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
-    </main>
+        </form>
+    </section>
+</main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
         <div class="row align-items-center g-0 border-top py-2">
-          <!-- Desc -->
-          <div class="col-md-6 col-12 text-center text-md-start">
+            <!-- Desc -->
+            <div class="col-md-6 col-12 text-center text-md-start">
             <span
-              >©
+            >©
               <span id="copyright">
                 <script>
                   document
@@ -211,26 +220,26 @@
                 </script> </span
               >Find Us. Todos Direitos Reservados.</span
             >
-          </div>
+            </div>
         </div>
-      </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- Scripts -->
+<!-- Scripts -->
 
-    <!-- Libs JS -->
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
+<!-- Libs JS -->
+<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
 
-    <!-- Theme JS -->
-    <script src="../assets/js/theme.min.js"></script>
+<!-- Theme JS -->
+<script src="../assets/js/theme.min.js"></script>
 
-    <script src="../assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
-    <script src="../assets/libs/tippy.js/dist/tippy-bundle.umd.min.js"></script>
+<script src="../assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
+<script src="../assets/libs/tippy.js/dist/tippy-bundle.umd.min.js"></script>
 
-    <script src="../assets/js/vendors/tooltip.js"></script>
-    <script src="../assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-    <script src="../assets/js/vendors/popup.js"></script>
-  </body>
+<script src="../assets/js/vendors/tooltip.js"></script>
+<script src="../assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+<script src="../assets/js/vendors/popup.js"></script>
+</body>
 </html>

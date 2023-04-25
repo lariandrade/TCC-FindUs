@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface PortfolioRepository extends JpaRepository<Portfolio, Long> {
     List<Portfolio> findByPrestador(Prestador prestador);
+    List<Portfolio> deleteByPrestador(Prestador prestador);
 
 }

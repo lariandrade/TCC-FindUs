@@ -5,13 +5,11 @@ import com.findus.models.Prestador;
 import com.findus.repository.PortfolioRepository;
 import com.findus.repository.PrestadorRepository;
 import com.findus.service.PrestadorService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -60,16 +58,62 @@ public class PrestadorController {
 
 
     @GetMapping("/editarPrestador/{id}")
-    public String visualizarPrestador(@PathVariable("id") String prestID, Model model) {
+    public String editaPrestador(@PathVariable("id") String prestID, Model model) {
 
         Long idPrest = Long.parseLong(prestID);
         Prestador prestador = prestadorService.findById(idPrest);
 
         model.addAttribute("prestador", prestador);
-        /*model.addAttribute("email", prestador.getUserEmail());
-        model.addAttribute("userID", prestador.getUserID());*/
+        /*model.addAttribute("email", prestador.getUserEmail());*/
+        model.addAttribute("userID", prestador.getUserID());
 
         return "perfil/prestador/editar-prestador";
 
     }
+
+    @PostMapping("/alterarDadosPrestador/{id}")
+    public String atualizarPrestador(@PathVariable("id") Long id, @ModelAttribute("prestador") Prestador prestadorAtualizado) {
+        Prestador prestador = prestadorService.findById(id);
+
+        prestador.setUserNome(prestadorAtualizado.getUserNome());
+        prestador.setUserTelefone(prestadorAtualizado.getUserTelefone());
+        prestador.setUserEmail(prestadorAtualizado.getUserEmail());
+        prestador.setUserSenha(prestadorAtualizado.getUserSenha());
+        prestador.setUserSegmento(prestadorAtualizado.getUserSegmento());
+        prestador.setUserDescricao(prestadorAtualizado.getUserDescricao());
+        prestadorService.save(prestador);
+        return "redirect:/visualizarPerfil/" + prestadorAtualizado.getUserEmail();
+    }
+
+    @GetMapping("/pageDeletarPrestador/{id}")
+    public String pageDeletaPrestador(@PathVariable("id") String prestID, Model model) {
+
+        Long idPrest = Long.parseLong(prestID);
+        Prestador prestador = prestadorService.findById(idPrest);
+
+        model.addAttribute("prestador", prestador);
+        model.addAttribute("userID", prestador.getUserID());
+
+        return "perfil/prestador/deletar-prestador";
+
+    }
+
+    @Transactional
+    @GetMapping("/deletaPrestador/{id}")
+    public String excluirPrestador(@PathVariable("id") String prestID) {
+
+        Long idPrest = Long.parseLong(prestID);
+
+        Prestador prestador = prestadorService.findById(idPrest);
+
+        portfolioRepository.deleteByPrestador(prestador);
+        prestadorService.deleteById(idPrest);
+
+        return "redirect:/login";
+
+
+    }
+
+
+
 }
