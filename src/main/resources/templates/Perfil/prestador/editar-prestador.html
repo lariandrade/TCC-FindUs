@@ -87,11 +87,7 @@
                     class="d-lg-flex align-items-center justify-content-between"
                   >
                     <div class="d-flex align-items-center mb-4 mb-lg-0">
-                      <img
-                        src="../assets/images/avatar/avatar-7.jpg"
-                        id="img-uploaded"
-                        class="avatar-xl rounded-circle"
-                        alt=""
+                      <img th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}" id="img-uploaded" class="avatar-xl rounded-circle" alt=""
                       />
                       <div class="ms-3">
                         <h4 class="mb-0">Imagem de perfil</h4>
@@ -99,9 +95,7 @@
                       </div>
                     </div>
                     <div>
-                      <a
-                       href="#" class="btn btn-outline-secondary btn-sm">Atualizar</a>
-                      <a href="#" class="btn btn-outline-danger btn-sm">Remover</a>
+                      <a href="#" class="btn btn-outline-secondary btn-sm">Atualizar</a>
                     </div>
                   </div>
                   <hr class="my-5" />
