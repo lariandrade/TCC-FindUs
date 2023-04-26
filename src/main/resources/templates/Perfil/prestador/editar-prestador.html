@@ -30,6 +30,11 @@
                         <div class="card rounded-0 rounded-bottom px-4 pt-2 pb-4">
                             <div class="d-flex align-items-end justify-content-between">
                                 <div class="d-flex align-items-center">
+                                    <div class="me-2 position-relative d-flex justify-content-end align-items-end mt-n5">
+                                        <img th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}"
+                                                class="avatar-xl rounded-circle border border-4 border-white"
+                                                alt=""/>
+                                    </div>
                                     <div class="lh-1">
                                         <h2 class="mb-0"><span th:text="${prestador.getUserNome}"></span></h2>
                                     </div>
@@ -89,20 +94,18 @@
                             </div>
                             <!-- Card body -->
                             <div class="card-body">
-                                <div
-                                        class="d-lg-flex align-items-center justify-content-between"
-                                >
+                                <div class="d-lg-flex align-items-center justify-content-between">
                                     <div class="d-flex align-items-center mb-4 mb-lg-0">
                                         <img th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}"
-                                             id="img-uploaded" class="avatar-xl rounded-circle" alt=""
-                                        />
+                                             id="img-uploaded" class="avatar-xl rounded-circle" alt=""/>
                                         <div class="ms-3">
-                                            <h4 class="mb-0">Imagem de perfil</h4>
+                                            <h4 class="mb-0">Imagem atual de perfil</h4>
                                             <p class="mb-0">PNG ou JPG de no máximo 800px de largura e altura.</p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <a href="#" class="btn btn-outline-secondary btn-sm">Atualizar</a>
+                                    <div class="ms-3">
+                                        <h4 class="mb-0">Alterar imagem</h4>
+                                        <input type="file" name="file" id="file">
                                     </div>
                                 </div>
                                 <hr class="my-5"/>

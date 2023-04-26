@@ -2,7 +2,6 @@ package com.findus.controller;
 
 import com.findus.models.Prestador;
 import com.findus.repository.PortfolioRepository;
-import com.findus.repository.PrestadorRepository;
 import com.findus.service.PrestadorService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +17,6 @@ import java.io.IOException;
 
 @Controller
 public class PrestadorController {
-
-    @Autowired
-    private PrestadorRepository prestadorRepository;
 
     @Autowired
     private PortfolioRepository portfolioRepository;
@@ -52,8 +48,12 @@ public class PrestadorController {
     }
 
     @PostMapping("/alterarDadosPrestador/{id}")
-    public String atualizarPrestador(@PathVariable("id") Long id, @ModelAttribute("prestador") Prestador prestadorAtualizado) {
+    public String atualizarPrestador(@PathVariable("id") Long id, @ModelAttribute("prestador") Prestador prestadorAtualizado,  MultipartFile file) throws IOException {
+
         Prestador prestador = prestadorService.findById(id);
+
+        byte[] fotoNova = file.getBytes();
+        prestador.setUserFoto(fotoNova);
 
         prestador.setUserNome(prestadorAtualizado.getUserNome());
         prestador.setUserTelefone(prestadorAtualizado.getUserTelefone());
@@ -61,7 +61,9 @@ public class PrestadorController {
         prestador.setUserSenha(prestadorAtualizado.getUserSenha());
         prestador.setUserSegmento(prestadorAtualizado.getUserSegmento());
         prestador.setUserDescricao(prestadorAtualizado.getUserDescricao());
+
         prestadorService.save(prestador);
+
         return "redirect:/visualizarPerfil/" + prestadorAtualizado.getUserEmail();
     }
 
