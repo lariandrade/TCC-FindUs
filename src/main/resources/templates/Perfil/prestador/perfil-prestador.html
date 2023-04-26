@@ -85,7 +85,7 @@
                     <option value="Eventos">Moda e Beleza</option>
                     <option value="Eventos">Saúde</option>
                 </select>
-                <a th:href="@{/adicionar-projeto/{id}(id=${userID})}" class="btn btn-dark ms-auto">Novo Projeto</a>
+                <a th:href="@{/pageAdicionarProjeto/{id}(id=${userID})}" class="btn btn-dark ms-auto">Novo Projeto</a>
             </div>
             <div class="container-fluid mw-100">
                 <div th:if="${not #lists.isEmpty(projetos)}" class="d-flex flex-wrap">
