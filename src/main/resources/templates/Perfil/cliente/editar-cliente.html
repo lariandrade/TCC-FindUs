@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Codescandy" />
+
+    <!-- Favicon icon-->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="../assets/images/favicon/favicon.ico"
+    />
+
+    <!-- Libs CSS -->
+    <link href="../assets/fonts/feather/feather.css" rel="stylesheet" />
+    <link
+      href="../assets/libs/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="../node_modules/bootstrap-select/dist/css/bootstrap-select.min.css"
+    />
+    <link
+      href="../assets/libs/@mdi/font/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="../assets/libs/simplebar/dist/simplebar.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="../assets/css/theme.min.css" />
+    <title>Seu Perfil | Find Us - Digitalização de Negócios</title>
+  </head>
+
+ 
+<body  style="
+background-color: #f5f5f3;
+background-image: url(../assets/images/background/background.svg);
+background-repeat: repeat;
+background-size: contain;
+">
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg navbar-default">
+        <div class="container-fluid px-0">
+          <a class="navbar-brand" href="./findus-home.html"
+            ><img src="../assets/images/brand/logo/logo.svg" alt="" class=""
+          /></a>
+          <!-- Mobile view nav wrap -->
+          <ul
+            class="navbar-nav navbar-right-wrap ms-auto d-lg-none d-flex nav-top-wrap"
+          >
+
+            <!-- Avatar -->
+            <li class="dropdown ms-2">
+              <a
+                class="rounded-circle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <div class="avatar avatar-md avatar-indicators avatar-online">
+                  <img
+                    alt="avatar"
+                    src="../assets/images/avatar/avatar-7.jpg"
+                    class="rounded-circle"
+                  />
+                </div>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end shadow">
+                <div class="dropdown-item">
+                  <div class="d-flex">
+                    <div
+                      class="avatar avatar-md avatar-indicators avatar-online"
+                    >
+                      <img
+                        alt="avatar"
+                        src="../assets/images/avatar/avatar-7.jpg"
+                        class="rounded-circle"
+                      />
+                    </div>
+                    <div class="ms-3 lh-1">
+                      <h5 class="mb-1">Luísa Almeida</h5>
+                      <p class="mb-0 text-muted">natural.art@gmail.com</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="dropdown-divider"></div>
+                <ul class="list-unstyled">
+                  <li>
+                    <a class="dropdown-item" href="../pages/profile-edit.html">
+                      <i class="fe fe-user me-2"></i>Perfil
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <i class="fe fe-settings me-2"></i>Configurações
+                    </a>
+                  </li>
+                </ul>
+                <div class="dropdown-divider"></div>
+                <ul class="list-unstyled">
+                  <li>
+                    <a class="dropdown-item" href="../index.html">
+                      <i class="fe fe-power me-2"></i>Sair
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Button -->
+          <button
+            class="navbar-toggler collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar-default"
+            aria-controls="navbar-default"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="icon-bar top-bar mt-0"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+          <!-- Collapse -->
+          <div class="collapse navbar-collapse" id="navbar-default">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="" class="nav-link">Descubra</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="" class="nav-link">Perfil</a>
+              </li>
+
+              <li class="nav-item">
+                <a href="" class="nav-link">Sobre Nós</a>
+              </li>
+            </ul>
+            <div class="ms-auto d-flex align-items-center">
+              <form class="mt-3 mt-lg-0 ms-lg-3 d-flex align-items-center">
+                <span class="position-absolute ps-3 search-icon">
+                  <i class="fe fe-search"></i>
+                </span>
+                <input
+                  type="search"
+                  class="form-control ps-6"
+                  placeholder="Pesquisar"
+                />
+              </form>
+
+              <ul class="navbar-nav navbar-right-wrap ms-2 d-none d-lg-block">
+                <li class="dropdown ms-2 d-inline-block">
+                  <a
+                    class="rounded-circle"
+                    href="#"
+                    data-bs-toggle="dropdown"
+                    data-bs-display="static"
+                    aria-expanded="false"
+                  >
+                    <div
+                      class="avatar avatar-md avatar-indicators avatar-online"
+                    >
+                      <img
+                        alt="avatar"
+                        src="../assets/images/avatar/avatar-7.jpg"
+                        class="rounded-circle"
+                      />
+                    </div>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-end">
+                    <div class="dropdown-item">
+                      <div class="d-flex">
+                        <div
+                          class="avatar avatar-md avatar-indicators avatar-online"
+                        >
+                          <img
+                            alt="avatar"
+                            src="../assets/images/avatar/avatar-7.jpg"
+                            class="rounded-circle"
+                          />
+                        </div>
+                        <div class="ms-3 lh-1">
+                          <h5 class="mb-1">Luísa Almeida</h5>
+                          <p class="mb-0 text-muted">natural.art@gmail.com</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="../pages/profile-edit.html"
+                        >
+                          <i class="fe fe-user me-2"></i>Perfil
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">
+                          <i class="fe fe-settings me-2"></i>Configurações
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="dropdown-divider"></div>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a class="dropdown-item" href="../index.html">
+                          <i class="fe fe-power me-2"></i>Sair
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main>
+        <section class="pt-5 pb-5">
+            <div class="container">
+                    <!-- User info -->
+                <div class="row align-items-center">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+                        <!-- Bg -->
+                        <div class="pt-16 rounded-top-md" style="
+                                    background: url(../assets/images/background/home-banner.png) no-repeat;
+                                    background-size: cover;
+                                "></div>
+                      <div class="card rounded-0 rounded-bottom  px-4  pt-2 pb-4 ">
+                        <div
+                          class="d-flex align-items-end justify-content-between  ">
+                          <div class="d-flex align-items-center">
+                            <div class="me-2 position-relative d-flex justify-content-end align-items-end mt-n5">
+                              <img src="../assets/images/avatar/avatar-7.jpg" class="avatar-xl rounded-circle border border-4 border-white"
+                                alt="">
+                            </div>
+                            <div class="lh-1">
+                              <h2 class="mb-0">Luísa Almeida
+                              </h2>
+                              <p class=" mb-0 d-block">NaturalArt</p>
+                            </div>
+                          </div>
+                          <div>
+                            <a href="profile-edit.html" class="btn btn-outline-primary btn-sm d-none d-md-block">Alterar Imagem de Capa</a>
+                          </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+        <!-- Content -->
+        <div class="row mt-0 mt-md-4">
+                    <div class="col-lg-3 col-md-4 col-12">
+                        <!-- Side navbar -->
+                        <nav class="navbar navbar-expand-md navbar-light shadow-sm mb-4 mb-lg-0 sidenav">
+                            <!-- Menu -->
+                            <a class="d-xl-none d-lg-none d-md-none text-inherit fw-bold" href="#">Menu</a>
+                            <!-- Button -->
+                            <button class="navbar-toggler d-md-none icon-shape icon-sm rounded bg-primary text-light" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#sidenav" aria-controls="sidenav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="fe fe-menu"></span>
+                            </button>
+                            <!-- Collapse navbar -->
+                            <div class="collapse navbar-collapse" id="sidenav">
+                                <div class="navbar-nav flex-column">
+                                    <span class="navbar-header">Navegação</span>
+                                    <!-- List -->
+                                    <ul class="list-unstyled ms-n2 mb-4">
+                                        <!-- Nav item -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="student-subscriptions.html"><i class="fe fe-calendar nav-icon"></i>Dados da Conta</a>
+                                        </li>
+                                        <!-- Nav item -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="billing-info.html"><i class="fe fe-credit-card nav-icon"></i>Dados do Negócio</a>
+                                        </li>
+                                        <!-- Nav item -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="payment-method.html"><i class="fe fe-credit-card nav-icon"></i>Objetivos</a>
+                                        </li>
+                                    </ul>
+
+                                    <span class="navbar-header">Ações da Conta</span>
+                                     <!-- List -->
+                                    <ul class="list-unstyled ms-n2 mb-0">
+                                        <!-- Nav item -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="delete-profile.html"><i class="fe fe-trash nav-icon"></i>Deletar Perfil</a>
+                                        </li>
+                                        <!-- Nav item -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="../index.html"><i class="fe fe-power nav-icon"></i>Sair</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="col-lg-9 col-md-8 col-12">
+                        <!-- Dados da Conta -->
+                        <div class="card mb-4">
+                            <!-- Card header -->
+                            <div class="card-header">
+                                <h3 class="mb-0">Dados da Conta</h3>
+                                <p class="mb-0">
+                                    Os dados a seguir serão compartilhados apenas com o prestador que você entrar em contato.
+                                </p>
+                            </div>
+                            <!-- Card body -->
+                            <div class="card-body">
+                                <div class="d-lg-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center mb-4 mb-lg-0">
+                                        <img src="../assets/images/avatar/avatar-7.jpg" id="img-uploaded" class="avatar-xl rounded-circle" alt="">
+                                        <div class="ms-3">
+                                            <h4 class="mb-0">Imagem de perfil</h4>
+                                            <p class="mb-0">
+                                                PNG ou JPG de no máximo 800px de largura e altura.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="#" class="btn btn-outline-secondary btn-sm">Atualizar</a>
+                                        <a href="#" class="btn btn-outline-danger btn-sm">Remover</a>
+                                    </div>
+                                </div>
+                                <hr class="my-5">
+                                <div>
+                                    <h4 class="mb-4">Detalhes Pessoais</h4>
+                                    <!-- Form -->
+                                    <form class="row">
+                                        <!-- Name -->
+                                        <div class="mb-3 col-12 col-md-12">
+                                            <label class="form-label" for="fname">Nome completo</label>
+                                            <input type="text" id="fname" class="form-control" placeholder="Insira seu nome e sobrenome" value="Luísa Almeida" required>
+                                        </div>
+                                        <!-- Phone -->
+                                        <div class="mb-3 col-12 col-md-6">
+                                            <label class="form-label" for="phone">Telefone</label>
+                                            <input type="text" id="phone" class="form-control" placeholder="(DD) 0 0000-0000" value="(11) 9 1234-5698" required>
+                                        </div>
+                                        <!-- E-mail -->
+                                        <div class="mb-3 col-12 col-md-6">
+                                            <label class="form-label" for="birth">E-mail</label>
+                                            <input class="form-control flatpickr" type="email" placeholder="example@email.com" id="email"
+                                                name="email" value="natural.art@gmail.com">
+                                        </div>
+                                        <!-- Password -->
+                                        <div class="mb-3 col-12 col-md-8">
+                                            <label class="form-label" for="address">Senha</label>
+                                            <input type="password" id="client-password" class="form-control" placeholder="*******" value="aSenhaÉsenha" required>
+                                        </div>
+                                        <!-- Address -->
+                                        <div class="mb-3 col-12 col-md-4 d-flex align-items-end">
+                                            <button class="btn btn-primary">Alterar Senha</button>
+                                        </div>
+                                        <div class="col-12">
+                                            <!-- Button -->
+                                            <button class="btn btn-primary" type="submit">
+                                                Atualizar
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dados do Negócio -->
+                        <div class="card mb-4">
+                          <!-- Card header -->
+                          <div class="card-header">
+                              <h3 class="mb-0">Dados do Negócio</h3>
+                              <p class="mb-0">
+                                Os dados a seguir são enviados no corpo do e-mail de contato para os prestadores de serviço. Por isso, tente fazer um breve resumo do seu negócio.
+                              </p>
+                          </div>
+                          <!-- Card body -->
+                          <div class="card-body">
+                              <div>
+                                  <!-- Form -->
+                                  <form class="row">
+                                      <!-- Name -->
+                                      <div class="mb-3 col-12 col-md-12">
+                                          <label class="form-label" for="fname">Nome do Negócio</label>
+                                          <input type="text" id="bname" class="form-control" placeholder="Insira a razão social" value="NaturalArt" required>
+                                      </div>
+                                      <!-- Phone -->
+                                      <div class="mb-3 col-12 col-md-12">
+                                          <label class="form-label" for="phone">Descrição do Negócio</label>
+                                          <textarea id="bdesc" class="form-control" rows="5">A NaturalArt é uma loja de artesanatos e presentes localizada em uma cidade turística. Oferecemos produtos exclusivos e feitos à mão, utilizando materiais de alta qualidade. Nossos produtos são reconhecidos pela sua originalidade e beleza.
+
+Além dos produtos à venda, a loja também oferece workshops e aulas de artesanato para aqueles que desejam aprender a fazer seus próprios itens personalizados.
+                                          </textarea>
+                                      </div>
+                                      <div class="col-12">
+                                          <!-- Button -->
+                                          <button class="btn btn-primary" type="submit">
+                                              Atualizar
+                                          </button>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                        </div>
+
+                        <!-- Card -->
+                        <div class="card">
+                          <!-- Card header -->
+                          <div class="card-header">
+                            <h3 class="mb-0">Objetivos</h3>
+                            <p class="mb-0">
+                              Define os serviços que deseja contratar.
+                            </p>
+                          </div>
+                          <!-- Card body -->
+                          <div class="card-body">
+                            <div>
+                              <h4 class="mb-0">Serviços</h4>
+                              <p class="mb-5">
+                                Esses são os serviços que serão disponibilizados na sua página inicial. Serviços não selecionados ainda podem ser encontrados em perfis de prestadores.
+                              </p>
+                              <!-- List group -->
+                              <ul class="list-group list-group-flush">
+                                <!-- List group item -->
+                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 py-2">
+                                  <div>Site</div>
+                                  <div>
+                                    <div class="form-check form-switch">
+                                      <input type="checkbox" class="form-check-input" id="swicthOne" checked>
+                                      <label class="form-check-label" for="swicthOne"></label>
+                                    </div>
+                                  </div>
+                                </li>
+                                <!-- List group item -->
+                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 py-2">
+                                  <div>Aplicativo</div>
+                                  <div>
+                                    <div class="form-check form-switch">
+                                      <input type="checkbox" class="form-check-input" id="switchTwo">
+                                      <label class="form-check-label" for="switchTwo"></label>
+                                    </div>
+                                  </div>
+                                </li>
+                                <!-- List group item -->
+                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 py-2">
+                                  <div>E-commerce ou Marketplace</div>
+                                  <div>
+                                    <div class="form-check form-switch">
+                                      <input type="checkbox" class="form-check-input" id="switchThree" checked>
+                                      <label class="form-check-label" for="switchThree"></label>
+                                    </div>
+                                  </div>
+                                </li>
+                                <!-- List group item -->
+                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 py-2">
+                                  <div>Marketing Digital (SEO, Mail Marketing, ADS)</div>
+                                  <div>
+                                    <div class="form-check form-switch">
+                                      <input type="checkbox" class="form-check-input" id="switchFour">
+                                      <label class="form-check-label" for="switchFour"></label>
+                                    </div>
+                                  </div>
+                                </li>
+                                <!-- List group item -->
+                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 py-2">
+                                  <div>Redes Sociais</div>
+                                  <div>
+                                    <div class="form-check form-switch">
+                                      <input type="checkbox" class="form-check-input" id="switchFive" checked>
+                                      <label class="form-check-label" for="switchFive"></label>
+                                    </div>
+                                  </div>
+                                </li>
+                                <!-- List group item -->
+                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 py-2">
+                                  <div>Consultoria de Marketing</div>
+                                  <div>
+                                    <div class="form-check form-switch">
+                                      <input type="checkbox" class="form-check-input" id="switchSix">
+                                      <label class="form-check-label" for="switchSix"></label>
+                                    </div>
+                                  </div>
+                                </li>
+                                <!-- List group item -->
+                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 py-2">
+                                  <div>Identidade Visual da Marca</div>
+                                  <div>
+                                    <div class="form-check form-switch">
+                                      <input type="checkbox" class="form-check-input" id="switchFive">
+                                      <label class="form-check-label" for="switchFive"></label>
+                                    </div>
+                                  </div>
+                                </li>
+                                <!-- List group item -->
+                                <li class="list-group-item d-flex align-items-center justify-content-between px-0 py-2">
+                                  <div>Design de Produto</div>
+                                  <div>
+                                    <div class="form-check form-switch">
+                                      <input type="checkbox" class="form-check-input" id="switchFive">
+                                      <label class="form-check-label" for="switchFive"></label>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row align-items-center g-0 border-top py-2">
+            <!-- Desc -->
+            <div class="col-md-6 col-12 text-center text-md-start">
+                <span>© <span id="copyright">
+                    <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                </span>Find Us. Todos Direitos Reservados.</span>
+            </div>
+              <!-- Links -->
+            <div class="col-12 col-md-6">
+                <nav class="nav nav-footer justify-content-center justify-content-md-end">
+                    <a class="nav-link active ps-0" href="#">Privacy</a>
+                    <a class="nav-link" href="#">Terms </a>
+                    <a class="nav-link" href="#">Feedback</a>
+                    <a class="nav-link" href="#">Support</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Modal -->
+      <!-- Modal -->
+      <div class="modal fade" id="contatarprestador" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Contatar</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Escreva uma mensagem para o prestador</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="denunciar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Denunciar</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <p>
+                  Sua denúncia será encaminhada para análise. Assim que a avaliarmos, lhe encaminharemos um e-mail de resposta.
+                </p>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Motivo da Denúncia:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Scripts -->
+    
+    <!-- Libs JS -->
+<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
+
+
+<!-- Theme JS -->
+<script src="../assets/js/theme.min.js"></script>
+
+
+
+
+
+
+<script src="../assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
+<script src="../assets/libs/tippy.js/dist/tippy-bundle.umd.min.js"></script>
+
+<script src="../assets/js/vendors/tooltip.js"></script>
+<script src="../assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+<script src="../assets/js/vendors/popup.js"></script>
+
+</body>
+</html>

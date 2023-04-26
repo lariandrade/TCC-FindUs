@@ -1,17 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta name="author" content="Codescandy"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- Theme CSS -->
+    <title>Visualizar Perfil</title>
+
+
     <link rel="stylesheet" href="/css/theme.min.css"/>
-    <title>Seu Perfil | Find Us - Digitalização de Negócios</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
+<body>
 
 <header>
 
@@ -19,6 +21,7 @@
         <div class="container d-flex justify-content-between">
             <a href="#" class="navbar-brand d-flex align-items-center">
                 <img src="../images/logo.svg" class="dark-logo" alt="Logo FindUs"/>
+                <img src="../images/logo-white.svg" class="light-logo" alt="Logo FindUs"/>
             </a>
             </a>
             <div class="dropdown">
@@ -39,143 +42,117 @@
     </div>
 
 </header>
-
+<br>
 <main>
-    <!-- Page header -->
-    <section class="pt-lg-20 pb-lg-16 pt-8 pb-12 h-20"
-             style="background-image: url(../assets/images/background/home-banner.png); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    </section>
+
     <!-- Page content -->
-    <section class="pb-10">
-        <div class="container">
-            <div class="row">
-                <!-- Profile Data -->
-                <div class="col-lg-4 col-md-12 col-12 mt-lg-n22">
-                    <!-- Card -->
-                    <div class="card">
-                        <!-- Card body -->
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div class="position-relative">
-                                    <img src="../assets/images/avatar/avatar-7.jpg" alt=""
-                                         class="rounded-circle avatar-xl">
-                                </div>
-                                <div class="ms-4">
-                                    <h4 class="mb-0">Luísa Almeida</h4>
-                                    <p class="mb-1 fs-6">NaturalArt</p>
-                                    <span class="badge bg-danger-soft">
-                                      <i class="fe fe-gift"></i>
-                                      Eventos</span>
-                                </div>
-                            </div>
+    <section class="container-sm d-flex">
 
-                            <div class="mt-6">
-                                <p>A NaturalArt é uma loja de artesanatos e presentes localizada em uma cidade
-                                    turística. Oferecemos produtos exclusivos e feitos à mão, utilizando materiais de
-                                    alta qualidade. Nossos produtos são reconhecidos pela sua originalidade e
-                                    beleza. </p>
-                                <p>Além dos produtos à venda, a loja também oferece workshops e aulas de artesanato para
-                                    aqueles que desejam aprender a fazer seus próprios itens personalizados.</p>
-                            </div>
+        <div class="col-lg-4 col-md-12 col-12">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card body -->
+                <div class="card-body">
+                    <img class="img-fluid rounded-circle mb-3" th:src="@{/clienteFotoPerfil/__${email}__}"
+                         alt="Foto do usuário"/>
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <span th:text="${cliente.getUserNome}"></span>
+                        </h3>
+                        <label><span th:text="${cliente.getUserSegmento}"></span></label>
+                        <div>
+                            <p>xx avaliações</p>
+                        </div>
+                        <p class="card-text">
+                            <span th:text="${cliente.getUserDescricao}"></span>
+                        </p>
 
-                            <div class="mt-10 d-grid gap-2 mx-auto">
-                                <button class="btn btn-primary">
-                                    <i class="fe fe-edit ms-1"></i>
-                                    Editar Perfil
-                                </button>
-                            </div>
-
+                        <div class="mt-3 d-grid gap-2 mx-auto">
+                            <a th:href="@{/editarPrestador/{id}(id=${userID})}" class="btn btn-dark">Editar
+                                Perfil</a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Projects
+        <div class="col-lg-8 col-md-12 col-12 mt-4 mb-4 mb-lg-0">
+            <div class="row p-2 mt-4 mb-6">
+                <div class="d-flex p-4" style="background-color: #FAB76E;">
+                    <div class="col-md-6">
+                        <h2>Nossa sugestão para seu negócio</h2>
+                        <ul class="text-dark ">
+                            <li><b>Marketplace</b></li>
+                            <li><b>Redes Sociais</b></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6 d-grid justify-content-end">
+                        <div class="mt-md-n10 d-flex justify-content-end">
+                            <img src="../assets/images/svg/suggestion-drawn.svg" alt="">
+                        </div>
+                        <div class="d-flex gap-2 mt-4">
+                            <button class="btn btn-primary btn-dark">Refazer Teste</button>
+                            <button class="btn btn-primary btn-light">Começar a Navegar</button>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Projects -->
-                <div class="col-lg-8 col-md-12 col-12 mt-4 mb-4 mb-lg-0">
-                    <!-- Suggestions -->
-                    <div class="row p-2 mt-4 mb-6">
-                        <div class="d-flex p-4" style="background-color: #FAB76E;">
-                            <div class="col-md-6">
-                                <h2>Nossa sugestão para seu negócio</h2>
-                                <ul class="text-dark ">
-                                    <li><b>Marketplace</b></li>
-                                    <li><b>Redes Sociais</b></li>
-                                </ul>
-                            </div>
+            </div>-->
 
-                            <div class="col-md-6 d-grid justify-content-end">
-                                <div class="mt-md-n10 d-flex justify-content-end">
-                                    <img src="../assets/images/svg/suggestion-drawn.svg" alt="">
-                                </div>
-                                <div class="d-flex gap-2 mt-4">
-                                    <button class="btn btn-primary btn-dark">Refazer Teste</button>
-                                    <button class="btn btn-primary btn-light">Começar a Navegar</button>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Title
+        <div class="row">
+            <div
+                    class="d-inline-flex col-lg-12 col-md-12 col-sm-12 col-12 mb-4 gap-2 align-items-center"
+            >
+                <h4 class="mb-3 mb-lg-0">Últimos Contatos</h4>
+            </div>
+        </div>-->
 
-                    </div>
+        <!-- Cards
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <div class="tab-content">
+                    <div
+                            class="tab-pane fade show active"
+                            id="tabPaneGrid"
+                            role="tabpanel"
+                            aria-labelledby="tabPaneGrid"
+                    >
+                        <div class="row">
 
-                    <!-- Title -->
-                    <div class="row">
-                        <!-- Page Header -->
-                        <div
-                                class="d-inline-flex col-lg-12 col-md-12 col-sm-12 col-12 mb-4 gap-2 align-items-center"
-                        >
-                            <h4 class="mb-3 mb-lg-0">Últimos Contatos</h4>
-                        </div>
-                    </div>
-
-                    <!-- Cards -->
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-12">
-                            <!-- Tab -->
-                            <div class="tab-content">
-                                <!-- Tab pane -->
-                                <div
-                                        class="tab-pane fade show active"
-                                        id="tabPaneGrid"
-                                        role="tabpanel"
-                                        aria-labelledby="tabPaneGrid"
-                                >
-                                    <div class="row">
-
-                                        <div class="col-xl-4 col-lg-6 col-md-6 col-12">
-                                            <!-- Card -->
-                                            <div class="card mb-4">
-                                                <!-- Card body -->
-                                                <div class="card-body">
-                                                    <div class="text-center">
-                                                        <img
-                                                                src="../assets/images/avatar/avatar-11.jpg"
-                                                                class="rounded-circle avatar-xl mb-3"
-                                                                alt=""
-                                                        />
-                                                        <h4 class="mb-0">Cleber Machado</h4>
-                                                        <p class="mb-0" style="color: #504ce5">
-                                                            Desenvolvedor Web
-                                                        </p>
-                                                    </div>
-                                                    <div
-                                                            class="d-flex justify-content-between border-bottom py-2 mt-4"
-                                                    >
-                                                        <span>Contratações</span>
-                                                        <span class="text-dark">265</span>
-                                                    </div>
-                                                    <div
-                                                            class="d-flex justify-content-between border-bottom py-2"
-                                                    >
-                                                        <span>Avaliação</span>
-                                                        <span class="text-warning">
-                                        4.2 <i class="mdi mdi-star"></i>
-                                      </span>
-                                                    </div>
-                                                    <div class="d-flex justify-content-between pt-2">
-                                                        <span>Projetos</span>
-                                                        <span class="text-dark"> 12 </span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <img
+                                                    src="../assets/images/avatar/avatar-11.jpg"
+                                                    class="rounded-circle avatar-xl mb-3"
+                                                    alt=""
+                                            />
+                                            <h4 class="mb-0">Cleber Machado</h4>
+                                            <p class="mb-0" style="color: #504ce5">
+                                                Desenvolvedor Web
+                                            </p>
+                                        </div>
+                                        <div
+                                                class="d-flex justify-content-between border-bottom py-2 mt-4"
+                                        >
+                                            <span>Contratações</span>
+                                            <span class="text-dark">265</span>
+                                        </div>
+                                        <div
+                                                class="d-flex justify-content-between border-bottom py-2"
+                                        >
+                                            <span>Avaliação</span>
+                                            <span class="text-warning">
+                                    4.2 <i class="mdi mdi-star"></i>
+                                  </span>
+                                        </div>
+                                        <div class="d-flex justify-content-between pt-2">
+                                            <span>Projetos</span>
+                                            <span class="text-dark"> 12 </span>
                                         </div>
                                     </div>
                                 </div>
@@ -183,26 +160,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+    </div>-->
     </section>
 </main>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="row align-items-center g-0 border-top py-2">
-            <!-- Desc -->
-            <div class="col-md-6 col-12 text-center text-md-start">
-                <span>© <span id="copyright">
-                    <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
-                </span>Find Us. Todos Direitos Reservados.</span>
-            </div>
-        </div>
-    </div>
-</footer>
-
 
 </body>
 </html>
