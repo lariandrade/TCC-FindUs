@@ -2,9 +2,14 @@ package com.findus.controller;
 
 import com.findus.models.Prestador;
 import com.findus.repository.PortfolioRepository;
+import com.findus.repository.PrestadorRepository;
 import com.findus.service.PrestadorService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +29,11 @@ public class PrestadorController {
     @Autowired
     private PrestadorService prestadorService;
 
+    @Autowired
+    private PrestadorRepository prestadorRepository;
+
+
+
     @PostMapping("/cadastroPrestador")
     public String criarPrestador(Prestador prestador, MultipartFile file) throws IOException {
         byte[] fotoBytes = file.getBytes();
@@ -32,6 +42,17 @@ public class PrestadorController {
         return "login/login";
     }
 
+    @GetMapping("/prestadorFotoPerfil/{id}")
+    public ResponseEntity<byte[]> imagemPerfil(@PathVariable("id") String email, Model model) {
+        Prestador prestador = prestadorRepository.findByUserEmail(email);
+        if (prestador == null || prestador.getUserFoto() == null) {
+            return ResponseEntity.notFound().build();
+        }
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        headers.setContentLength(prestador.getUserFoto().length);
+        return new ResponseEntity<>(prestador.getUserFoto(), headers, HttpStatus.OK);
+    }
 
     @GetMapping("/editarPrestador/{id}")
     public String editaPrestador(@PathVariable("id") String prestID, Model model) {

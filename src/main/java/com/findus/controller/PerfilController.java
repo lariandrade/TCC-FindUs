@@ -1,14 +1,12 @@
 package com.findus.controller;
 
+import com.findus.models.Cliente;
 import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
-import com.findus.repository.PrestadorRepository;
+import com.findus.repository.ClienteRepository;
 import com.findus.repository.PortfolioRepository;
+import com.findus.repository.PrestadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,34 +23,40 @@ public class PerfilController {
     @Autowired
     private PortfolioRepository portfolioRepository;
 
+    @Autowired
+    private ClienteRepository clienteRepository;
+
     @GetMapping("/visualizarPerfil/{id}")
     public String visualizarPrestador(@PathVariable("id") String email, Model model) {
 
+
+        Cliente cliente = clienteRepository.findByUserEmail(email);
         Prestador prestador = prestadorRepository.findByUserEmail(email);
 
-        model.addAttribute("prestador", prestador);
-        model.addAttribute("email", prestador.getUserEmail());
-        model.addAttribute("userID", prestador.getUserID());
+        if (cliente != null) {
 
-        List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
+            model.addAttribute("cliente", cliente);
+            model.addAttribute("email", cliente.getUserEmail());
+            model.addAttribute("userID", cliente.getUserID());
 
-        model.addAttribute("prestador", prestador);
-        model.addAttribute("projetos", projetos);
+            return "perfil/cliente/perfil-cliente";
 
-        return "perfil/prestador/perfil-prestador";
+        } else {
 
-    }
+            model.addAttribute("prestador", prestador);
+            model.addAttribute("email", prestador.getUserEmail());
+            model.addAttribute("userID", prestador.getUserID());
 
-    @GetMapping("/prestadorFotoPerfil/{id}")
-    public ResponseEntity<byte[]> imagemPerfil(@PathVariable("id") String email, Model model) {
-        Prestador prestador = prestadorRepository.findByUserEmail(email);
-        if (prestador == null || prestador.getUserFoto() == null) {
-            return ResponseEntity.notFound().build();
+            List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
+
+            //model.addAttribute("prestador", prestador);
+            model.addAttribute("projetos", projetos);
+
+            return "perfil/prestador/perfil-prestador";
+
         }
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.IMAGE_JPEG);
-        headers.setContentLength(prestador.getUserFoto().length);
-        return new ResponseEntity<>(prestador.getUserFoto(), headers, HttpStatus.OK);
+
+
     }
 
 

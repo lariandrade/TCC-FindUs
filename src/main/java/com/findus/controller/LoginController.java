@@ -4,6 +4,7 @@ import com.findus.models.Cliente;
 import com.findus.models.Prestador;
 import com.findus.repository.ClienteRepository;
 import com.findus.repository.PrestadorRepository;
+import com.findus.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,9 @@ public class LoginController {
     @Autowired
     private PrestadorRepository prestadorRepository;
 
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
     @GetMapping("/")
     public ModelAndView index() {
         ModelAndView mv = new ModelAndView("index");
@@ -35,7 +39,7 @@ public class LoginController {
     }
 
     @PostMapping("/inicio")
-    public String entrar(Model model, @RequestParam("userEmail") String email, @RequestParam("userSenha") String senha) {
+    public String autenticarUsuario(Model model, @RequestParam("userEmail") String email, @RequestParam("userSenha") String senha) {
 
         Cliente cliente = clienteRepository.findByUserEmailAndUserSenha(email, senha);
         Prestador prestador = prestadorRepository.findByUserEmailAndUserSenha(email, senha);
@@ -43,7 +47,7 @@ public class LoginController {
         if (cliente != null) {
             model.addAttribute("nomeUsuario", cliente.getUserNome());
             //model.addAttribute("idUsuario", cliente.getId_Usuario());
-            model.addAttribute("idUsuario", cliente.getUserEmail());
+            model.addAttribute("emailUser", cliente.getUserEmail());
             return "/home";
         } else if (prestador != null) {
             model.addAttribute("nomeUsuario", prestador.getUserNome());
@@ -56,6 +60,8 @@ public class LoginController {
         }
 
     }
+
+
 
     @GetMapping("/remember")
     public ModelAndView remember() {
