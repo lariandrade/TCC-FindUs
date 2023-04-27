@@ -3,6 +3,7 @@ package com.findus.controller;
 import com.findus.models.Cliente;
 import com.findus.repository.ClienteRepository;
 import com.findus.service.ClienteService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -47,15 +49,65 @@ public class ClienteController {
     }
 
     @GetMapping("/editarCliente/{id}")
-    public String editaPrestador(@PathVariable("id") String prestID, Model model) {
+    public String editarCliente(@PathVariable("id") String prestID, Model model) {
 
         Long idCliente = Long.parseLong(prestID);
         Cliente cliente = clienteService.findById(idCliente);
 
         model.addAttribute("cliente", cliente);
+        /*model.addAttribute("email", prestador.getUserEmail());*/
         model.addAttribute("userID", cliente.getUserID());
 
         return "perfil/cliente/editar-cliente";
+
+    }
+
+    @PostMapping("/alterarDadosCliente/{id}")
+    public String atualizarPrestador(@PathVariable("id") Long id, @ModelAttribute("cliente") Cliente clienteAtualizado, MultipartFile file) throws IOException {
+
+        Cliente cliente = clienteService.findById(id);
+
+        byte[] fotoNova = file.getBytes();
+        cliente.setUserFoto(fotoNova);
+
+        cliente.setUserNome(clienteAtualizado.getUserNome());
+        cliente.setUserTelefone(clienteAtualizado.getUserTelefone());
+        cliente.setUserEmail(clienteAtualizado.getUserEmail());
+        cliente.setUserSenha(clienteAtualizado.getUserSenha());
+        cliente.setUserSegmento(clienteAtualizado.getUserSegmento());
+        cliente.setUserDescricao(clienteAtualizado.getUserDescricao());
+
+        clienteService.save(cliente);
+
+        return "redirect:/visualizarPerfil/" + clienteAtualizado.getUserEmail();
+    }
+
+
+    @GetMapping("/pageDeletarCliente/{id}")
+    public String pageDeletaCliente(@PathVariable("id") String cliID, Model model) {
+
+        Long idCliente = Long.parseLong(cliID);
+        Cliente cliente = clienteService.findById(idCliente);
+
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("userID", cliente.getUserID());
+
+        return "perfil/cliente/deletar-cliente";
+
+    }
+
+    @Transactional
+    @GetMapping("/deletaCliente/{id}")
+    public String excluirCliente(@PathVariable("id") String cliID) {
+
+        Long idCliente = Long.parseLong(cliID);
+
+        Cliente cliente = clienteService.findById(idCliente);
+
+        clienteService.deleteById(idCliente);
+
+        return "redirect:/login";
+
 
     }
 
