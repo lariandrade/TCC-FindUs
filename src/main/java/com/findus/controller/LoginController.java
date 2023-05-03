@@ -65,7 +65,7 @@ public class LoginController {
 
     @GetMapping("/remember")
     public ModelAndView remember() {
-        ModelAndView mv = new ModelAndView("login/reset-senha");
+        ModelAndView mv = new ModelAndView("login/forget-password");
         return mv;
     }
 
@@ -86,7 +86,7 @@ public class LoginController {
             return "login/login";
         } else {
             model.addAttribute("error", "E-mail não cadastrado.");
-            return "login/reset-senha";
+            return "login/forget-password";
         }
 
 
