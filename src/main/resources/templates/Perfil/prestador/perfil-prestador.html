@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
 
 </head>
 
@@ -23,35 +24,93 @@
         width: 350px;
         height: 200px;
     }
-</style>
 
+</style>
 
 
 <header>
 
-    <div class="navbar shadow-sm">
-        <div class="container d-flex justify-content-between">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-                <img src="../images/logo.svg" class="dark-logo" alt="Logo FindUs"/>
-                <img src="../images/logo-white.svg" class="light-logo" alt="Logo FindUs"/>
-            </a>
-            </a>
-            <div class="dropdown">
-                <button class="btn" style="border: 1px solid black" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                         class="bi bi-list" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" th:href="@{/editarPerfil}">Home</a></li>
-                    <li><a class="dropdown-item" href="#">Sair</a></li>
-                </ul>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-default">
+        <div class="container-fluid px-0">
+            <img src="../images/logo.svg" class="dark-logo" alt="Logo FindUs"/>
+
+            <!-- Button -->
+            <button
+                    class="navbar-toggler collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbar-default"
+                    aria-controls="navbar-default"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <span class="icon-bar top-bar mt-0"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbar-default">
+
+                <div class="ms-auto d-flex align-items-center">
+                    <form class="mt-3 mt-lg-0 ms-lg-3 d-flex align-items-center">
+                        <span class="position-absolute ps-3 search-icon">
+                         <i class="bi bi-search"></i>
+                        </span>
+                        <input type="search" class="form-control ps-6" placeholder="Pesquisar"/>
+                    </form>
+
+                    <ul class="navbar-nav navbar-right-wrap ms-2 d-none d-lg-block">
+                        <li class="dropdown ms-2 d-inline-block">
+                            <a class="rounded-circle" href="#" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                <div class="avatar avatar-md avatar-indicators avatar-online">
+                                    <div class="avatar avatar-md avatar-indicators avatar-online">
+                                        <img alt="avatar" th:src="@{/prestadorFotoPerfil/__${email}__}"
+                                             class="rounded-circle"/>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div class="dropdown-item">
+                                    <div class="d-flex">
+                                        <div
+                                                class="avatar avatar-md avatar-indicators avatar-online"
+                                        >
+                                            <div class="avatar avatar-md avatar-indicators avatar-online">
+                                                <img alt="avatar" th:src="@{/prestadorFotoPerfil/__${email}__}"
+                                                     class="rounded-circle"/>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3 lh-1">
+                                            <h5 class="mb-1"><span th:text="${prestador.getUserNome}"></span></h5>
+                                            <p class="mb-0 text-muted"><span th:text="${prestador.getUserEmail}"></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="dropdown-item" href="../pages/profile-edit.html">
+                                            <i class="bi bi-house me-2"></i>Home
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="dropdown-divider"></div>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="dropdown-item" href="../index.html">
+                                            <i class="bi bi-power me-2"></i>Sair
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+    </nav>
 
 </header>
 <br>
@@ -105,11 +164,13 @@
                 <div th:if="${not #lists.isEmpty(projetos)}" class="row">
                     <div th:each="portfolio : ${projetos}" class="col-md-6">
                         <div class="card m-3">
-                            <img class="card-img-top img-fluid card-img-custom" th:src="@{/portfolioImagem/__${portfolio.portID}__}"
+                            <img class="card-img-top img-fluid card-img-custom"
+                                 th:src="@{/portfolioImagem/__${portfolio.portID}__}"
                                  alt="Foto do usuário"/>
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h5><span class="badge bg-secondary" th:text="${portfolio.portSegmento}"></span></h5>
+                                    <h5><span class="badge bg-secondary" th:text="${portfolio.portSegmento}"></span>
+                                    </h5>
                                 </div>
                                 <label>xx visualizações</label>
                                 <h5 class="card-title"><span th:text="${portfolio.portTituloPrj}"></span></h5>
@@ -124,8 +185,6 @@
 
 
         </div>
-
-
 
 
     </section>
