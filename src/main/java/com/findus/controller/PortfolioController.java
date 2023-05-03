@@ -4,7 +4,12 @@ import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
 import com.findus.repository.PortfolioRepository;
 import com.findus.service.PrestadorService;
+import com.findus.service.PortfolioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +26,11 @@ public class PortfolioController {
 
     @Autowired
     private PrestadorService prestadorService;
+
+
+    @Autowired
+    private PortfolioService portfolioService;
+
 
     @Autowired
     private PortfolioRepository portfolioRepository;
@@ -45,6 +55,17 @@ public class PortfolioController {
 
         redirectAttributes.addAttribute("id", prestador.getUserEmail());
         return "redirect:/visualizarPerfil/{id}";
+    }
+
+    @GetMapping("/portfolioImagem/{id}")
+    public ResponseEntity<byte[]> imagemProjeto(@PathVariable("id") Long idPort) {
+
+        Portfolio portfolio = portfolioService.findById(idPort);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        headers.setContentLength(portfolio.getPortImagem().length);
+        return new ResponseEntity<>(portfolio.getPortImagem(), headers, HttpStatus.OK);
     }
 
 }

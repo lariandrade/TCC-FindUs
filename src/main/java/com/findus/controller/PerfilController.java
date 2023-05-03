@@ -49,7 +49,6 @@ public class PerfilController {
 
             List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
 
-            //model.addAttribute("prestador", prestador);
             model.addAttribute("projetos", projetos);
 
             return "perfil/prestador/perfil-prestador";

@@ -12,9 +12,20 @@
     <link rel="stylesheet" href="/css/theme.min.css"/>
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
 </head>
 
 <body>
+
+<style>
+    .card-img-custom {
+        width: 350px;
+        height: 200px;
+    }
+</style>
+
+
 
 <header>
 
@@ -87,29 +98,36 @@
                     <option value="Eventos">Moda e Beleza</option>
                     <option value="Eventos">Saúde</option>
                 </select>
-                <a th:href="@{/pageAdicionarProjeto/{id}(id=${userID})}" class="btn btn-dark ms-auto">Novo
-                    Projeto</a>
+                <a th:href="@{/pageAdicionarProjeto/{id}(id=${userID})}" class="btn btn-dark ms-auto">Novo Projeto</a>
             </div>
+
             <div class="container-fluid mw-100">
-                <div th:if="${not #lists.isEmpty(projetos)}" class="d-flex flex-wrap">
-                    <div th:each="portfolio : ${projetos}" class="card m-3">
-                        <div class="card-body">
-                            <!--<img src="../../static/images/card-img.png" alt="" class="card-img-top">-->
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5><span class="badge bg-secondary"
-                                          th:text="${portfolio.portSegmento}"></span></h5>
-                            </div>
-                            <label>xx visualizações</label>
-                            <h5 class="card-title"><span th:text="${portfolio.portDescricao}"></span></h5>
-                            <div>
-                                <p>xx avaliações</p>
+                <div th:if="${not #lists.isEmpty(projetos)}" class="row">
+                    <div th:each="portfolio : ${projetos}" class="col-md-6">
+                        <div class="card m-3">
+                            <img class="card-img-top img-fluid card-img-custom" th:src="@{/portfolioImagem/__${portfolio.portID}__}"
+                                 alt="Foto do usuário"/>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5><span class="badge bg-secondary" th:text="${portfolio.portSegmento}"></span></h5>
+                                </div>
+                                <label>xx visualizações</label>
+                                <h5 class="card-title"><span th:text="${portfolio.portTituloPrj}"></span></h5>
+                                <div>
+                                    <p>xx avaliações</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
+
+
         </div>
+
+
+
+
     </section>
 </main>
 <!-- Footer -->
