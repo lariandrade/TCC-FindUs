@@ -3742,8 +3742,8 @@ loader
 }
 
 /* Estilos para botões desativados */
-.primary-btn.disabled,
-.primary-btn:disabled {
+.btn-warning.disabled,
+.btn-warning:disabled {
   opacity: 0.5;
   pointer-events: none;
   color: #fff;

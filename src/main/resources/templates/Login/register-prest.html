@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content="Larissa e Lucas"/>
+
+    <!-- Theme CSS -->
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/css/theme.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+
+    <title>Cadastro | Find Us - Digitalização de Negócios</title>
+</head>
+
+<body style="background-color: #fbfbfd">
+<!-- Page content -->
+<main>
+    <form action="/casdastroPrestador" method="GET">
+        <section class="d-flex no-wrap">
+            <!-- Register Content -->
+            <div
+                    class="row align-items-center justify-content-center g-0 min-vh-100 col-6"
+            >
+                <div class="col-lg-12 px-8">
+                    <!-- Card -->
+                    <div
+                            class="card container"
+                            style="box-shadow: none; background-color: #fbfbfd"
+                    >
+                        <!-- Card header -->
+
+                        <div class="p-6">
+                            <div class="mb-6">
+                                <div class="container-fluid px-0 mb-6">
+                                    <a class="navbar-brand" href="">
+                                        <img src="images/logo.svg" class="dark-logo" alt="Logo FindUs"/>
+                                    </a>
+                                </div>
+                                <h2 class="mb-1 fw-bold">Qual é o seu objetivo?</h2>
+                                <span
+                                >O FindUs permite que você tanto procure profissionais para
+                    migrar para o ambiente online como divulgar seus serviços
+                    enquanto profissional de tecnologia.</span
+                                >
+                            </div>
+
+                            <div class="d-grid mb-6">
+                                <a
+                                        class="btn btn-outline-primary mb-2"
+                                        disabled
+                                        th:href="@{/cliente}"
+                                >Procurar Profissionais</a
+                                >
+                                <button
+                                        class="btn btn-secondary"
+                                        disabled
+                                        th:href="@{/prestador}"
+                                >
+                                    Oferecer Meus Serviços
+                                </button>
+                            </div>
+
+                            <div class="d-grid">
+                                <div class="form-check mb-2">
+                                    <input type="checkbox" class="form-check-input" id="termos-de-uso"/>
+                                    <label class="form-check-label">Li e estou de acordo com o
+                                        <button class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#terms-modal">
+                                            Termos de Serviço
+                                        </button>
+                                        .
+                                    </label>
+                                </div>
+                            </div>
+                          <button type="submit" id="botao-enviar" class="btn btn-warning mb-2"
+                                  style="width: 100%;" disabled>Continuar
+                          </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image -->
+            <div
+                    class="col-6 d-flex align-items-center justify-content-center p-6 px-10"
+            >
+                <div class="card">
+                    <div class="d-flex justify-content-end align-items-end">
+                        <img
+                                src="/images/bobbles2.svg"
+                                class="mt-n20"
+                                style="height: 30vh; z-index: -100"
+                        />
+
+                        <img
+                                src="/images/register-prest.svg"
+                                class="mt-n20"
+                                style="height: 30vh"
+                        />
+                    </div>
+
+                    <div class="card-body">
+                        <h3>Oferecer meus serviços</h3>
+                        <p>
+                            Divulgue seus serviços para empreendedores que procuram ajuda
+                            para migrar seus negócios para o ambiente online. . Crie
+                            postagens de projetos de portfólio atraentes que mostrem seus
+                            trabalhos de forma clara e concisa, e divulgue seu trabalho para
+                            uma ampla audiência de empreendedores.
+                        </p>
+                        <p>
+                            Seja contatado mais rápido e trabalhe diretamente com seus
+                            clientes para criar soluções digitais personalizadas que ajudem
+                            seu negócio a prosperar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+</main>
+<!-- Scripts -->
+
+<!-- Modal -->
+<div
+        class="modal fade"
+        id="terms-modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalScrollableTitle"
+        aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">
+                    Termos de Serviço
+                </h5>
+                <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Ao utilizar a Plataforma, o usuário reconhece e aceita todas as
+                    condições descritas neste termo. Caso o usuário não concorde com
+                    algum dos termos descritos, deverá se abster de utilizar a
+                    plataforma findUs.
+                </p>
+                <h5>Objetivo</h5>
+                <p>
+                    O objetivo da Plataforma é conectar empreendedores que desejam
+                    digitalizar seus negócios com profissionais qualificados para essa
+                    finalidade.
+                </p>
+
+                <h5>Responsabilidades</h5>
+                <p>
+                    A Plataforma age apenas como intermediária no contato entre os
+                    usuários, não tendo responsabilidade sobre as negociações e
+                    acordos firmados entre as partes.
+                </p>
+                <p>
+                    A Plataforma não se responsabiliza pela veracidade das informações
+                    fornecidas pelos usuários e não tem obrigação de fiscalizar ou
+                    controlar as informações postadas.
+                </p>
+
+                <h5>Medidas de segurança</h5>
+                <p>
+                    A Plataforma disponibiliza a opção de denúncia por parte dos
+                    usuários para garantir que o conteúdo presente na plataforma
+                    esteja em conformidade com os termos de utilização e evitando
+                    golpes. Todo conteúdo recebido pelo suporte será avaliado para a
+                    tomada de ações corretivas de acordo com o tipo e gravidade da
+                    denúncia.
+                </p>
+                <p>
+                    A Plataforma reserva-se o direito de modificar, a qualquer
+                    momento, os termos de uso aqui descritos, visando aprimorar o
+                    sistema e melhorar a experiência do usuário.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                >
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/simplebar.min.js"></script>
+
+<script src="js/theme.min.js"></script>
+
+<script>
+
+		var checkboxTermos = document.getElementById("termos-de-uso");
+		var botaoEnviar = document.getElementById("botao-enviar");
+
+		// Adicionar um evento de escuta ao checkbox
+		checkboxTermos.addEventListener("change", function() {
+			// Verificar se o checkbox está selecionado
+			if (checkboxTermos.checked) {
+				// Habilitar o botão
+				botaoEnviar.disabled = false;
+			} else {
+				// Desabilitar o botão
+				botaoEnviar.disabled = true;
+			}
+		});
+
+
+</script>
+
+
+</body>
+</html>
