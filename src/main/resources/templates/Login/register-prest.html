@@ -70,7 +70,7 @@
                                 </label>
                             </div>
                         </div>
-                        <a class="btn btn-warning w-100" id="botao-enviar" disabled th:href="@{/casdastroPrestador}">
+                        <a class="btn btn-warning w-100" id="botao-enviar" disabled th:href="@{/cadastroPrestador}">
                             Continuar
                         </a>
                     </div>
@@ -200,7 +200,7 @@
 
     checkbox.addEventListener("change", function() {
       if (this.checked) {
-        link.setAttribute("th:href", "@{/casdastroCliente}");
+        link.setAttribute("th:href", "@{/cadastroCliente}");
         link.classList.remove("btn-secondary");
         link.classList.add("btn-warning");
       } else {

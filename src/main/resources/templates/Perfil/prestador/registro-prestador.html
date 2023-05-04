@@ -1,229 +1,212 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
-
+<html lang="pt-BR">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Find Us</title>
-	<meta name="author" content="tempload" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="Larissa e Lucas" content="Codescandy"/>
 
-	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="images/favicon/favicon.png" />
 
-	<!-- Bootstrap & Plugins CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css">
-	<link href="css/owl.theme.default.min.css" rel="stylesheet" type="text/css">
-
-	<!-- Custom CSS -->
-	<link href="css/style.css" rel="stylesheet" type="text/css">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/css/theme.min.css"/>
+    <title>Cadastro | Find Us - Digitalização de Negócios</title>
 </head>
 
-<body>
+<body style="background-color: #FFF;">
+<!-- Page content -->
+<main>
+    <form action="/cadastrarPrestador" method="POST" enctype="multipart/form-data">
+        <section class="d-flex no-wrap">
+            <!-- Register Content -->
+            <div
+                    class="row align-items-center justify-content-center g-0 min-vh-100 col-6"
+            >
+                <div class="col-lg-12">
+                    <!-- Card -->
+                    <div class="card container" style="box-shadow: none;">
+                        <nav class="navbar navbar-expand-lg mb-3">
+                            <div class="container-fluid px-0">
+                                <a class="navbar-brand" href="./findus-home.html">
+                                    <img src="images/logo.svg" alt="" class=""/>
+                                </a>
+                            </div>
+                        </nav>
+                        <!-- Card header -->
 
-<!-- ***** Loader Start ***** -->
-<div id="loader">
-	<div class="loader"></div>
-</div>
-<!-- ***** Loader End ***** -->
+                        <div class="card-header">
+                            <h1 class="mb-1 fw-bold">Seja muito bem-vindo ao Find Us</h1>
+                            <span>Fale um pouco sobre você</span>
+                        </div>
+                        <!-- Card body -->
+                        <div class="card-body">
 
+                            <!-- DADOS PESSOAIS -->
+                            <div class="row">
+                                <h4 class="mb-4">Detalhes Pessoais</h4>
+                                <!-- Username -->
+                                <div class="mb-3">
+                                    <label class="form-label">Nome completo</label>
+                                    <input type="text" class="form-control" name="userNome" placeholder="Insira seu nome e sobrenome" required
+                                    />
+                                </div>
+                                <!-- CPF/CNPJ -->
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label class="form-label">CPF/CNPJ</label>
+                                    <input
+                                            type="text"
+											name="userCPF_CNPJ"
+                                            class="form-control"
+                                            placeholder="000.000.000-00"
+                                            required
+                                    />
+                                </div>
+                                <!-- Phone -->
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label class="form-label">Telefone</label>
+                                    <input
+                                            class="form-control"
+                                            type="phone"
+                                            placeholder="(DD) 0 0000-0000"
+											name= "userTelefone"
+                                            required
+                                    />
+                                </div>
+                                <!-- Email -->
+                                <div class="mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input
+                                            type="email"
+                                            class="form-control"
+											name="userEmail"
+                                            placeholder="example@email.com"
+                                            required
+                                    />
+                                </div>
+                                <!-- Phone -->
+                                <div class="mb-3 col-12 col-md-6">
+                                    <div class="mb-3 password-field">
+                                        <label class="form-label">Senha</label>
+                                        <input
+												name="userSenha"
+                                                type="password"
+                                                class="form-control mb-2"
+                                                placeholder="******"
+                                                required
+                                        />
+                                        <div class="row align-items-center g-0">
+                                            <div class="col-6">
+                          <span
+                                  data-bs-toggle="tooltip"
+                                  data-placement="right"
+                                  title="Teste digitando uma senha no campo acima. Para atingir força total, use pelo menos 6 caracteres, uma letra maiúscula e um dígito, por exemplo 'Teste01'"
+                          >Força da senha
+                            <i class="fe fe-help-circle ms-1"></i
+                            ></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- E-mail -->
+                                <div class="mb-3 col-12 col-md-6">
+                                    <label class="form-label">Confirme a senha</label>
+                                    <input
+                                            id="confirmarSenha"
+                                            type="password"
+                                            name="confirmpassword"
+                                            class="form-control mb-2"
+                                            placeholder="******"
+                                            required
+                                    />
+                                </div>
+                            </div>
 
-<!-- ***** Header Area Start ***** -->
-<header class="header-area light-header">
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<nav class="main-nav">
-					<!-- ***** Logo Start ***** -->
-					<a th:href="@{/}" class="logo">
-						<img src="images/logo.svg" class="dark-logo" alt="Logo FindUs" />
-						<img src="images/logo-white.svg" class="light-logo" alt="Logo FindUs" />
-					</a>
-					<!-- ***** Logo End ***** -->
-				</nav>
-			</div>
-		</div>
-	</div>
-</header>
-<!-- ***** Header Area End ***** -->
+							<div class="mb-3">
+								<label class="form-label">Descrição</label>
+								<input type="text" class="form-control" name="userDescricao"
+									   placeholder="Fale sobre você"
+									   required
+								/>
+							</div>
 
+							<br>
 
-<!-- ***** Welcome Area Start ***** -->
-<form action="/cadastroPrestador" method="POST" enctype="multipart/form-data">
+                            <div class="d-lg-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center mb-4 mb-lg-0">
+                                    <img src="images/avatar.jpg" id="img-uploaded" class="avatar-xl rounded-circle"
+                                         alt="">
+                                    <div class="ms-3">
+                                        <h4 class="mb-0">Imagem de perfil</h4>
+                                    </div>
+                                </div>
+                                <div>
+									<input type="file" name="file" id="file">
+                                </div>
+                            </div>
 
-	<div class="container" id="login">
-		<div class="row">
-			<div class="col-lg-6 mobile-bottom-fix align-self-center">
-				<br><br><br><br>
-				<h2>Seja muito bem-vindo ao FindUs</h2>
-				<h5>Fale um pouco sobre você</h5>
-				<br>
-				<div class="contact-form">
-					<div class="row">
-						<div class="col-lg-12">
-							<label>Nome completo</label>
-							<input type="text" name="userNome" placeholder="Insira aqui seu nome e sobrenome">
-						</div>
+                            <hr class="my-4"/>
 
-						<div class="col-lg-6 col-md-12 col-sm-12">
-							<label>CPF/CNPJ</label>
-							<input type="text" name="userCPF_CNPJ" placeholder="000.000.000-00">
-						</div>
-						<div class="col-lg-6 col-md-12 col-sm-12">
-							<label>Telefone</label>
-							<input type="text" name= "userTelefone" placeholder="(DD) 0 0000-0000">
-						</div>
+                            <!-- DADOS DO NEGÓCIO -->
+                            <div class="row">
+                                <h4 class="mb-4">Detalhes do Negócio</h4>
+                                <!-- Business Segment -->
+                                <div class="mb-6 col-12 col-md-12">
+                                    <label class="form-label">Profissão</label>
+                                    <select name="userSegmento" aria-label="Segment select" class="form-select">
+                                        <option value="Desenvolvedor WEB" selected>
+                                            Desenvolvedor WEB
+                                        </option>
+                                        <option value="Desenvolvedor Mobile">
+                                            Desenvolvedor Mobile
+                                        </option>
+                                        <option value="Analista de Marketing">Analista de Marketing</option>
+                                        <option value="Consultor de Marketing">
+                                            Consultor de Marketing
+                                        </option>
+                                        <option value="Designer Gráfico">
+                                            Designer Gráfico
+                                        </option>
+                                        <option value="Designer UI/UX">
+                                            Designer UI/UX
+                                        </option>
+                                        <option value="Outro">
+                                            Outro
+                                        </option>
+                                    </select>
+                                </div>
+								<input type="hidden" name = "userTipo" value="prestador">
+                                <div>
+                                    <!-- Button -->
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary">
+                                            Criar Conta
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-						<div class="col-lg-12">
-							<label>E-mail</label>
-							<input type="email" name="userEmail" placeholder="Insira aqui seu e-mail">
-						</div>
+            <!-- Image -->
+            <div class="col-6 d-flex align-items-end justify-content-end">
+                <img src="images/register-prest.svg"
+                     class="" style="height: 95vh; max-height: 100%;">
+            </div>
+        </section>
+    </form>
+</main>
+<!-- Scripts -->
+<!-- Libs JS -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 
-						<div class="col-lg-6 col-md-12 col-sm-12">
-							<label>Senha</label>
-							<input type="password"  name="userSenha" id="userSenha" placeholder="Insira aqui sua senha">
-						</div>
-						<div class="col-lg-6 col-md-12 col-sm-12">
-							<label>Confirme a senha</label>
-							<input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Insira novamente sua senha">
-						</div>
-
-						<br>
-
-						<div class="col-lg-12">
-							<label>Descrição</label>
-							<textarea type="text" name="userDescricao" id="userDescricao"  placeholder="Fale sobre você" required></textarea>
-						</div>
-
-						<div class="col-lg-12">
-							<label>Foto de Perfil</label><input type="file" name="file" id="file"  required>
-						</div>
-
-						<div class="col-lg-12">
-							<label>Nome do negócio</label>
-							<input type="text" name = "tipoIdentidade" placeholder="Insira o nome do seu negócio">
-						</div>
-						<div class="col-lg-12">
-							<label>Profissão</label>
-							<select name="userSegmento" id="jobs">
-								<option value="DevFront">Desenvolvedor Front-End</option>
-								<option value="DevBack">Desenvolvedor Back-End</option>
-								<option value="DevFull">Desenvolvedor Fullstack</option>
-								<option value="Marketing">Consultor de Marketing</option>
-								<option value="SocialMedia">SocialMedia ou Gestor de Tráfego</option>
-								<option value="DesignGraf">Designer Gráfico</option>
-								<option value="DesignUIUX">Designer UI/UX</option>
-							</select>
-						</div>
-						<input type="hidden" name = "userTipo" value="prestador">
-					</div>
-				</div>
-
-				<input type="checkbox" class="checkbox" id="termos-de-uso"><span class="checkmark"></span>
-				<label class="check-container">
-					Li e concordo com o <a href="#" data-toggle="modal" data-target="#myModal">termo de aceite.</a>
-				</label>
-
-
-				<button type="submit" id="botao-enviar" class="primary-btn" style="width: 100%;" disabled>Cadastrar</button>
-
-				<div style="align-items: center;">
-					<br>
-					<p>Já possui uma conta? <a th:href="@{/login}">Faça o login</a></p>
-				</div>
-			</div>
-
-			<div class="col-lg-6 mobile-bottom-fix align-self-center">
-				<img src="images/photos/screen/1.jpg" alt="" class="img-fluid">
-			</div>
-		</div>
-	</div>
-	<!-- ***** Welcome Area End ***** -->
-
-</form>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h3 class="modal-title" id="myModalLabel">Termos de uso do site.</h3>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-
-				<p>Ao utilizar a Plataforma, o usuário reconhece e aceita todas as condições descritas neste termo.
-					Caso o usuário não concorde com algum dos termos descritos, deverá se abster de utilizar a plataforma findUs. </p>
-
-				<h4><b>Objetivo</b></h4>
-				<p>O objetivo da Plataforma é conectar empreendedores que desejam digitalizar seus negócios com profissionais qualificados para essa finalidade.</p>
-
-				<h4><b>Responsabilidades</b></h4>
-				<p>A Plataforma age apenas como intermediária no contato entre os usuários,
-					não tendo responsabilidade sobre as negociações e acordos firmados entre as partes. </p>
-				<p>A Plataforma não se responsabiliza pela veracidade das informações fornecidas pelos usuários
-					e não tem obrigação de fiscalizar ou controlar as informações postadas. </p>
-
-
-				<h4><b>Medidas de segurança</b></h4>
-				<p>A Plataforma disponibiliza a opção de denúncia por parte dos usuários para garantir que o conteúdo presente na plataforma esteja
-					em conformidade com os termos de utilização e evitando golpes.
-					Todo conteúdo recebido pelo suporte será avaliado para a tomada de ações corretivas de acordo com o tipo e gravidade da denúncia.</p>
-
-				<p>A Plataforma reserva-se o direito de modificar, a qualquer momento, os termos de uso aqui descritos,
-					visando aprimorar o sistema e melhorar a experiência do usuário.</p>
-
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- jQuery -->
-<script src="js/jquery-2.1.0.min.js"></script>
-
-<!-- Bootstrap -->
-<script src="js/popper.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<!-- Plugins -->
-<script src="js/scrollreveal.min.js"></script>
-<script src="js/parallax.min.js"></script>
-<script src="js/imgfix.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-
-<!-- Global Init -->
-<script src="js/custom.js"></script>
+<!-- Theme JS -->
+<script src="/js/theme.min.js"></script>
 
 <!-- Customizações -->
 <script src="js/validarSenha.js"></script>
-
-<!-- Adicionar o arquivo JavaScript do jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Adicionar o arquivo JavaScript do Bootstrap -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-<script>
-
-		var checkboxTermos = document.getElementById("termos-de-uso");
-		var botaoEnviar = document.getElementById("botao-enviar");
-
-		// Adicionar um evento de escuta ao checkbox
-		checkboxTermos.addEventListener("change", function() {
-			// Verificar se o checkbox está selecionado
-			if (checkboxTermos.checked) {
-				// Habilitar o botão
-				botaoEnviar.disabled = false;
-			} else {
-				// Desabilitar o botão
-				botaoEnviar.disabled = true;
-			}
-		});
-</script>
-
 </body>
-
 </html>

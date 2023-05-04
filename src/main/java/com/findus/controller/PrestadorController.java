@@ -34,7 +34,7 @@ public class PrestadorController {
 
 
 
-    @PostMapping("/cadastroPrestador")
+    @PostMapping("/cadastrarPrestador")
     public String criarPrestador(Prestador prestador, MultipartFile file) throws IOException {
         byte[] fotoBytes = file.getBytes();
         prestador.setUserFoto(fotoBytes);

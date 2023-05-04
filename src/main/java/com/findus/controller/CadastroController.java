@@ -16,12 +16,12 @@ public class CadastroController {
         return "login/register-prest";
     }
 
-    @GetMapping("/casdastroCliente")
+    @GetMapping("/cadastroCliente")
     public String registarCliente() {
         return "perfil/cliente/registro-cliente";
     }
 
-    @GetMapping("/casdastroPrestador")
+    @GetMapping("/cadastroPrestador")
     public String registrarPrestador() {
         return "perfil/prestador/registro-prestador";
     }
