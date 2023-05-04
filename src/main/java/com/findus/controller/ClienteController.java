@@ -28,7 +28,7 @@ public class ClienteController {
     @Autowired
     private ClienteService clienteService;
 
-    @PostMapping("/cadastroCliente")
+    @PostMapping("/cadastrarCliente")
     public String criarCliente(Cliente cliente, MultipartFile file) throws IOException {
         byte[] fotoBytes = file.getBytes();
         cliente.setUserFoto(fotoBytes);

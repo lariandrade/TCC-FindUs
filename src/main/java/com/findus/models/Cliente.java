@@ -14,6 +14,9 @@ public class Cliente extends Usuario {
     @Column(name = "userTipo", length = 50, nullable = false, insertable = false, updatable = false)
     private String userTipo;
 
+    @Column(name = "userNomeNegocio", length = 50, nullable = false)
+    private String userNomeNegocio;
+
     public Cliente() {
 
     }

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class CadastroController {
 
-
     @GetMapping("/cliente")
     public String tipoCliente() {
         return "login/register-client";
