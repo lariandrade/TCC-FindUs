@@ -38,20 +38,23 @@ public class LoginController {
         return mv;
     }
 
-    @PostMapping("/inicio")
+    @PostMapping("/home")
     public String autenticarUsuario(Model model, @RequestParam("userEmail") String email, @RequestParam("userSenha") String senha) {
 
         Cliente cliente = clienteRepository.findByUserEmailAndUserSenha(email, senha);
         Prestador prestador = prestadorRepository.findByUserEmailAndUserSenha(email, senha);
 
+        String tipoUsuario;
+
         if (cliente != null) {
+
             model.addAttribute("nomeUsuario", cliente.getUserNome());
-            //model.addAttribute("idUsuario", cliente.getId_Usuario());
+            model.addAttribute("fotoPerfil", "clienteFotoPerfil");
             model.addAttribute("emailUser", cliente.getUserEmail());
             return "/home";
         } else if (prestador != null) {
             model.addAttribute("nomeUsuario", prestador.getUserNome());
-            //model.addAttribute("idUsuario", prestador.getId_Usuario());
+            model.addAttribute("fotoPerfil", "prestadorFotoPerfil");
             model.addAttribute("emailUser", prestador.getUserEmail());
             return "/home";
         } else {
