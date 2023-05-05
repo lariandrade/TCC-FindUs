@@ -39,7 +39,7 @@ public class PortfolioController {
     @GetMapping("/pageAdicionarProjeto/{id}")
     public String newProject(@PathVariable("id") String ID, Model model) {
         model.addAttribute("identPrest", ID);
-        return "perfil/prestador/publicar-projeto";
+        return "perfil/projetos/publicar-projeto";
     }
 
     @PostMapping("/cadastrarProjeto")
@@ -57,7 +57,7 @@ public class PortfolioController {
         return "redirect:/visualizarPerfil/{id}";
     }
 
-    @GetMapping("/portfolioImagem/{id}")
+    @GetMapping("/projetoImagem/{id}")
     public ResponseEntity<byte[]> imagemProjeto(@PathVariable("id") Long idPort) {
 
         Portfolio portfolio = portfolioService.findById(idPort);
@@ -66,6 +66,15 @@ public class PortfolioController {
         headers.setContentType(MediaType.IMAGE_JPEG);
         headers.setContentLength(portfolio.getPortImagem().length);
         return new ResponseEntity<>(portfolio.getPortImagem(), headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/visualizarProjeto/{id}")
+    public String visualizarProjeto(@PathVariable("id") Long idProjeto, Model model) {
+
+        Portfolio portfolio = portfolioService.findById(idProjeto);
+
+        model.addAttribute("portfolio", portfolio);
+        return "perfil/projetos/visualizar-projeto";
     }
 
 }
