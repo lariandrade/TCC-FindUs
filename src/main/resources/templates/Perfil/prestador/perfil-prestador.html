@@ -113,8 +113,21 @@
     </nav>
 
 </header>
-<br>
 <main role="main">
+
+    <!-- Page header -->
+    <section
+            class="pt-lg-20 pb-lg-16 pt-8 pb-12 h-20"
+            id="main-banner"
+            style="
+          background-image: url(../images/banners/);
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        "></section>
+
+    <br>
+
     <section class="container-sm d-flex">
 
         <div class="col-lg-4 col-md-12 col-12">
@@ -128,9 +141,8 @@
                         <h3 class="card-title">
                             <span th:text="${prestador.getUserNome}"></span>
                         </h3>
-                        <label><span th:text="${prestador.getUserSegmento}"></span></label>
+                        <p id="job" ><span th:text="${prestador.getUserSegmento}"></span></p>
                         <div>
-                            <p>xx avaliações</p>
                         </div>
                         <p class="card-text">
                             <span th:text="${prestador.getUserDescricao}"></span>
@@ -172,7 +184,6 @@
                                     <h5><span class="badge bg-secondary" th:text="${portfolio.portSegmento}"></span>
                                     </h5>
                                 </div>
-                                <label>xx visualizações</label>
                                 <h5 class="card-title"><span th:text="${portfolio.portTituloPrj}"></span></h5>
                                 <div>
                                     <p>xx avaliações</p>
@@ -190,5 +201,48 @@
     </section>
 </main>
 <!-- Footer -->
+
+<!-- Banner Img -->
+<script>
+      const job = document.getElementById("job").textContent;
+
+      switch (job) {
+        case "Analista de Marketing":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/analista-de-marketing.png')";
+          break;
+
+        case "Consultor de Marketing":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/consultor-de-marketing.png')";
+          break;
+
+        case "Designer Gráfico":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/designer-grafico.png')";
+          break;
+
+        case "Designer UI/UX":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/designer-uiux.png')";
+          break;
+
+        case "Desenvolvedor WEB":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/dev-web.png')";
+          break;
+
+        case "Desenvolvedor Mobile":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/dev-mobile.png')";
+          break;
+
+        default:
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/outros.png')";
+          break;
+      }
+    </script>
+
 </body>
 </html>
