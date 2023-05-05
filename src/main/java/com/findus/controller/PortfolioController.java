@@ -3,8 +3,8 @@ package com.findus.controller;
 import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
 import com.findus.repository.PortfolioRepository;
-import com.findus.service.PrestadorService;
 import com.findus.service.PortfolioService;
+import com.findus.service.PrestadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -73,8 +73,13 @@ public class PortfolioController {
 
         Portfolio portfolio = portfolioService.findById(idProjeto);
 
+        Prestador prestador = prestadorService.findById(portfolio.getPrestador().getUserID());
+
         model.addAttribute("portfolio", portfolio);
+        model.addAttribute("prestador", prestador);
         return "perfil/projetos/visualizar-projeto";
     }
+
+
 
 }
