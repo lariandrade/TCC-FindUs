@@ -80,6 +80,15 @@ public class PortfolioController {
         return "perfil/projetos/visualizar-projeto";
     }
 
+    @GetMapping("/editarProjeto/{id}")
+    public String editarProjeto(@PathVariable Long id, Model model){
+
+        Portfolio portfolio = portfolioService.findById(id);
+
+        model.addAttribute("portfolio", portfolio);
+
+        return "perfil/projetos/editar-projeto";
+    }
 
 
 }

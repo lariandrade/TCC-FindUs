@@ -161,8 +161,8 @@ background-size: contain;
             <div class="row">
                 <div class="container mt-n16 mb-4 mb-lg-0">
                     <div class="d-flex justify-content-end mb-4 gap-2">
-                        <button class="btn btn-outline-light">Excluir</button>
-                        <button class="btn btn-light">Editar</button>
+                        <a class="btn btn-light" th:href="@{/editarProjeto/__${portfolio.portID}__}">Editar</a>
+                        <a class="btn btn-outline-light" th:href="@{/excluirProjeto}">Excluir</a>
                     </div>
                     <!-- Card -->
                     <div class="card rounded-3">
@@ -196,97 +196,9 @@ background-size: contain;
                     <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
                 </span>Find Us. Todos Direitos Reservados.</span>
             </div>
-            <!-- Links -->
-            <div class="col-12 col-md-6">
-                <nav class="nav nav-footer justify-content-center justify-content-md-end">
-                    <a class="nav-link active ps-0" href="#">Privacy</a>
-                    <a class="nav-link" href="#">Terms </a>
-                    <a class="nav-link" href="#">Feedback</a>
-                    <a class="nav-link" href="#">Support</a>
-                </nav>
-            </div>
         </div>
     </div>
 </footer>
-
-<!-- Modal -->
-<!-- Modal -->
-<div class="modal fade" id="avaliarprojeto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Avaliar Projeto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Avaliação:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar Avaliação</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="denunciar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Denunciar</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <p>
-                        Sua denúncia será encaminhada para análise. Assim que a avaliarmos, lhe encaminharemos um e-mail
-                        de resposta.
-                    </p>
-                    <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Motivo da Denúncia:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Enviar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Scripts -->
-
-<!-- Libs JS -->
-<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
-
-
-<!-- Theme JS -->
-<script src="../assets/js/theme.min.js"></script>
-
-
-<script src="../assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
-<script src="../assets/libs/tippy.js/dist/tippy-bundle.umd.min.js"></script>
-
-<script src="../assets/js/vendors/tooltip.js"></script>
-<script src="../assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-<script src="../assets/js/vendors/popup.js"></script>
 
 </body>
 </html>
