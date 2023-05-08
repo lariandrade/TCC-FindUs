@@ -43,7 +43,8 @@
                 <div class="card-body">
                   <div>
                     <!-- Form -->
-                    <form class="row" action="/cadastrarProjeto" method="POST" enctype="multipart/form-data">
+                    <form class="row" th:action="@{/alterarDadosProjeto/{id}(id=${portfolio.getPortID})}" method="POST" enctype="multipart/form-data">
+
                       <!-- Title -->
                       <div class="mb-3 col-12 col-md-12">
                         <label class="form-label">Título do projeto</label>

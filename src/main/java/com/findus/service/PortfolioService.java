@@ -19,5 +19,8 @@ public class PortfolioService {
         return portfolio.orElseThrow(() -> new PortfolioNotFoundException(id));
     }
 
+    public Portfolio save(Portfolio portfolio) {
+        return portfolioRepository.save(portfolio);
+    }
 
 }

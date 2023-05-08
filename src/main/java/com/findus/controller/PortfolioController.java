@@ -12,10 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -90,6 +87,29 @@ public class PortfolioController {
         return "perfil/projetos/editar-projeto";
     }
 
+    @PostMapping("/alterarDadosProjeto/{id}")
+    public String atualizarPrestador(@PathVariable("id") Long id, @ModelAttribute("portfolio") Portfolio projetoAtualizado, MultipartFile file) throws IOException {
+
+        Portfolio portfolio = portfolioService.findById(id);
+
+        if(!file.isEmpty()){
+            byte[] fotoNova = file.getBytes();
+            portfolio.setPortImagem(fotoNova);
+        }
+
+
+        portfolio.setPortTituloPrj(projetoAtualizado.getPortTituloPrj());
+        portfolio.setPortDescricao(projetoAtualizado.getPortDescricao());
+        portfolio.setPortClassificacao(projetoAtualizado.getPortClassificacao());
+        portfolio.setPortOrcamento(projetoAtualizado.getPortOrcamento());
+        portfolio.setPortSegmento(projetoAtualizado.getPortSegmento());
+        portfolio.setPortTempo(projetoAtualizado.getPortTempo());
+
+
+        portfolioService.save(portfolio);
+
+        return "redirect:/visualizarProjeto/" + portfolio.getPortID();
+    }
 
     @GetMapping("/excluirProjeto/{id}")
     public String excluirProjeto(@PathVariable Long id, RedirectAttributes redirectAttributes) {
