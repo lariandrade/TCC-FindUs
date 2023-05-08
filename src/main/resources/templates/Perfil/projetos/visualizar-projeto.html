@@ -168,11 +168,11 @@ background-size: contain;
                     <div class="card rounded-3">
                         <section class="card-body">
 
-                            <img class="card-img-top img-fluid card-img-custom w-50"
+                            <img class="card-img-top img-fluid card-img-custom w-50 mx-auto d-block"
 
                                  th:src="@{/projetoImagem/__${portfolio.portID}__}"
                                  alt="Foto do projeto"/>
-
+                            <br>
                             <p><span th:text="${portfolio.getPortDescricao()}"></span></p>
 
                         </section>
