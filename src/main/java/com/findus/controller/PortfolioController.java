@@ -91,4 +91,21 @@ public class PortfolioController {
     }
 
 
+    @GetMapping("/excluirProjeto/{id}")
+    public String excluirProjeto(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+
+        Portfolio portfolio = portfolioService.findById(id);
+
+        String idPrestador = portfolio.getPrestador().getUserEmail();
+
+        portfolioRepository.deleteById(id);
+        System.out.println(idPrestador);
+
+        redirectAttributes.addAttribute("id", idPrestador);
+        return "redirect:/visualizarPerfil/{id}";
+
+
+    }
+
+
 }
