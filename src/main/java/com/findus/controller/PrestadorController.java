@@ -73,8 +73,11 @@ public class PrestadorController {
 
         Prestador prestador = prestadorService.findById(id);
 
-        byte[] fotoNova = file.getBytes();
-        prestador.setUserFoto(fotoNova);
+        if(!file.isEmpty()){
+            byte[] fotoNova = file.getBytes();
+            prestador.setUserFoto(fotoNova);
+        }
+
 
         prestador.setUserNome(prestadorAtualizado.getUserNome());
         prestador.setUserTelefone(prestadorAtualizado.getUserTelefone());

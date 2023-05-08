@@ -67,8 +67,11 @@ public class ClienteController {
 
         Cliente cliente = clienteService.findById(id);
 
-        byte[] fotoNova = file.getBytes();
-        cliente.setUserFoto(fotoNova);
+        if(!file.isEmpty()){
+            byte[] fotoNova = file.getBytes();
+            cliente.setUserFoto(fotoNova);
+        }
+
 
         cliente.setUserNome(clienteAtualizado.getUserNome());
         cliente.setUserTelefone(clienteAtualizado.getUserTelefone());
