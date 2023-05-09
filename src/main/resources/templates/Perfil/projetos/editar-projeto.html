@@ -46,9 +46,28 @@
                     <form class="row" th:action="@{/alterarDadosProjeto/{id}(id=${portfolio.getPortID})}" method="POST" enctype="multipart/form-data">
 
                       <!-- Title -->
-                      <div class="mb-3 col-12 col-md-12">
+                      <div class="mb-3 col-12 col-md-6">
                         <label class="form-label">Título do projeto</label>
                         <input type="text" name="portTituloPrj" class="form-control"  th:value="${portfolio.portTituloPrj}" required />
+                      </div>
+
+                      <!-- Price -->
+                      <div class="mb-3 col-12 col-md-6">
+                        <label class="form-label" for="portOrcamento">Orçamento do projeto</label>
+                        <select id="portOrcamento" name="portOrcamento" aria-label="Price select" class="form-select">
+                          <option value="Baixo">
+                            Baixo (Menos de R$ 1.000)
+                          </option>
+                          <option value="Medio">
+                            Médio (De R$ 1.000 a R$ 3.000)
+                          </option>
+                          <option value="Alto">
+                            Alto (De R$ 3.000 a R$ 5.000)
+                          </option>
+                          <option value="Muito Alto">
+                            Muito Alto (Acima de R$ 5.000)
+                          </option>
+                        </select>
                       </div>
                       <br>
                       <br>
@@ -67,7 +86,7 @@
                       </div>
 
                       <!-- Segment -->
-                      <div class="mb-3 col-12 col-md-6">
+                      <div class="mb-3 col-12 col-md-6 mt-3">
                         <label class="form-label" for="portSegmento">Segmento</label>
                         <select id="portSegmento" name="portSegmento" aria-label="Segment select" class="form-select">
                           <option value="Alimentos e Bebidas" selected>
@@ -102,34 +121,15 @@
                       </div>
 
 
-
                       <!-- Time -->
-                      <div class="mb-3 col-12 col-md-6">
+                      <div class="mb-3 col-12 col-md-6 mt-3">
                         <label class="form-label">Tempo de Trabalho</label>
                         <input type="number" name="portTempo" class="form-control" th:value="${portfolio.portTempo}"  required/>
-                      </div>
-                      <!-- Price -->
-                      <div class="mb-3 col-12 col-md-6">
-                        <label class="form-label" for="portOrcamento">Orçamento do projeto</label>
-                        <select id="portOrcamento" name="portOrcamento" aria-label="Price select" class="form-select">
-                          <option value="Baixo">
-                            Baixo (Menos de R$ 1.000)
-                          </option>
-                          <option value="Medio">
-                            Médio (De R$ 1.000 a R$ 3.000)
-                          </option>
-                          <option value="Alto">
-                            Alto (De R$ 3.000 a R$ 5.000)
-                          </option>
-                          <option value="Muito Alto">
-                            Muito Alto (Acima de R$ 5.000)
-                          </option>
-                        </select>
                       </div>
 
                       <div class="mb-3 col-12 col-md-12">
                         <label class="form-label">Descrição do projeto</label>
-                        <input type="text" name="portDescricao" class="form-control" th:value="${portfolio.portDescricao}"   required/>
+                        <textarea type="text" name="portDescricao" class="form-control" th:text="${portfolio.portDescricao}"   required></textarea>
                       </div>
 
                       <div class="col-12 d-flex justify-content-end gap-2">
