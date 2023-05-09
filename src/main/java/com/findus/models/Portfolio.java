@@ -34,7 +34,7 @@ public class Portfolio {
     @Column(name = "portClassificacao", length = 50, nullable = false)
     private int portClassificacao;
 
-    @Column(name = "portDescricao", length = 255, nullable = false)
+    @Column(name = "portDescricao", columnDefinition = "TEXT", nullable = false)
     private String portDescricao;
 
 
