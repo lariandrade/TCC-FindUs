@@ -30,6 +30,11 @@ background-size: contain;
                     <div class="card rounded-0 rounded-bottom  px-4  pt-2 pb-4 ">
                         <div class="d-flex align-items-end justify-content-between  ">
                             <div class="d-flex align-items-center">
+                                <div class="me-2 position-relative d-flex justify-content-end align-items-end mt-n5">
+                                    <img th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}"
+                                         class="avatar-xl rounded-circle border border-4 border-white"
+                                         alt=""/>
+                                </div>
                                 <div class="lh-1">
                                     <h2 class="mb-0"><span th:text="${prestador.getUserNome}"></span></h2>
                                     </h2>
