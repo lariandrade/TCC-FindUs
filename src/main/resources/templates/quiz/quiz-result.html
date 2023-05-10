@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>  <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Codescandy">
+
+
+
+<!-- Favicon icon-->
+<link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
+
+
+<!-- Libs CSS -->
+<link href="../assets/fonts/feather/feather.css" rel="stylesheet">
+<link href="../assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+<link href="../assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" />
+<link href="../assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
+
+
+
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="../assets/css/theme.min.css">
+  <title>Login | Find Us - Digitalização de Negócios </title>
+</head>
+
+<body style="
+background-color: #f5f5f3;
+background-image: url(../assets/images/background/background.svg);
+background-repeat: repeat;
+background-size: contain;
+">
+  <!-- Page content -->
+<main>
+  <section class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center g-0 min-vh-100">
+
+      <div class="col-lg-8 col-md-8 py-8 py-xl-0">
+        <!-- Card -->
+        <div class="card shadow ">
+          <!-- Card body -->
+          <div class="card-body p-6">
+            <div class="mb-3">
+              <div class="d-flex justify-content-center mb-6">
+                <img src="../assets/images/svg/suggestion-drawn.svg" alt="">
+              </div>
+              
+              <span>Obrigado por responder ao questionário!</span>
+              <h2 class="mb-1 fw-bold">Nossas sugestões para você:</h2>
+            </div>
+
+            <div class="d-grid mb-4" id="Dev-WEB">
+              <h4 class="fw-bold">Desenvolvimento WEB</h4>
+              <p>Desenvolva um site corporativo, sistema especializado ou um blog na internet.</p>
+            </div>
+
+            <div class="d-grid mb-4" id="Dev-Mob">
+              <h4 class="fw-bold">Desenvolvimento Mobile</h4>
+              <p>Desenvolva um aplicativo para especializado para o seu negócio.</p>
+            </div>
+
+            <div class="d-grid mb-4" id="Marketplace">
+              <h4 class="fw-bold">Marketplace e E-commerce</h4>
+              <p>Anunciar seus produtos ou serviços em plataformas similares ao Mercado Livre e Amazon.</p>
+            </div>
+
+            <div class="d-grid mb-4" id="Marketing-digital">
+              <h4 class="fw-bold">Marketing Digital</h4>
+              <p>Aumente sua visibilidade por criar anúncios no ambiente virtual e melhorar sua posição no Google.</p>
+            </div>
+
+            <div class="d-grid mb-4" id="Consultoria">
+              <h4 class="fw-bold">Consultoria de Marketing</h4>
+              <p>Tenha ajuda profissional para avaliar as direções necessárias para aumentar o desempenho de seu empreendimento.</p>
+            </div>
+
+            <div class="d-grid mb-4" id="Social">
+              <h4 class="fw-bold">Redes Sociais</h4>
+              <p>Produza conteúdo para criar desejo e necessidade do seu produto e serviço. Ótimo método para obter maior alcance.</p>
+            </div>
+
+            <div class="d-grid mb-4" id="Id-visual">
+              <h4 class="fw-bold">Identidade Visual da Marca</h4>
+              <p>Faça uma repaginação da identidade visual para criar reconhecimento, diferenciação, confiança e uma comunicação eficaz.</p>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+              <a href="edit-profile.html#servicos" class="btn btn-warning">Escolher outros serviços</a>
+              <a href="home.html" class="btn btn-dark">Usar essas recomendações</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+  <!-- Scripts -->
+  <!-- Libs JS -->
+<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
+
+
+<!-- Theme JS -->
+<script src="../assets/js/theme.min.js"></script>
+<script src="../assets/js/quiz.js"></script>
+
+<script>
+  var urlParams = new URLSearchParams(window.location.search);
+  var result = (urlParams.get('result')).split(",");
+  for(i=0;i<result.length;i++){
+    result[i] = parseInt(result[i])
+  }
+  console.log(result);
+
+  var jobs = classificar(result);
+
+  if(jobs.includes("Desenvolvimento WEB")){
+    document.getElementById('Dev-WEB').className = 'd-grid mb-4';
+  } else{
+    document.getElementById('Dev-WEB').className = 'd-none mb-4';
+  }
+
+  if(jobs.includes("Desenvolvimento Mobile")){
+    document.getElementById('Dev-Mob').className = 'd-grid mb-4';
+  } else{
+    document.getElementById('Dev-Mob').className = 'd-none mb-4';
+  }
+
+  if(jobs.includes("Marketplace e E-commerce")){
+    document.getElementById('Marketplace').className = 'd-grid mb-4';
+  } else{
+    document.getElementById('Marketplace').className = 'd-none mb-4';
+  }
+
+  if(jobs.includes("Marketing Digital")){
+    document.getElementById('Marketing-digital').className = 'd-grid mb-4';
+  } else{
+    document.getElementById('Marketing-digital').className = 'd-none mb-4';
+  }
+
+  if(jobs.includes("Consultoria de Marketing")){
+    document.getElementById('Consultoria').className = 'd-grid mb-4';
+  } else{
+    document.getElementById('Consultoria').className = 'd-none mb-4';
+  }
+
+  if(jobs.includes("Rede Social")){
+    document.getElementById('Social').className = 'd-grid mb-4';
+  } else{
+    document.getElementById('Social').className = 'd-none mb-4';
+  }
+
+  if(jobs.includes("Identidade Visual da Marca")){
+    document.getElementById('Id-visual').className = 'd-grid mb-4';
+  } else{
+    document.getElementById('Id-visual').className = 'd-none mb-4';
+  }
+
+</script>
+
+
+
+</body>
+
+</html>

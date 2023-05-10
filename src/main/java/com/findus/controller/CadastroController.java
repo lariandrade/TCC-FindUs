@@ -25,5 +25,16 @@ public class CadastroController {
     public String registrarPrestador() {
         return "perfil/prestador/registro-prestador";
     }
+
+    @GetMapping("/quiz")
+    public String perguntas() {
+        return "quiz/quiz";
+    }
+
+    @GetMapping("/quiz-result")
+    public String resultado() {
+        return "quiz/quiz";
+    }
+
 }
 
