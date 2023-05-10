@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head> <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -1106,19 +1106,17 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <!-- Button -->
-                                            <form action="/quiz-result" method="GET">
                                                 <div class="d-flex justify-content-between">
                                                     <button class="btn btn-secondary" onclick="courseForm.previous()">
                                                         <i class="fe fe-arrow-left"></i> Anterior
                                                     </button>
-                                                    <input type="hidden" name="result" id="result-input">
-                                                    <button type="submit" class="btn btn-primary ">
+                                                    <input type="hidden" name="resultadoRecomendacao" id="resultadoRecomendacao" oninput="calcularRecomend()">
+                                                    <a class="btn btn-primary " th:href="@{/quiz-result(result=${result})}">
                                                         Finalizar
-                                                    </button>
+                                                    </a>
                                                 </div>
-                                            </form>
-                                        </div>
+
+
                                     </form>
                                 </div>
 
@@ -1153,6 +1151,8 @@
 <script src="/js/bs-stepper.min.js"></script>
 <script src="/js/beStepper.js"></script>
 <script src="/js/quiz.js"></script>
+
+
 </body>
 
 </html>

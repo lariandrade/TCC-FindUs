@@ -2,6 +2,7 @@ package com.findus.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CadastroController {
@@ -32,8 +33,10 @@ public class CadastroController {
     }
 
     @GetMapping("/quiz-result")
-    public String resultado() {
-        return "quiz/quiz";
+    public String resultado(@RequestParam("result") String resultadoQuiz) {
+        System.out.println(resultadoQuiz);
+
+        return "quiz/quiz-result";
     }
 
 }

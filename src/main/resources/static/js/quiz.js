@@ -250,9 +250,8 @@ switch(segment){
         somar(x);
     }
 
-    //document.getElementById("result-input").value = recomend;
+    document.getElementById("resultadoRecomendacao").value = recomend;
 
-    return recomend;
 
 
   }
