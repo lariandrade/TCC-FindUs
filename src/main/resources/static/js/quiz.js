@@ -251,9 +251,9 @@ switch(segment){
     }
 
     document.getElementById("resultadoRecomendacao").value = recomend;
-
-
-
+    var resultadoRecomendacao = document.getElementById("resultadoRecomendacao").value;
+    window.location.href = "/quiz-result?resultadoRecomendacao=" + resultadoRecomendacao;
+}
   }
 
 

@@ -1110,13 +1110,12 @@
                                                     <button class="btn btn-secondary" onclick="courseForm.previous()">
                                                         <i class="fe fe-arrow-left"></i> Anterior
                                                     </button>
-                                                    <input type="hidden" name="resultadoRecomendacao" id="resultadoRecomendacao" oninput="calcularRecomend()">
-                                                    <a class="btn btn-primary " th:href="@{/quiz-result(result=${result})}">
+                                                    <input type="hidden" name="resultadoRecomendacao" id="resultadoRecomendacao">
+                                                    <button  class="btn btn-primary " onclick="calcularRecomend()">
                                                         Finalizar
-                                                    </a>
+                                                    </button >
                                                 </div>
-
-
+                                        </div>
                                     </form>
                                 </div>
 

@@ -33,7 +33,7 @@ public class CadastroController {
     }
 
     @GetMapping("/quiz-result")
-    public String resultado(@RequestParam("result") String resultadoQuiz) {
+    public String resultado(@RequestParam("resultadoRecomendacao") String resultadoQuiz) {
         System.out.println(resultadoQuiz);
 
         return "quiz/quiz-result";
