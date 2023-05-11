@@ -1,6 +1,8 @@
 package com.findus.controller;
 
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,14 +29,11 @@ public class CadastroController {
         return "perfil/prestador/registro-prestador";
     }
 
-    @GetMapping("/quiz")
-    public String perguntas() {
-        return "quiz/quiz";
-    }
-
     @GetMapping("/quiz-result")
-    public String resultado(@RequestParam("resultadoRecomendacao") String resultadoQuiz) {
-        System.out.println(resultadoQuiz);
+    public String resultado(@RequestParam("resultadoRecomendacao") String resultadoQuiz, Model model) {
+
+
+        model.addAttribute("resultadoQuiz", resultadoQuiz);
 
         return "quiz/quiz-result";
     }
