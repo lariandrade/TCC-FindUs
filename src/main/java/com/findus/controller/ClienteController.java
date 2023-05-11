@@ -1,5 +1,6 @@
 package com.findus.controller;
 
+import com.findus.exception.ClienteExistenteException;
 import com.findus.models.Cliente;
 import com.findus.repository.ClienteRepository;
 import com.findus.service.ClienteService;
@@ -29,11 +30,21 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping("/cadastrarCliente")
-    public String criarCliente(Cliente cliente, MultipartFile file) throws IOException {
-        byte[] fotoBytes = file.getBytes();
-        cliente.setUserFoto(fotoBytes);
-        clienteRepository.save(cliente);
-        return "login/login";
+    public String criarCliente(Cliente cliente, MultipartFile file, Model model) throws IOException {
+
+        try {
+            byte[] fotoBytes = file.getBytes();
+            cliente.setUserFoto(fotoBytes);
+            clienteService.save(cliente);
+
+            model.addAttribute("cliente", cliente);
+
+            return "quiz/quiz";
+
+        } catch (ClienteExistenteException e) {
+            model.addAttribute("error", e.getMessage());
+            return "perfil/cliente/registro-cliente";
+        }
     }
 
     @GetMapping("/clienteFotoPerfil/{id}")
@@ -67,7 +78,7 @@ public class ClienteController {
 
         Cliente cliente = clienteService.findById(id);
 
-        if(!file.isEmpty()){
+        if (!file.isEmpty()) {
             byte[] fotoNova = file.getBytes();
             cliente.setUserFoto(fotoNova);
         }
@@ -113,8 +124,6 @@ public class ClienteController {
 
 
     }
-
-
 
 
 }
