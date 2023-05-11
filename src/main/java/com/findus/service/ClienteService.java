@@ -1,5 +1,6 @@
 package com.findus.service;
 
+import com.findus.exception.ClienteExistenteException;
 import com.findus.exception.PrestadorNotFoundException;
 import com.findus.models.Cliente;
 import com.findus.repository.ClienteRepository;
@@ -24,6 +25,15 @@ public class ClienteService {
     }
 
     public Cliente save(Cliente cliente) {
+
+        String userEmail = cliente.getUserEmail();
+        String userCPF_CNPJ = cliente.getUserCPF_CNPJ();
+
+        // Verifica se já existe um cliente com o mesmo e-mail ou CPF
+        if (clienteRepository.existsByUserEmail(userEmail) || clienteRepository.existsByUserCpf_Cnpj(userCPF_CNPJ)) {
+            throw new ClienteExistenteException("Já existe um usuario cadastrado com o mesmo e-mail ou CPF/CNPJ");
+        }
+
         return clienteRepository.save(cliente);
     }
 
