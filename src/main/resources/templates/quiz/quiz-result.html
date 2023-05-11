@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>  <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -52,6 +52,8 @@ background-size: contain;
               <span>Obrigado por responder ao questionário!</span>
               <h2 class="mb-1 fw-bold">Nossas sugestões para você:</h2>
             </div>
+
+            <input type="hidden" name="resultadoRecomendacao" id="resultadoRecomendacao"   th:value="${resultadoQuiz}">
 
             <div class="d-grid mb-4" id="Dev-WEB">
               <h4 class="fw-bold">Desenvolvimento WEB</h4>
@@ -110,8 +112,10 @@ background-size: contain;
 <script src="/js/quiz.js"></script>
 
 <script>
-  var urlParams = new URLSearchParams(window.location.search);
-  var result = (urlParams.get('result')).split(",");
+
+ var resultadoRecomendacao = document.getElementById("resultadoRecomendacao").value;
+ var result = resultadoRecomendacao.split(",");
+
   for(i=0;i<result.length;i++){
     result[i] = parseInt(result[i])
   }

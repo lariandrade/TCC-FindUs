@@ -3,7 +3,7 @@ var x = [0,0,0,0,0,0,0];
 var resultado;
 
 //RECEBER SEGMENTO
-let segment = "Alimentos e Bebidas"; //RECEBER SEGMENTO DO BACK
+let segment = document.getElementById("segmentoCliente").value
 
 segment =  (segment.split(" ").join("")).replace(/[\r\n]/gm, '');
 switch(segment){
@@ -253,7 +253,6 @@ switch(segment){
     document.getElementById("resultadoRecomendacao").value = recomend;
     var resultadoRecomendacao = document.getElementById("resultadoRecomendacao").value;
     window.location.href = "/quiz-result?resultadoRecomendacao=" + resultadoRecomendacao;
-}
   }
 
 
