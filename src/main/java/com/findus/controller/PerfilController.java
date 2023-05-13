@@ -39,6 +39,12 @@ public class PerfilController {
             model.addAttribute("email", cliente.getUserEmail());
             model.addAttribute("userID", cliente.getUserID());
 
+            List<String> objetivos = cliente.getObjetivo();
+
+            // Adicione a lista ao modelo
+            model.addAttribute("objetivos", objetivos);
+
+
             return "perfil/cliente/perfil-cliente";
 
         } else {

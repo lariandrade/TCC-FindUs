@@ -36,6 +36,15 @@ public class QuizController {
         Cliente cliente = clienteRepository.findById(idCliente).orElse(null);
 
         if (cliente != null) {
+
+
+            for (int i = 0; i < jobs.size(); i++) {
+                String job = jobs.get(i);
+                job = job.replaceAll("\"", "").replaceAll("\\[", "").replaceAll("\\]", "");
+                jobs.set(i, job);
+            }
+
+
             cliente.getObjetivo().addAll(jobs); // Adicionar a lista de elementos à coleção existente
 
             clienteRepository.save(cliente); // Salvar o objeto Cliente atualizado no banco de dados
