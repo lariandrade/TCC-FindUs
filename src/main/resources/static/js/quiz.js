@@ -252,7 +252,8 @@ switch(segment){
 
     document.getElementById("resultadoRecomendacao").value = recomend;
     var resultadoRecomendacao = document.getElementById("resultadoRecomendacao").value;
-    window.location.href = "/quiz-result?resultadoRecomendacao=" + resultadoRecomendacao;
+    var idCliente = document.getElementById("idCliente").value;
+    window.location.href = "/quiz-result?resultadoRecomendacao=" + resultadoRecomendacao + "&idCliente=" + idCliente;
   }
 
 

@@ -38,7 +38,7 @@ public class LoginController {
         return mv;
     }
 
-    @PostMapping("/home")
+    @GetMapping("/home")
     public String autenticarUsuario(Model model, @RequestParam("userEmail") String email, @RequestParam("userSenha") String senha) {
 
         Cliente cliente = clienteRepository.findByUserEmailAndUserSenha(email, senha);

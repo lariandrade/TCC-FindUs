@@ -92,7 +92,12 @@ background-size: contain;
 
             <div class="d-flex justify-content-end gap-2">
               <a href="edit-profile.html#servicos" class="btn btn-warning">Escolher outros serviços</a>
-              <a href="home.html" class="btn btn-dark">Usar essas recomendações</a>
+              <form action="/cadastraServicoDesejado" method="POST">
+                <input type="hidden" name="jobs" id="jobsInput">
+                <input type="hidden" name="idCliente" th:value="${idCliente}">
+                <button type="submit" class="btn btn-dark">Usar essas recomendações</button>
+              </form>
+
             </div>
           </div>
         </div>
@@ -122,48 +127,58 @@ background-size: contain;
   console.log(result);
 
   var jobs = classificar(result);
+  var servicosDesejados = [];
 
   if(jobs.includes("Desenvolvimento WEB")){
     document.getElementById('Dev-WEB').className = 'd-grid mb-4';
+    servicosDesejados.push('Desenvolvimento WEB');
   } else{
     document.getElementById('Dev-WEB').className = 'd-none mb-4';
   }
 
   if(jobs.includes("Desenvolvimento Mobile")){
     document.getElementById('Dev-Mob').className = 'd-grid mb-4';
+    servicosDesejados.push('Desenvolvimento Mobile');
   } else{
     document.getElementById('Dev-Mob').className = 'd-none mb-4';
   }
 
   if(jobs.includes("Marketplace e E-commerce")){
     document.getElementById('Marketplace').className = 'd-grid mb-4';
+    servicosDesejados.push('Marketplace e E-commerce');
   } else{
     document.getElementById('Marketplace').className = 'd-none mb-4';
   }
 
   if(jobs.includes("Marketing Digital")){
     document.getElementById('Marketing-digital').className = 'd-grid mb-4';
+    servicosDesejados.push('Marketing Digital');
   } else{
     document.getElementById('Marketing-digital').className = 'd-none mb-4';
   }
 
   if(jobs.includes("Consultoria de Marketing")){
     document.getElementById('Consultoria').className = 'd-grid mb-4';
+    servicosDesejados.push('Consultoria de Marketing');
   } else{
     document.getElementById('Consultoria').className = 'd-none mb-4';
   }
 
   if(jobs.includes("Rede Social")){
     document.getElementById('Social').className = 'd-grid mb-4';
+    servicosDesejados.push('Rede Social');
   } else{
     document.getElementById('Social').className = 'd-none mb-4';
   }
 
   if(jobs.includes("Identidade Visual da Marca")){
     document.getElementById('Id-visual').className = 'd-grid mb-4';
+    servicosDesejados.push('Identidade Visual da Marca');
   } else{
     document.getElementById('Id-visual').className = 'd-none mb-4';
   }
+
+  document.getElementById('jobsInput').value = JSON.stringify(servicosDesejados);
 
 </script>
 
