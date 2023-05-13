@@ -91,7 +91,7 @@ public class ClienteController {
         cliente.setUserSegmento(clienteAtualizado.getUserSegmento());
         cliente.setUserDescricao(clienteAtualizado.getUserDescricao());
 
-        clienteService.save(cliente);
+        clienteService.update(cliente);
 
         return "redirect:/visualizarPerfil/" + clienteAtualizado.getUserEmail();
     }
