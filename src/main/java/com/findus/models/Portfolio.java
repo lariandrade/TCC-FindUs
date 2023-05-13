@@ -28,7 +28,7 @@ public class Portfolio {
     private String portOrcamento;
 
     @Lob
-    @Column(name = "portImagem", nullable = false)
+    @Column(name = "portImagem", nullable = false, columnDefinition = "LONGBLOB")
     private byte[] portImagem;
 
     @Column(name = "portClassificacao", length = 50, nullable = false)

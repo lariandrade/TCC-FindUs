@@ -37,11 +37,11 @@ public abstract class Usuario {
     @Column(name = "userTipo", length = 50, nullable = false)
     private String userTipo;
 
-    @Column(name = "userDescricao", length = 250, nullable = false)
+    @Column(name = "userDescricao", nullable = false, columnDefinition = "TEXT")
     private String userDescricao;
 
     @Lob
-    @Column(name = "userFoto", nullable = false)
+    @Column(name = "userFoto", nullable = false, columnDefinition = "LONGBLOB")
     private byte[] userFoto;
 
     public Usuario() {
