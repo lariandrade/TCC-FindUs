@@ -37,6 +37,7 @@ public class QuizController {
 
         if (cliente != null) {
 
+            cliente.getObjetivo().clear();
 
             for (int i = 0; i < jobs.size(); i++) {
                 String job = jobs.get(i);
@@ -56,6 +57,20 @@ public class QuizController {
 
         return "redirect:/home";
     }
+
+    @GetMapping("/refazerQuiz")
+    public String refazerQuiz(@RequestParam("idCliente") Long id, Model model) {
+
+
+        Cliente cliente = clienteService.findById(id);
+
+        model.addAttribute("cliente", cliente);
+
+        return "quiz/quiz";
+
+
+    }
+
 
 
 }
