@@ -86,7 +86,7 @@ public class PrestadorController {
         prestador.setUserSegmento(prestadorAtualizado.getUserSegmento());
         prestador.setUserDescricao(prestadorAtualizado.getUserDescricao());
 
-        prestadorService.save(prestador);
+        prestadorService.update(prestador);
 
         return "redirect:/visualizarPerfil/" + prestadorAtualizado.getUserEmail();
     }

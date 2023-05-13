@@ -1,6 +1,6 @@
 package com.findus.controller;
 
-import com.findus.exception.ClienteExistenteException;
+import com.findus.exception.UsuarioException;
 import com.findus.models.Cliente;
 import com.findus.repository.ClienteRepository;
 import com.findus.service.ClienteService;
@@ -41,7 +41,7 @@ public class ClienteController {
 
             return "quiz/quiz";
 
-        } catch (ClienteExistenteException e) {
+        } catch (UsuarioException e) {
             model.addAttribute("error", e.getMessage());
             return "perfil/cliente/registro-cliente";
         }

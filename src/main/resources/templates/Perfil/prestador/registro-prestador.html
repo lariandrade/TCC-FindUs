@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
@@ -179,6 +179,7 @@
                                 <div>
                                     <!-- Button -->
                                     <div class="d-grid">
+                                        <div th:if="${error != null}" th:text="${error}" class="alert alert-danger" role="alert"></div>
                                         <button type="submit" class="btn btn-primary">
                                             Criar Conta
                                         </button>
