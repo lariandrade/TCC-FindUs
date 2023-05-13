@@ -1,5 +1,6 @@
 package com.findus.controller;
 
+import com.findus.exception.UsuarioException;
 import com.findus.models.Prestador;
 import com.findus.repository.PortfolioRepository;
 import com.findus.repository.PrestadorRepository;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
 
@@ -35,11 +37,23 @@ public class PrestadorController {
 
 
     @PostMapping("/cadastrarPrestador")
-    public String criarPrestador(Prestador prestador, MultipartFile file) throws IOException {
-        byte[] fotoBytes = file.getBytes();
-        prestador.setUserFoto(fotoBytes);
-        prestadorService.save(prestador);
-        return "login/login";
+    public String criarPrestador(Prestador prestador, MultipartFile file, RedirectAttributes redirectAttributes, Model model) throws IOException {
+        try {
+            byte[] fotoBytes = file.getBytes();
+            prestador.setUserFoto(fotoBytes);
+            prestadorService.save(prestador);
+
+            //model.addAttribute("cliente", cliente);
+
+            redirectAttributes.addAttribute("userEmail", prestador.getUserEmail());
+            redirectAttributes.addAttribute("userSenha", prestador.getUserSenha());
+
+            return "redirect:/home";
+
+        } catch (UsuarioException e) {
+            model.addAttribute("error", e.getMessage());
+            return "perfil/prestador/registro-prestador";
+        }
     }
 
     @GetMapping("/prestadorFotoPerfil/{id}")
