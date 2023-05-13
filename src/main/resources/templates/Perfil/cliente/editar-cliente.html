@@ -164,13 +164,13 @@
                                         <label class="form-label" for="career">Segmento</label>
                                         <select type="text" id="career" name="userSegmento" class="form-select"
                                                 aria-label="Insira sua profissão">
-                                            <option value="Alimentos">Alimentos no geral</option>
-                                            <option value="Moda">Moda</option>
-                                            <option value="Eventos">Eventos e viagens</option>
-                                            <option value="Estetica">Estética e cuidados pessoais</option>
-                                            <option value="Tecnologia">Tecnologia</option>
-                                            <option value="Infantil">Infantil</option>
-                                            <option value="Natureza">Produtos naturais e agricultura</option>
+                                            <option value="Alimentos" th:selected="${cliente.userSegmento == 'Alimentos'}">Alimentos no geral</option>
+                                            <option value="Moda" th:selected="${cliente.userSegmento == 'Moda'}">Moda</option>
+                                            <option value="Eventos" th:selected="${cliente.userSegmento == 'Eventos'}">Eventos e viagens</option>
+                                            <option value="Estetica" th:selected="${cliente.userSegmento == 'Estetica'}">Estética e cuidados pessoais</option>
+                                            <option value="Tecnologia" th:selected="${cliente.userSegmento == 'Tecnologia'}">Tecnologia</option>
+                                            <option value="Infantil" th:selected="${cliente.userSegmento == 'Infantil'}">Infantil</option>
+                                            <option value="Natureza" th:selected="${cliente.userSegmento == 'Natureza'}">Produtos naturais e agricultura</option>
                                         </select>
                                     </div>
 

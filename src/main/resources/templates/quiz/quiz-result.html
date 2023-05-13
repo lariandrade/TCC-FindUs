@@ -91,11 +91,10 @@ background-size: contain;
             </div>
 
             <div class="d-flex justify-content-end gap-2">
-              <a href="edit-profile.html#servicos" class="btn btn-warning">Escolher outros serviços</a>
               <form action="/cadastraServicoDesejado" method="POST">
                 <input type="hidden" name="jobs" id="jobsInput">
                 <input type="hidden" name="idCliente" th:value="${idCliente}">
-                <button type="submit" class="btn btn-dark">Usar essas recomendações</button>
+                <button type="submit" class="btn btn-dark">Iniciar navegação</button>
               </form>
 
             </div>

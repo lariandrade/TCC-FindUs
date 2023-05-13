@@ -167,23 +167,13 @@
                                             <label class="form-label" for="career">Profissão</label>
                                             <select type="text" id="career" name="userSegmento" class="form-select"
                                                     aria-label="Insira sua profissão">
-                                                <option value="Desenvolvedor WEB">
-                                                    Desenvolvedor WEB
-                                                </option>
-                                                <option value="Desenvolvedor Mobile">
-                                                    Desenvolvedor Mobile
-                                                </option>
-                                                <option value="Analista de Marketing">
-                                                    Analista de Marketing
-                                                </option>
-                                                <option value="Consultor de Marketing">
-                                                    Consultor de Marketing
-                                                </option>
-                                                <option value="Designer Gráfico">
-                                                    Designer Gráfico
-                                                </option>
-                                                <option value="Designer UI/UX">Designer UI/UX</option>
-                                                <option value="Outro">Outro</option>
+                                                <option value="Desenvolvedor WEB" th:selected="${prestador.userSegmento == 'Desenvolvedor WEB'}">Desenvolvedor WEB</option>
+                                                <option value="Desenvolvedor Mobile" th:selected="${prestador.userSegmento == 'Desenvolvedor Mobile'}">Desenvolvedor Mobile</option>
+                                                <option value="Analista de Marketing" th:selected="${prestador.userSegmento == 'Analista de Marketing'}">Analista de Marketing</option>
+                                                <option value="Consultor de Marketing" th:selected="${prestador.userSegmento == 'Consultor de Marketing'}">Consultor de Marketing</option>
+                                                <option value="Designer Gráfico" th:selected="${prestador.userSegmento == 'Designer Gráfico'}">Designer Gráfico</option>
+                                                <option value="Designer UI/UX" th:selected="${prestador.userSegmento == 'Designer UI/UX'}">Designer UI/UX</option>
+                                                <option value="Outro" th:selected="${prestador.userSegmento == 'Outro'}">Outro</option>
                                             </select>
                                         </div>
                                         <div class="mb-3 col-12 col-md-12">
