@@ -86,37 +86,21 @@
                       </div>
 
                       <!-- Segment -->
+
                       <div class="mb-3 col-12 col-md-6 mt-3">
                         <label class="form-label" for="portSegmento">Segmento</label>
                         <select id="portSegmento" name="portSegmento" aria-label="Segment select" class="form-select">
-                          <option value="Alimentos e Bebidas" selected>
-                            Alimentos e Bebidas
-                          </option>
-                          <option value="Arte e Decoração">
-                            Arte e Decoração
-                          </option>
-                          <option value="Serviços">Serviços</option>
-                          <option value="Eventos e Turismo">
-                            Eventos e Turismo
-                          </option>
-                          <option value="Moda e Estética">
-                            Moda e Estética
-                          </option>
-                          <option value="Tecnologia e Inovação">
-                            Tecnologia e Inovação
-                          </option>
-                          <option value="Saúde">Saúde</option>
-                          <option value="Conveniência e Presentes">
-                            Conveniência e Presentes
-                          </option>
-                          <option value="Natureza e Pets">
-                            Natureza e Pets
-                          </option>
-                          <option value="Automóveis">Automóveis</option>
-                          <option value="Educação">Educação</option>
-                          <option value="Construção e Reforma">
-                            Construção e Reforma
-                          </option>
+                          <option value="Alimentos e Bebidas" th:selected="${portfolio.portSegmento == 'Alimentos e Bebidas'}">Alimentos e Bebidas</option>
+                          <option value="Arte e Decoração" th:selected="${portfolio.portSegmento == 'Arte e Decoração'}">Arte e Decoração</option>
+                          <option value="Automóveis" th:selected="${portfolio.portSegmento == 'Automóveis'}">Automóveis</option>
+                          <option value="Construção e Reforma" th:selected="${portfolio.portSegmento == 'Construção e Reforma'}">Construção e Reforma</option>
+                          <option value="Conveniência e Presentes" th:selected="${portfolio.portSegmento == 'Conveniência e Presentes'}">Conveniência e Presentes</option>
+                          <option value="Educação" th:selected="${portfolio.portSegmento == 'Educação'}">Educação</option>
+                          <option value="Moda e Estética" th:selected="${portfolio.portSegmento == 'Moda e Estética'}">Moda e Estética</option>
+                          <option value="Tecnologia e Inovação" th:selected="${portfolio.portSegmento == 'Tecnologia e Inovação'}">Tecnologia e Inovação</option>
+                          <option value="Saúde" th:selected="${portfolio.portSegmento == 'Saúde'}">Saúde</option>
+                          <option value="Natureza e Pets" th:selected="${portfolio.portSegmento == 'Natureza e Pets'}">Natureza e Pets</option>
+                          <option value="Serviços" th:selected="${portfolio.portSegmento == 'Serviços'}">Serviços</option>
                         </select>
                       </div>
 
