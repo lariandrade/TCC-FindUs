@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>  <!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="Codescandy">
+
+
+
+<!-- Favicon icon-->
+<link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
+
+
+<!-- Libs CSS -->
+<link href="../assets/fonts/feather/feather.css" rel="stylesheet">
+<link href="../assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+<link href="../assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" />
+<link href="../assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
+
+
+
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="../assets/css/theme.min.css">
+  <title>Login | Find Us - Digitalização de Negócios </title>
+</head>
+
+<body style="
+background-color: #f5f5f3;
+background-image: url(../assets/images/background/background.svg);
+background-repeat: repeat;
+background-size: contain;
+">
+  <!-- Page content -->
+<main>
+  <section class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center g-0 min-vh-100">
+
+      <div class="col-lg-5 col-md-8 py-8 py-xl-0">
+        <!-- Card -->
+        <div class="card shadow ">
+          <div class="card-header">
+            <h4 class="card-title mb-0">Avaliar projeto</h4>
+          </div>
+          <!-- Card body -->
+          <div class="card-body ">
+            <!-- Form -->
+            <form>
+              <!-- Message -->
+              <div class="mb-4 d-grid">
+                <div class="rate d-flex flex-row-reverse justify-content-center">
+                  <input type="radio" id="star5" name="rate" value="5" />
+                  <label for="star5" title="text">5 stars</label>
+                  <input type="radio" id="star4" name="rate" value="4" />
+                  <label for="star4" title="text">4 stars</label>
+                  <input type="radio" id="star3" name="rate" value="3" />
+                  <label for="star3" title="text">3 stars</label>
+                  <input type="radio" id="star2" name="rate" value="2" />
+                  <label for="star2" title="text">2 stars</label>
+                  <input type="radio" id="star1" name="rate" value="1" />
+                  <label for="star1" title="text">1 star</label>
+                </div>
+              </body>
+              </div>
+                	<!-- Button -->
+                  <div class="modal-footer gap-2">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary">Enviar</button>
+                  </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+  </section>
+</main>
+  <!-- Scripts -->
+  <!-- Libs JS -->
+<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
+
+
+<!-- Theme JS -->
+<script src="../assets/js/theme.min.js"></script>
+
+
+<!-- Rating Stars -->
+<style>
+  .rate {
+    float: left;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:60px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #ffc107;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #d6ac16;
+}
+</style>
+
+</body>
+
+</html>
