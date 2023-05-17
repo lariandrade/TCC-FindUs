@@ -2,106 +2,66 @@
 <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Find Us</title>
-	<meta name="author" content="tempload" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Find Us</title>
+    <meta name="Larissa e Lucas"/>
 
-	<!-- Bootstrap & Plugins CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css">
-	<link href="css/owl.theme.default.min.css" rel="stylesheet" type="text/css">
-
-	<!-- Custom CSS -->
-	<link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
-	<!-- ***** Loader Start ***** -->
-	<div id="loader">
-		<div class="loader"></div>
-	</div>
-	<!-- ***** Loader End ***** -->
+<header class="header-area light-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <a href="#" class="logo">
+                        <img src="images/logo.svg" class="dark-logo" alt="Logo FindUs"/>
+                        <img src="images/logo-white.svg" class="light-logo" alt="Logo FindUs"/>
+                    </a>
 
-	<!-- ***** Header Area Start ***** -->
-	<header class="header-area light-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<nav class="main-nav">
-						<!-- ***** Logo Start ***** -->
-						<a href="#" class="logo">
-							<img src="images/logo.svg" class="dark-logo" alt="Logo FindUs" />
-							<img src="images/logo-white.svg" class="light-logo" alt="Logo FindUs" />
-						</a>
-						<!-- ***** Logo End ***** -->
+                    <ul class="header-buttons">
+                        <li><a class="btn-nav-line" th:href="@{/login}" style="border: none;">Login</a></li>
+                        <li><a class="btn-nav-primary" th:href="@{/prestador}">Divulgar</a></li>
+                        <li><a class="btn-nav-primary" th:href="@{/cliente}"
+                               style="background-color: #FF8E66; border: #FF8E66; color: white;">Contratar</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
 
+<main>
+    <div class="welcome-area-two" id="welcome">
+        <div class="bg">
+            <img src="images/welcome-bg-two.svg" alt="" class="img-fluid">
+        </div>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12 align-self-center">
+                        <div class="text">
+                            <h1>Conecte-se, colabore e e desenvolva seu negócio</h1>
+                            <p>Encontre os profissionais ideais para transformar seu negócio físico em virtual!</p>
+                            <a th:href="@{/cliente}">CONTRATAR</a>
+                        </div>
+                    </div>
+                    <div class="offset-lg-1 offset-md-1 col-lg-6 col-md-6 col-sm-12 align-self-center">
+                        <div class="player" style="box-shadow: none;">
+                            <img src="images/photos/screen/1.jpg" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
-
-						<!-- ***** Header Buttons Start ***** -->
-						<ul class="header-buttons">
-							<li><a class="btn-nav-line" th:href="@{/login}" style="border: none;">Login</a></li>
-							<li><a class="btn-nav-primary" th:href="@{/cadastroPrestador}">Divulgar</a></li>
-							<li><a class="btn-nav-primary" th:href="@{/cadastroCliente}"
-									style="background-color: #FF8E66; border: #FF8E66; color: white;">Contratar</a>
-							</li>
-						</ul>
-						<!-- ***** Header Buttons End ***** -->
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- ***** Header Area End ***** -->
-	<main>
-		<!-- ***** Welcome Area Start ***** -->
-		<div class="welcome-area-two" id="welcome">
-			<div class="bg">
-				<img src="images/welcome-bg-two.svg" alt="" class="img-fluid">
-			</div>
-			<div class="content">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-5 col-md-5 col-sm-12 align-self-center">
-							<div class="text">
-								<h1>Conecte-se, colabore e e desenvolva seu negócio</h1>
-								<p>Encontre os profissionais ideais para transformar seu negócio físico em virtual!</p>
-								<a th:href="@{/cadastroCliente}">CONTRATAR</a>
-							</div>
-						</div>
-						<div class="offset-lg-1 offset-md-1 col-lg-6 col-md-6 col-sm-12 align-self-center">
-							<div class="player" style="box-shadow: none;">
-								<img src="images/photos/screen/1.jpg" alt="" class="img-fluid">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- ***** Welcome Area End ***** -->
-
-	</main>
-
-
-
-	<!-- jQuery -->
-	<script src="js/jquery-2.1.0.min.js"></script>
-
-	<!-- Bootstrap -->
-	<script src="js/popper.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-
-	<!-- Plugins -->
-	<script src="js/scrollreveal.min.js"></script>
-	<script src="js/parallax.min.js"></script>
-	<script src="js/imgfix.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-
-	<!-- Global Init -->
-	<script src="js/custom.js"></script>
 </body>
 
 </html>
