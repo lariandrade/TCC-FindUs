@@ -1,8 +1,10 @@
 package com.findus.controller;
 
+import com.findus.models.Cliente;
 import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
 import com.findus.repository.PortfolioRepository;
+import com.findus.repository.ClienteRepository;
 import com.findus.service.PrestadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,9 @@ public class HomeController {
     private PrestadorService prestadorService;
 
     @Autowired
+    private ClienteRepository clienteRepository;
+
+    @Autowired
     private PortfolioRepository portfolioRepository;
 
     @GetMapping("/visualizaPerfilPrestador")
@@ -26,9 +31,12 @@ public class HomeController {
 
         Prestador prestador = prestadorService.findById(idPrestador);
 
+        Cliente cliente = clienteRepository.findByUserEmail(idCliente);
+
+
         List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
 
-        model.addAttribute("emailUser", idCliente);
+        model.addAttribute("cliente", cliente);
         model.addAttribute("prestador", prestador);
         model.addAttribute("projetos", projetos);
 
