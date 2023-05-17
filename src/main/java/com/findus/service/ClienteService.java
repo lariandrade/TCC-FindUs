@@ -1,9 +1,11 @@
 package com.findus.service;
 
-import com.findus.exception.UsuarioException;
 import com.findus.exception.PrestadorNotFoundException;
+import com.findus.exception.UsuarioException;
 import com.findus.models.Cliente;
+import com.findus.models.Prestador;
 import com.findus.repository.ClienteRepository;
+import com.findus.repository.PrestadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,8 @@ import java.util.Optional;
 public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
+
+    private final PrestadorRepository prestadorRepository;
 
     public Cliente findById(Long id) {
         Optional<Cliente> cliente = clienteRepository.findById(id);
@@ -45,5 +49,14 @@ public class ClienteService {
     public void deleteById(Long id) {
 
         clienteRepository.deleteById(id);
+    }
+
+    @Autowired
+    public ClienteService(PrestadorRepository prestadorRepository) {
+        this.prestadorRepository = prestadorRepository;
+    }
+
+    public List<Prestador> filtrarPrestadoresPorObjetivo(List<String> objetivo) {
+        return prestadorRepository.findByUserSegmentoIn(objetivo);
     }
 }

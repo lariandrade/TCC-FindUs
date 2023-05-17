@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class LoginController {
 
@@ -51,12 +53,16 @@ public class LoginController {
             model.addAttribute("nomeUsuario", cliente.getUserNome());
             model.addAttribute("fotoPerfil", "clienteFotoPerfil");
             model.addAttribute("emailUser", cliente.getUserEmail());
-            return "/home";
+
+            List<Prestador> prestadores = prestadorRepository.findByUserSegmentoIn(cliente.getObjetivo());
+            model.addAttribute("prestadores", prestadores);
+
+            return "geral/home";
         } else if (prestador != null) {
             model.addAttribute("nomeUsuario", prestador.getUserNome());
             model.addAttribute("fotoPerfil", "prestadorFotoPerfil");
             model.addAttribute("emailUser", prestador.getUserEmail());
-            return "/home";
+            return "geral/home";
         } else {
             model.addAttribute("erro", "Usuário ou senha inválidos.");
             return "login/login";

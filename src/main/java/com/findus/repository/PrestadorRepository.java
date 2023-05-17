@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface PrestadorRepository extends JpaRepository<Prestador, Long> {
     Prestador findByUserEmailAndUserSenha(String userEmail, String userSenha);
 
@@ -13,5 +15,7 @@ public interface PrestadorRepository extends JpaRepository<Prestador, Long> {
 
     @Query("SELECT CASE WHEN COUNT(c) > 0 THEN true ELSE false END FROM Prestador c WHERE c.userCPF_CNPJ = :userCpf_Cnpj")
     boolean existsByUserCpf_Cnpj(@Param("userCpf_Cnpj") String userCpf_Cnpj);
+
+    List<Prestador> findByUserSegmentoIn(List<String> userSegmentos);
 
 }
