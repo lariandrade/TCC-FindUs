@@ -1,31 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>  <!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="Codescandy">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="Larissa e Lucas">
 
-
-
-<!-- Favicon icon-->
-<link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
-
-
-<!-- Libs CSS -->
-<link href="../assets/fonts/feather/feather.css" rel="stylesheet">
-<link href="../assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
-<link href="../assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" />
-<link href="../assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
-
-
-
-
-<!-- Theme CSS -->
-<link rel="stylesheet" href="../assets/css/theme.min.css">
-  <title>Login | Find Us - Digitalização de Negócios </title>
+    <link rel="stylesheet" href="/css/theme.min.css">
+    <title>Login | Find Us - Digitalização de Negócios </title>
 </head>
 
 <body style="
@@ -34,63 +18,59 @@ background-image: url(../assets/images/background/background.svg);
 background-repeat: repeat;
 background-size: contain;
 ">
-  <!-- Page content -->
+<!-- Page content -->
 <main>
-  <section class="container d-flex flex-column">
-    <div class="row align-items-center justify-content-center g-0 min-vh-100">
+    <section class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center g-0 min-vh-100">
 
-      <div class="col-lg-5 col-md-8 py-8 py-xl-0">
-        <!-- Card -->
-        <div class="card shadow ">
-          <div class="card-header">
-            <h4 class="card-title mb-0">Contatar</h4>
-          </div>
-          <!-- Card body -->
-          <div class="card-body ">
-            <!-- Form -->
-            <form>
-              <p id="time">
+            <div class="col-lg-5 col-md-8 py-8 py-xl-0">
+                <div class="card shadow ">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">Contatar</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form action="/enviar-email" method="POST" >
+                            <p id="time">
 
-              </p>
-              <!-- Message -->
-              <div class="mb-4">
-                <label for="message-text" class="col-form-label"
-                  >Escreva uma mensagem para o prestador</label
-                >
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-              	<!-- Username -->
-              <div class="mb-3">
-                <label for="email" class="form-label">E-mail</label>
-                <input type="email" id="email" class="form-control" name="email" placeholder="exemplo@email.com"
-                  required value="natural.art@gmail.com">
-              </div>
-              	<!-- Password -->
-              <div class="mb-3">
-                <label for="phone" class="form-label">Telefone</label>
-                <input type="tel" id="phone" class="form-control" name="phone" placeholder="(xx) xxxxx-xxxx"
-                  required value="(11) 91234-5698">
-              </div>
-                	<!-- Button -->
-                  <div class="modal-footer gap-2">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Cancelar
-                    </button>
-                    <button type="button" class="btn btn-primary">Enviar</button>
-                  </div>
+                            </p>
+                            <div class="mb-4">
+                                <label for="message-text" class="col-form-label">Escreva uma mensagem para o prestador</label>
+                                <textarea class="form-control" id="message-text" name="corpo"></textarea>
+                            </div>
+                            <!-- Username -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" id="email" class="form-control" name="destinatario"
+                                       placeholder="exemplo@email.com"
+                                       required value="larissa.sandrade@hotmail.com">
+                            </div>
+                            <!-- Password -->
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Telefone</label>
+                                <input type="tel" id="phone" class="form-control" name="phone"
+                                       placeholder="(xx) xxxxx-xxxx"
+                                       required value="(11) 91234-5698">
+                            </div>
+                            <!-- Button -->
+                            <div class="modal-footer gap-2">
+                                <button
+                                        type="button"
+                                        class="btn btn-secondary"
+                                        data-bs-dismiss="modal"
+                                >
+                                    Cancelar
+                                </button>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            </form>
-          </div>
         </div>
-      </div>
-  </section>
+    </section>
 </main>
-  <!-- Scripts -->
-  <!-- Libs JS -->
+<!-- Scripts -->
+<!-- Libs JS -->
 <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
 <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
@@ -114,6 +94,8 @@ background-size: contain;
   const fullTime = `${hours}:${minutes}`;
 
   time.textContent = `${formatedWeekDay}, ${formatedDay} -  ${fullTime}.`;;
+
+
 </script>
 
 </body>
