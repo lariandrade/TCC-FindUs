@@ -152,8 +152,8 @@
                             <a th:href="@{/contatarPrestador}" class="btn btn-primary"><i class="bi bi-envelope ms-1"></i> Contatar</a>
                         </div>
 
-                        <div class="mt-2 d-flex justify-content-center">
-                            <a href="@{/contatarPrestador}" class="btn btn-outline-primary d-grid align-items-center justify-content-center lh-1">
+                        <div class="mt-4 d-flex justify-content-center">
+                            <a th:href="@{/denunciarUsuario/__${prestador.userID}__}" class="btn btn-outline-primary d-grid align-items-center justify-content-center lh-1">
                                 <i class="bi bi-exclamation-octagon mx-auto"></i> Denunciar
                             </a>
                         </div>
@@ -181,9 +181,8 @@
             <div class="container-fluid mw-100">
                 <div th:if="${not #lists.isEmpty(projetos)}" class="row">
                     <div th:each="portfolio : ${projetos}" class="col-md-6">
-                        <a th:href="@{/visualizarProjeto/__${portfolio.portID}__}"
-                           style="color: black; text-decoration: none;">
-
+                        <a th:href="@{/projeto/{id}(id=${portfolio.portID},idcliente=${cliente.userID})}"
+                            style="color: black; text-decoration: none;">
                             <div class="card m-3">
                                 <img class="card-img-top img-fluid card-img-custom"
                                      th:src="@{/projetoImagem/__${portfolio.portID}__}"
