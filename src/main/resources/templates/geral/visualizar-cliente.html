@@ -16,18 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
 
 </head>
-
 <body>
-
-<style>
-    .card-img-custom {
-        width: 350px;
-        height: 200px;
-    }
-
-
-</style>
-
 
 <header>
 
@@ -67,7 +56,7 @@
                                aria-expanded="false">
                                 <div class="avatar avatar-md avatar-indicators avatar-online">
                                     <div class="avatar avatar-md avatar-indicators avatar-online">
-                                        <img alt="avatar" th:src="@{/clienteFotoPerfil/__${cliente.getUserEmail}__}"
+                                        <img alt="avatar" th:src="@{/clienteFotoPerfil/__${email}__}"
                                              class="rounded-circle"/>
                                     </div>
                                 </div>
@@ -75,9 +64,12 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <div class="dropdown-item">
                                     <div class="d-flex">
-                                        <div class="avatar avatar-md avatar-indicators avatar-online">
+                                        <div
+                                                class="avatar avatar-md avatar-indicators avatar-online"
+                                        >
                                             <div class="avatar avatar-md avatar-indicators avatar-online">
-                                                <img alt="avatar" th:src="@{/clienteFotoPerfil/__${cliente.getUserEmail}__}" class="rounded-circle"/>
+                                                <img alt="avatar" th:src="@{/clienteFotoPerfil/__${email}__}"
+                                                     class="rounded-circle"/>
                                             </div>
                                         </div>
                                         <div class="ms-3 lh-1">
@@ -110,10 +102,8 @@
             </div>
         </div>
     </nav>
-
 </header>
-<main role="main">
-
+<main>
     <!-- Page header -->
     <section
             class="pt-lg-20 pb-lg-16 pt-8 pb-12 h-20"
@@ -126,7 +116,7 @@
         "></section>
 
     <br>
-
+    <!-- Page content -->
     <section class="container-sm d-flex">
 
         <div class="col-lg-4 col-md-12 col-12">
@@ -134,25 +124,16 @@
             <div class="card">
                 <!-- Card body -->
                 <div class="card-body">
-                    <img class="img-fluid rounded-circle mb-3" th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}"
+                    <img class="img-fluid rounded-circle mb-3" th:src="@{/clienteFotoPerfil/__${email}__}"
                          alt="Foto do usuário"/>
                     <div class="card-body">
                         <h3 class="card-title">
-                            <span th:text="${prestador.getUserNome}"></span>
+                            <span th:text="${cliente.getUserNome}"></span>
                         </h3>
-                        <p id="job"><span th:text="${prestador.getUserSegmento}"></span></p>
-                        <div>
-                        </div>
+                        <p id="job"><span th:text="${cliente.getUserSegmento}"></span></p>
                         <p class="card-text">
-                            <span th:text="${prestador.getUserDescricao}"></span>
+                            <span th:text="${cliente.getUserDescricao}"></span>
                         </p>
-
-
-                        <div class="mt-2 d-grid gap-2 mx-auto">
-                            <a th:href="@{/contatarPrestador(idprestador=${prestador.userID},idcliente=${cliente.userID})}" class="btn btn-primary">
-                                <i class="bi bi-envelope ms-1"></i> Contatar
-                            </a>
-                        </div>
 
                         <div class="mt-4 d-flex justify-content-center">
                             <a th:href="@{/denunciarUsuario/__${prestador.userID}__}" class="btn btn-outline-primary d-grid align-items-center justify-content-center lh-1">
@@ -164,52 +145,87 @@
                 </div>
             </div>
         </div>
-        <br>
-        <br>
-        <div class="col m-4">
-            <div class="d-flex align-items-center me-2 mb-4">
-                <h5 class="me-4">Filtrar por</h5>
-                <select class="form-select w-25 me-4" aria-label="Filtro1">
-                    <option selected>Segmentos</option>
-                    <option value="Alimentos">Alimentos</option>
-                    <option value="Eventos">Eventos</option>
-                    <option value="Eventos">Serviços</option>
-                    <option value="Eventos">Tecnologia</option>
-                    <option value="Eventos">Moda e Beleza</option>
-                    <option value="Eventos">Saúde</option>
-                </select>
-            </div>
 
-            <div class="container-fluid mw-100">
-                <div th:if="${not #lists.isEmpty(projetos)}" class="row">
-                    <div th:each="portfolio : ${projetos}" class="col-md-6">
-                        <a th:href="@{/projeto/{id}(id=${portfolio.portID},idcliente=${cliente.userID})}"
-                            style="color: black; text-decoration: none;">
-                            <div class="card m-3">
-                                <img class="card-img-top img-fluid card-img-custom"
-                                     th:src="@{/projetoImagem/__${portfolio.portID}__}"
-                                     alt="Foto do projeto"/>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h5><span class="badge bg-secondary" th:text="${portfolio.portSegmento}"></span>
-                                        </h5>
-                                    </div>
-                                    <h5 class="card-title"><span th:text="${portfolio.portTituloPrj}"></span></h5>
-                                    <div>
-                                        <p>0 avaliações</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+        <div class="col-lg-8 col-md-12 col-12 mt-4 mb-4 mb-lg-0">
+            <div class="row p-2 mt-4 mb-6">
+                <div class="d-flex p-4" style="background-color: #FAB76E;">
+                    <div class="col-md-6">
+                        <h2>Nossa sugestão para seu negócio</h2>
+                        <ul class="text-dark" th:each="objetivo : ${cliente.objetivo}">
+                            <li><b><span th:text="${objetivo}"></span></b></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6 d-grid justify-content-end">
+                        <div class="mt-md-n10 d-flex justify-content-end">
+                            <img src="/images/suggestion-drawn.svg" alt="">
+                        </div>
 
                     </div>
                 </div>
+
             </div>
 
+            <!-- Title-->
+            <div class="row">
+                <div class="d-inline-flex col-lg-12 col-md-12 col-sm-12 col-12 mb-4 gap-2 align-items-center">
+                    <h4 class="mb-3 mb-lg-0">Últimos Contatos</h4>
+                </div>
+            </div>
 
+            <!-- Cards
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <div class="tab-content">
+                        <div
+                                class="tab-pane fade show active"
+                                id="tabPaneGrid"
+                                role="tabpanel"
+                                aria-labelledby="tabPaneGrid"
+                        >
+                            <div class="row">
+
+                                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <div class="text-center">
+                                                <img
+                                                        src="../assets/images/avatar/avatar-11.jpg"
+                                                        class="rounded-circle avatar-xl mb-3"
+                                                        alt=""
+                                                />
+                                                <h4 class="mb-0">Cleber Machado</h4>
+                                                <p class="mb-0" style="color: #504ce5">
+                                                    Desenvolvedor Web
+                                                </p>
+                                            </div>
+                                            <div
+                                                    class="d-flex justify-content-between border-bottom py-2 mt-4"
+                                            >
+                                                <span>Contratações</span>
+                                                <span class="text-dark">265</span>
+                                            </div>
+                                            <div
+                                                    class="d-flex justify-content-between border-bottom py-2"
+                                            >
+                                                <span>Avaliação</span>
+                                                <span class="text-warning">
+                                        4.2 <i class="mdi mdi-star"></i>
+                                      </span>
+                                            </div>
+                                            <div class="d-flex justify-content-between pt-2">
+                                                <span>Projetos</span>
+                                                <span class="text-dark"> 12 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
         </div>
-
-
     </section>
 </main>
 <footer class="pt-lg-10 pt-5 footer bg-white">
@@ -266,7 +282,7 @@
           break;
       }
 
-</script>
 
+</script>
 </body>
 </html>

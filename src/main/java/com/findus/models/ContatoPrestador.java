@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @Entity
@@ -15,14 +13,7 @@ public class ContatoPrestador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contID", nullable = false)
-    private Long avaID;
-
-
-    @Column(name = "contData", columnDefinition = "DATE", nullable = false)
-    private Date contData;
-
-    @Column(name = "contMensagem", columnDefinition = "TEXT", nullable = false)
-    private String contMensagem;
+    private Long contID;
 
     @Column(name = "contTelefone", length = 13, nullable = false)
     private String contTelefone;
@@ -30,10 +21,10 @@ public class ContatoPrestador {
     @Column(name = "contEmail", length = 50, nullable = false)
     private String contEmail;
 
-    @Column(name = "contIdCliente", length = 10, nullable = false)
-    private Integer contIdCliente;
+    @Column(name = "contIdCliente", nullable = false)
+    private Long contIdCliente;
 
-    @Column(name = "contIdPrestador", length = 10, nullable = false)
-    private Integer contIdPrestador;
+    @Column(name = "contIdPrestador", nullable = false)
+    private Long contIdPrestador;
 
 }

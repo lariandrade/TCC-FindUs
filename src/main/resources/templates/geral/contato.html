@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>  <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -39,25 +39,26 @@ background-size: contain;
                             </div>
                             <!-- Username -->
                             <div class="mb-3">
-                                <label for="email" class="form-label">E-mail</label>
-                                <input type="email" id="email" class="form-control" name="destinatario"
+                                <label for="email" class="form-label">E-mail para contato</label>
+                                <input type="text" id="email" class="form-control" name="emailCliente"
                                        placeholder="exemplo@email.com"
-                                       required value="larissa.sandrade@hotmail.com">
+                                       th:value="${cliente.userEmail}" required>
                             </div>
                             <!-- Password -->
                             <div class="mb-3">
-                                <label for="phone" class="form-label">Telefone</label>
-                                <input type="tel" id="phone" class="form-control" name="phone"
+                                <label for="phone" class="form-label">Telefone para contato </label>
+                                <input type="text" id="phone" class="form-control" name="telefoneCliente"
                                        placeholder="(xx) xxxxx-xxxx"
-                                       required value="(11) 91234-5698">
+                                       th:value="${cliente.userTelefone}" required>
                             </div>
                             <!-- Button -->
+
+                            <input type="hidden" name="idCliente" th:value="${cliente.userID}">
+                            <input type="hidden" name="nomeCliente" th:value="${cliente.userNome}">
+                            <input type="hidden" name="idPrestador" th:value="${prestador.userID}">
+                            <input type="hidden" name="nomePrestador" th:value="${prestador.userNome}">
                             <div class="modal-footer gap-2">
-                                <button
-                                        type="button"
-                                        class="btn btn-secondary"
-                                        data-bs-dismiss="modal"
-                                >
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                                     Cancelar
                                 </button>
                                 <button type="submit" class="btn btn-primary">Enviar</button>
