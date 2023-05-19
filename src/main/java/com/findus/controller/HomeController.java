@@ -3,11 +3,14 @@ package com.findus.controller;
 import com.findus.models.Cliente;
 import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
-import com.findus.repository.PortfolioRepository;
 import com.findus.repository.ClienteRepository;
+import com.findus.repository.PortfolioRepository;
 import com.findus.service.ClienteService;
 import com.findus.service.PortfolioService;
 import com.findus.service.PrestadorService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -98,7 +101,17 @@ public class HomeController {
 
     }
 
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        // Invalida a sessão atual do usuário
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
 
+        // Redireciona para a página de login
+        return "redirect:/login";
+    }
 
 
 }
