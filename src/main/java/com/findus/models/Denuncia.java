@@ -21,10 +21,10 @@ public class Denuncia {
     private Date denunData;
 
     @Column(name = "denunIdUsuario", length = 10, nullable = false)
-    private Integer denunIdUsuario;
+    private Long denunIdUsuario;
 
     @Column(name = "denunIdDenunciado", length = 10, nullable = false)
-    private Integer denunIdDenunciado;
+    private Long denunIdDenunciado;
 
     @Column(name = "denunMotivo", columnDefinition = "TEXT", nullable = false)
     private String denunMotivo;

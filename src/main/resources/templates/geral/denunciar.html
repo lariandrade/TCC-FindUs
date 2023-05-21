@@ -1,21 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>  <!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="Codescandy">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="Larissa e Lucas" content="Codescandy">
 
-<!-- Favicon icon-->
-<link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon/favicon.ico">
-
-
-
-<!-- Theme CSS -->
-<link rel="stylesheet" href="/css/theme.min.css">
-  <title>Login | Find Us - Digitalização de Negócios </title>
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/css/theme.min.css">
+    <title>Denuncia | Find Us - Digitalização de Negócios </title>
 </head>
 
 <body style="
@@ -24,54 +19,40 @@ background-image: url(../assets/images/background/background.svg);
 background-repeat: repeat;
 background-size: contain;
 ">
-  <!-- Page content -->
+
 <main>
-  <section class="container d-flex flex-column">
-    <div class="row align-items-center justify-content-center g-0 min-vh-100">
+    <section class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center g-0 min-vh-100">
+            <div class="col-lg-5 col-md-8 py-8 py-xl-0">
+                <div class="card shadow ">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">Denunciar</h4>
+                    </div>
+                    <div class="card-body ">
+                        <form action="/enviar-denuncia-cliente" method="POST">
+                            <div class="mb-4">
 
-      <div class="col-lg-5 col-md-8 py-8 py-xl-0">
-        <!-- Card -->
-        <div class="card shadow ">
-          <div class="card-header">
-            <h4 class="card-title mb-0">Denunciar</h4>
-          </div>
-          <!-- Card body -->
-          <div class="card-body ">
-            <!-- Form -->
-            <form>
-              <p class="card-title" id="time">
+                              <input type="hidden" name="idUsuario" th:value="${usuario.userID}">
+                              <input type="hidden" name="idDenunciado" th:value="${denunciado.userID}">
 
-              </p>
-              <!-- Message -->
-              <div class="mb-4">
-                <label for="message-text" class="col-form-label"
-                  >Motivo da Denúncia:</label
-                >
-                <textarea class="form-control" id="message-text"></textarea>
-                <p>
-                  Sua denúncia será encaminhada para análise. Assim que a avaliarmos, lhe encaminharemos um e-mail de resposta.
-                </p>
-              </div>
-                	<!-- Button -->
-                  <div class="modal-footer gap-2">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Cancelar
-                    </button>
-                    <button type="button" class="btn btn-primary">Enviar</button>
-                  </div>
+                                <label for="message-text" class="col-form-label">Motivo da Denúncia:</label>
+                                <textarea class="form-control" id="message-text" name="corpo"></textarea>
+                                <p>Sua denúncia será encaminhada para análise. Assim que a avaliarmos, lhe
+                                    encaminharemos um e-mail de resposta.</p>
+                            </div>
+                            <div class="modal-footer gap-2">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            </form>
-          </div>
         </div>
-      </div>
-  </section>
+    </section>
 </main>
-  <!-- Scripts -->
-  <!-- Libs JS -->
+<!-- Scripts -->
+<!-- Libs JS -->
 <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
 <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
@@ -95,6 +76,7 @@ background-size: contain;
   const fullTime = `${hours}:${minutes}`;
 
   time.textContent = `${formatedWeekDay}, ${formatedDay} -  ${fullTime}.`;;
+
 </script>
 
 </body>
