@@ -77,7 +77,7 @@ public class EmailController {
 
         emailService.enviarEmail(destinatario, telefone, idCliente, idPrestador, assunto, mensagemFormatada);
 
-        return "login/login";
+        return "redirect:/visualizaPerfilPrestador?idCliente=" + destinatario + "&idPrestador=" + idPrestador;
 
     }
 
