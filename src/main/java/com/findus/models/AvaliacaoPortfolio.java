@@ -19,6 +19,6 @@ public class AvaliacaoPortfolio {
     private Integer avaNota;
 
     @Column(name = "avaIdProjeto", length = 10, nullable = false)
-    private Integer avaIdProjeto;
+    private Long avaIdProjeto;
 
 }

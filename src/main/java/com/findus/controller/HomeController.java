@@ -77,18 +77,6 @@ public class HomeController {
 
     }
 
-    @GetMapping("/avaliarProjeto/{id}")
-    public String avaliaProjeto(@PathVariable("id") Long idProjeto, Model model) {
-
-        Portfolio projeto = portfolioService.findById(idProjeto);
-
-
-        model.addAttribute("projeto", projeto);
-
-        return "geral/avaliar";
-
-    }
-
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {

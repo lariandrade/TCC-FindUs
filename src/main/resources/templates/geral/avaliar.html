@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>  <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -40,7 +40,7 @@ background-size: contain;
                     <!-- Card body -->
                     <div class="card-body ">
                         <!-- Form -->
-                        <form>
+                        <form action="/avaliar-projeto" method="post">
                             <!-- Message -->
                             <div class="mb-4 d-grid">
                                 <div class="rate d-flex flex-row-reverse justify-content-center">
@@ -56,11 +56,12 @@ background-size: contain;
                                     <label for="star1" title="text">1 star</label>
                                 </div>
                             </div>
+                            <input type="hidden" name="idProjeto" th:value="${projeto.getPortID()}">
                             <!-- Button -->
                             <div class="modal-footer gap-2">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar
                                 </button>
-                                <button type="button" class="btn btn-primary">Enviar</button>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
                             </div>
                         </form>
                     </div>
