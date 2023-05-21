@@ -1,11 +1,14 @@
 package com.findus.controller;
 
 import com.findus.models.Cliente;
+import com.findus.models.ContatoPrestador;
 import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
 import com.findus.repository.ClienteRepository;
 import com.findus.repository.PortfolioRepository;
 import com.findus.repository.PrestadorRepository;
+import com.findus.service.ContatoPrestadorService;
+import com.findus.service.PrestadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,10 +24,17 @@ public class PerfilController {
     private PrestadorRepository prestadorRepository;
 
     @Autowired
+    private PrestadorService prestadorService;
+
+
+    @Autowired
     private PortfolioRepository portfolioRepository;
 
     @Autowired
     private ClienteRepository clienteRepository;
+
+    @Autowired
+    private ContatoPrestadorService contatoPrestadorService;
 
     @GetMapping("/visualizarPerfil/{id}")
     public String visualizarPrestador(@PathVariable("id") String email, Model model) {
@@ -34,6 +44,13 @@ public class PerfilController {
         Prestador prestador = prestadorRepository.findByUserEmail(email);
 
         if (cliente != null) {
+
+            ContatoPrestador contatoPrestador = contatoPrestadorService.findById(cliente.getUserID());
+
+            if(contatoPrestador != null){
+                Prestador prestadorContatado = prestadorService.findById(contatoPrestador.getContIdPrestador());
+                model.addAttribute("prestadorContatado", prestadorContatado);
+            }
 
             model.addAttribute("cliente", cliente);
             model.addAttribute("email", cliente.getUserEmail());

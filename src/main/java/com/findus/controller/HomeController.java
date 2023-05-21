@@ -89,17 +89,6 @@ public class HomeController {
 
     }
 
-    @GetMapping("/denunciarUsuario/{id}")
-    public String denunciaUsuario(@PathVariable("id") Long idProjeto, Model model) {
-
-        Portfolio projeto = portfolioService.findById(idProjeto);
-
-
-        model.addAttribute("projeto", projeto);
-
-        return "geral/denunciar";
-
-    }
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {

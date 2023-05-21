@@ -162,7 +162,8 @@
                     </div>
                 </div>
                 <div class="d-flex gap-2 mt-4">
-                    <a class="btn btn-primary btn-dark" th:href="@{/refazerQuiz(idCliente=${cliente.getUserID})}">Refazer Teste</a>
+                    <a class="btn btn-primary btn-dark" th:href="@{/refazerQuiz(idCliente=${cliente.getUserID})}">Refazer
+                        Teste</a>
                 </div>
 
             </div>
@@ -174,49 +175,20 @@
                 </div>
             </div>
 
-            <!-- Cards
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="tab-content">
-                        <div
-                                class="tab-pane fade show active"
-                                id="tabPaneGrid"
-                                role="tabpanel"
-                                aria-labelledby="tabPaneGrid"
-                        >
+                        <div class="tab-pane fade show active" id="tabPaneGrid" role="tabpanel" aria-labelledby="tabPaneGrid">
                             <div class="row">
-
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+                                <div th:each="prestadorContatado : ${prestadorContatado}" class="col-xl-4 col-lg-6 col-md-6 col-12">
                                     <div class="card mb-4">
                                         <div class="card-body">
                                             <div class="text-center">
-                                                <img
-                                                        src="../assets/images/avatar/avatar-11.jpg"
-                                                        class="rounded-circle avatar-xl mb-3"
-                                                        alt=""
-                                                />
-                                                <h4 class="mb-0">Cleber Machado</h4>
-                                                <p class="mb-0" style="color: #504ce5">
-                                                    Desenvolvedor Web
-                                                </p>
-                                            </div>
-                                            <div
-                                                    class="d-flex justify-content-between border-bottom py-2 mt-4"
-                                            >
-                                                <span>Contratações</span>
-                                                <span class="text-dark">265</span>
-                                            </div>
-                                            <div
-                                                    class="d-flex justify-content-between border-bottom py-2"
-                                            >
-                                                <span>Avaliação</span>
-                                                <span class="text-warning">
-                                        4.2 <i class="mdi mdi-star"></i>
-                                      </span>
-                                            </div>
-                                            <div class="d-flex justify-content-between pt-2">
-                                                <span>Projetos</span>
-                                                <span class="text-dark"> 12 </span>
+                                                <img th:src="@{/prestadorFotoPerfil/__${prestadorContatado.getUserEmail}__}"
+                                                     class="rounded-circle avatar-xl mb-3"
+                                                     alt="Foto do prestador"/>
+                                                <h4 class="mb-0" th:text="${prestadorContatado.getUserNome}"></h4>
+                                                <p class="mb-0" style="color: #504ce5" th:text="${prestadorContatado.getUserSegmento}"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +197,8 @@
                         </div>
                     </div>
                 </div>
-            </div>-->
+            </div>
+
         </div>
     </section>
 </main>
@@ -282,6 +255,7 @@
             "url('../images/banners/prestador/outros.png')";
           break;
       }
+
 
 
 </script>

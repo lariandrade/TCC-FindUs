@@ -1,8 +1,13 @@
 package com.findus.controller;
 
 import com.findus.models.Cliente;
+import com.findus.models.ContatoPrestador;
 import com.findus.models.Prestador;
+import com.findus.repository.ClienteRepository;
+import com.findus.repository.PortfolioRepository;
+import com.findus.repository.PrestadorRepository;
 import com.findus.service.ClienteService;
+import com.findus.service.ContatoPrestadorService;
 import com.findus.service.EmailService;
 import com.findus.service.PrestadorService;
 import jakarta.mail.MessagingException;
@@ -10,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,6 +32,18 @@ public class EmailController {
 
     @Autowired
     private ClienteService clienteService;
+
+    @Autowired
+    private PrestadorRepository prestadorRepository;
+
+    @Autowired
+    private PortfolioRepository portfolioRepository;
+
+    @Autowired
+    private ClienteRepository clienteRepository;
+
+    @Autowired
+    private ContatoPrestadorService contatoPrestadorService;
 
     @GetMapping("/contatarPrestador")
     public String contatoPrestador(@RequestParam("idprestador") Long idPrestador, @RequestParam("idcliente") Long idCliente, Model model) {
@@ -66,12 +82,12 @@ public class EmailController {
                 + "</style>"
                 + "</head><body>"
                 + "<h3>Olá, " + nomePrestador + "!</h3>"
-                + "<p>Você tem uma nova mensagem de "+nomeCliente+":</p>"
+                + "<p>Você tem uma nova mensagem de " + nomeCliente + ":</p>"
                 + "<p style=\"font-style: italic;\">" + corpo + "</p>"
                 + "<p style=\"font-weight: bold;\">Informações do cliente para contato:</p>"
-                + "<p>Email: "+destinatario+"</p>"
-                + "<p>Telefone: "+telefone+"</p>"
-                + "<a href=\"http://localhost:8090/visualizarCliente/" + idCliente + "\">"
+                + "<p>Email: " + destinatario + "</p>"
+                + "<p>Telefone: " + telefone + "</p>"
+                + "<a href=\"http://localhost:8090/visualizarCliente?idCliente="+idCliente+"&idPrestador="+idPrestador+"\">"
                 + "<button class=\"button\">Visualizar Cliente</button>"
                 + "</a></body></html>";
 
@@ -81,22 +97,35 @@ public class EmailController {
 
     }
 
-    @GetMapping("/visualizarCliente/{id}")
-    public String visualizarPrestador(@PathVariable("id") Long id, Model model) {
+    @GetMapping("/visualizarCliente")
+    public String visualizarCliente(@RequestParam("idCliente") Long idCliente, @RequestParam("idPrestador") Long idPrestador, Model model) {
 
 
-        Cliente cliente = clienteService.findById(id);
+        Cliente cliente = clienteService.findById(idCliente);
+        Prestador prestador = prestadorService.findById(idPrestador);
 
-        model.addAttribute("cliente", cliente);
-        model.addAttribute("email", cliente.getUserEmail());
-        model.addAttribute("userID", cliente.getUserID());
+        if (cliente != null) {
 
-        List<String> objetivos = cliente.getObjetivo();
+            ContatoPrestador contatoPrestador = contatoPrestadorService.findById(cliente.getUserID());
 
-        // Adicione a lista ao modelo
-        model.addAttribute("objetivos", objetivos);
+            if (contatoPrestador != null) {
+                Prestador prestadorContatado = prestadorService.findById(contatoPrestador.getContIdPrestador());
+                model.addAttribute("prestadorContatado", prestadorContatado);
+            }
 
-        return "geral/perfil-cliente";
+            model.addAttribute("cliente", cliente);
+            model.addAttribute("prestador", prestador);
+            model.addAttribute("email", prestador.getUserEmail());
+            model.addAttribute("userID", cliente.getUserID());
 
+            List<String> objetivos = cliente.getObjetivo();
+
+            // Adicione a lista ao modelo
+            model.addAttribute("objetivos", objetivos);
+
+            return "geral/visualizar-cliente";
+
+        }
+        return "não encontrou";
     }
 }
