@@ -136,8 +136,7 @@
                         </p>
 
                         <div class="mt-4 d-flex justify-content-center">
-                            <a th:href="@{/denunciarCliente/__${cliente.userID}__}"
-                               class="btn btn-outline-primary d-grid align-items-center justify-content-center lh-1">
+                            <a th:href="@{/denunciarPrestador(idprestador=${prestador.userID},idcliente=${cliente.userID})}" class="btn btn-outline-primary d-grid align-items-center justify-content-center lh-1">
                                 <i class="bi bi-exclamation-octagon mx-auto"></i> Denunciar
                             </a>
                         </div>
