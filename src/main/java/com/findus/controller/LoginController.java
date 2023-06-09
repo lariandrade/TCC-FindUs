@@ -68,16 +68,6 @@ public class LoginController {
             Map<Prestador, Integer> projetosPorPrestador = new HashMap<>();
 
 
-           /* for (Prestador prest : prestadores) {
-
-                List<Portfolio> projetos = portfolioRepository.findByPrestador(prest);
-                int totalProjetos = projetos.size();
-                projetosPorPrestador.put(prest, totalProjetos);
-
-
-            }*/
-
-
             Map<Long, Map<Long, Integer>> avaliacoesPorPrestador = new HashMap<>();
 
             for (Prestador prest : prestadores) {
