@@ -78,46 +78,40 @@ public class LoginController {
             }*/
 
 
+            Map<Long, Map<Long, Integer>> avaliacoesPorPrestador = new HashMap<>();
+
             for (Prestador prest : prestadores) {
                 List<Portfolio> portfolios = portfolioRepository.findByPrestador(prest);
-
                 Map<Long, Integer> avaliacoesPorPortfolio = new HashMap<>();
 
+                int somaAvaliacoes = 0; // Variável para armazenar a soma das avaliações por prestador
+
                 for (Portfolio portfolio : portfolios) {
-
                     List<AvaliacaoPortfolio> avaliacoes = avaliacaoRepository.findByPortfolio(portfolio);
-
                     int totalNotas = 0;
+
                     if (avaliacoes != null && !avaliacoes.isEmpty()) {
                         for (AvaliacaoPortfolio avaliacao : avaliacoes) {
                             totalNotas += avaliacao.getAvaNota();
                         }
-                        avaliacoesPorPortfolio.put(portfolio.getPortID(), totalNotas);
-                        System.out.println("Avaliações para o portfolio " + portfolio.getPortID() + ": " + avaliacoes.size());
+                        somaAvaliacoes += totalNotas; // Atualiza a soma das avaliações
                     }
 
-                    projetosPorPrestador.put(prest, portfolios.size());
-                    model.addAttribute("portfolio", portfolio); // Adicione essa linha para passar o objeto portfolio para o modelo
-                    System.out.println("Avaliação para o portfolio " + portfolio.getPortID() + ": " + totalNotas);
-
+                    avaliacoesPorPortfolio.put(portfolio.getPortID(), totalNotas);
                 }
 
+                avaliacoesPorPrestador.put(prest.getUserID(), avaliacoesPorPortfolio);
+                projetosPorPrestador.put(prest, portfolios.size());
 
-
-
-                model.addAttribute("avaliacoesPorPortfolio", avaliacoesPorPortfolio);
-                System.out.println(avaliacoesPorPortfolio);
-
-
-
+                // Armazena a soma das avaliações no modelo
+                model.addAttribute("somaAvaliacoes", somaAvaliacoes);
             }
 
+            model.addAttribute("avaliacoesPorPrestador", avaliacoesPorPrestador);
             model.addAttribute("prestadores", prestadores);
-
             model.addAttribute("projetosPorPrestador", projetosPorPrestador);
 
             return "geral/home";
-
 
 
         } else if (prestador != null) {
