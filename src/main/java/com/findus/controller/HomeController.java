@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class HomeController {
@@ -58,6 +60,15 @@ public class HomeController {
         model.addAttribute("cliente", cliente);
         model.addAttribute("prestador", prestador);
         model.addAttribute("projetos", projetos);
+
+        Map<Long, Integer> totalAvaliacoesPorProjeto = new HashMap<>();
+        for (Portfolio projeto : projetos) {
+            List<AvaliacaoPortfolio> avaliacoes = avaliarPortfolioRepository.findByAvaIdProjeto(projeto.getPortID());
+            int totalAvaliacoes = avaliacoes.size();
+            totalAvaliacoesPorProjeto.put(projeto.getPortID(), totalAvaliacoes);
+        }
+
+        model.addAttribute("totalAvaliacoesPorProjeto", totalAvaliacoesPorProjeto);
 
 
         return "geral/visualizar-prestador";

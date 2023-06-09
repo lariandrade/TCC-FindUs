@@ -1,9 +1,7 @@
 package com.findus.controller;
 
-import com.findus.models.Cliente;
-import com.findus.models.ContatoPrestador;
-import com.findus.models.Portfolio;
-import com.findus.models.Prestador;
+import com.findus.models.*;
+import com.findus.repository.AvaliarPortfolioRepository;
 import com.findus.repository.ClienteRepository;
 import com.findus.repository.PortfolioRepository;
 import com.findus.repository.PrestadorRepository;
@@ -15,7 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class PerfilController {
@@ -35,6 +35,11 @@ public class PerfilController {
 
     @Autowired
     private ContatoPrestadorService contatoPrestadorService;
+
+
+    @Autowired
+    private AvaliarPortfolioRepository avaliacaoRepository;
+
 
     @GetMapping("/visualizarPerfil/{id}")
     public String visualizarPrestador(@PathVariable("id") String email, Model model) {
@@ -62,6 +67,8 @@ public class PerfilController {
             model.addAttribute("objetivos", objetivos);
 
 
+
+
             return "perfil/cliente/perfil-cliente";
 
         } else {
@@ -73,6 +80,17 @@ public class PerfilController {
             List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
 
             model.addAttribute("projetos", projetos);
+
+            Map<Long, Integer> totalAvaliacoesPorProjeto = new HashMap<>();
+            for (Portfolio projeto : projetos) {
+                List<AvaliacaoPortfolio> avaliacoes = avaliacaoRepository.findByAvaIdProjeto(projeto.getPortID());
+                int totalAvaliacoes = avaliacoes.size();
+                totalAvaliacoesPorProjeto.put(projeto.getPortID(), totalAvaliacoes);
+            }
+
+            model.addAttribute("totalAvaliacoesPorProjeto", totalAvaliacoesPorProjeto);
+
+            System.out.println(totalAvaliacoesPorProjeto);
 
             return "perfil/prestador/perfil-prestador";
 
