@@ -21,4 +21,9 @@ public class AvaliacaoPortfolio {
     @Column(name = "avaIdProjeto", length = 10, nullable = false)
     private Long avaIdProjeto;
 
+    @ManyToOne
+    @JoinColumn(name = "portfolio_id")
+    private Portfolio portfolio;
+
+
 }

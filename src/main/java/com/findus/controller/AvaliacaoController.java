@@ -41,8 +41,11 @@ public class AvaliacaoController {
 
         AvaliacaoPortfolio avaliacaoPortfolio = new AvaliacaoPortfolio();
 
+        Portfolio portfolio = portfolioService.findById(idProjeto);
+
         avaliacaoPortfolio.setAvaIdProjeto(idProjeto);
         avaliacaoPortfolio.setAvaNota(nota);
+        avaliacaoPortfolio.setPortfolio(portfolio);
 
         avaliarPortfolioService.save(avaliacaoPortfolio);
 

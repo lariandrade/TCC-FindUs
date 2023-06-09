@@ -1,8 +1,10 @@
 package com.findus.controller;
 
+import com.findus.models.AvaliacaoPortfolio;
 import com.findus.models.Cliente;
 import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
+import com.findus.repository.AvaliarPortfolioRepository;
 import com.findus.repository.ClienteRepository;
 import com.findus.repository.PortfolioRepository;
 import com.findus.service.ClienteService;
@@ -40,6 +42,9 @@ public class HomeController {
     @Autowired
     private PortfolioRepository portfolioRepository;
 
+    @Autowired
+    private AvaliarPortfolioRepository avaliarPortfolioRepository;
+
     @GetMapping("/visualizaPerfilPrestador")
     public String visualizarPrestador(@RequestParam("idCliente") String idCliente, @RequestParam("idPrestador") Long idPrestador, Model model) {
 
@@ -69,9 +74,16 @@ public class HomeController {
 
         Cliente cliente = clienteService.findById(idCliente);
 
+
+        List<AvaliacaoPortfolio> avaliacoes = avaliarPortfolioRepository.findByAvaIdProjeto(idProjeto);
+        long totalAvaliacoes = avaliacoes.size();
+
+        model.addAttribute("totalAvaliacoes", totalAvaliacoes);
+
         model.addAttribute("portfolio", portfolio);
         model.addAttribute("prestador", prestador);
         model.addAttribute("cliente", cliente);
+
 
         return "geral/visualizar-projeto-prestador";
 

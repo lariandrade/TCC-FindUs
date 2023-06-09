@@ -1,10 +1,10 @@
 package com.findus.controller;
 
+import com.findus.models.AvaliacaoPortfolio;
 import com.findus.models.Cliente;
+import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
-import com.findus.repository.ClienteRepository;
-import com.findus.repository.PrestadorRepository;
-import com.findus.repository.UsuarioRepository;
+import com.findus.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class LoginController {
@@ -27,6 +29,13 @@ public class LoginController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private PortfolioRepository portfolioRepository;
+
+    @Autowired
+    private AvaliarPortfolioRepository avaliacaoRepository;
+
 
     @GetMapping("/")
     public ModelAndView index() {
@@ -55,9 +64,62 @@ public class LoginController {
             model.addAttribute("emailUser", cliente.getUserEmail());
 
             List<Prestador> prestadores = prestadorRepository.findByUserSegmentoIn(cliente.getObjetivo());
+
+            Map<Prestador, Integer> projetosPorPrestador = new HashMap<>();
+
+
+           /* for (Prestador prest : prestadores) {
+
+                List<Portfolio> projetos = portfolioRepository.findByPrestador(prest);
+                int totalProjetos = projetos.size();
+                projetosPorPrestador.put(prest, totalProjetos);
+
+
+            }*/
+
+
+            for (Prestador prest : prestadores) {
+                List<Portfolio> portfolios = portfolioRepository.findByPrestador(prest);
+
+                Map<Long, Integer> avaliacoesPorPortfolio = new HashMap<>();
+
+                for (Portfolio portfolio : portfolios) {
+
+                    List<AvaliacaoPortfolio> avaliacoes = avaliacaoRepository.findByPortfolio(portfolio);
+
+                    int totalNotas = 0;
+                    if (avaliacoes != null && !avaliacoes.isEmpty()) {
+                        for (AvaliacaoPortfolio avaliacao : avaliacoes) {
+                            totalNotas += avaliacao.getAvaNota();
+                        }
+                        avaliacoesPorPortfolio.put(portfolio.getPortID(), totalNotas);
+                        System.out.println("Avaliações para o portfolio " + portfolio.getPortID() + ": " + avaliacoes.size());
+                    }
+
+                    projetosPorPrestador.put(prest, portfolios.size());
+                    model.addAttribute("portfolio", portfolio); // Adicione essa linha para passar o objeto portfolio para o modelo
+                    System.out.println("Avaliação para o portfolio " + portfolio.getPortID() + ": " + totalNotas);
+
+                }
+
+
+
+
+                model.addAttribute("avaliacoesPorPortfolio", avaliacoesPorPortfolio);
+                System.out.println(avaliacoesPorPortfolio);
+
+
+
+            }
+
             model.addAttribute("prestadores", prestadores);
 
+            model.addAttribute("projetosPorPrestador", projetosPorPrestador);
+
             return "geral/home";
+
+
+
         } else if (prestador != null) {
             model.addAttribute("nomeUsuario", prestador.getUserNome());
             model.addAttribute("fotoPerfil", "prestadorFotoPerfil");

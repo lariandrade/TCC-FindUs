@@ -150,7 +150,6 @@
                         <div th:each="prestador : ${prestadores}" class="col-xl-3 col-lg-6 col-md-6 col-12">
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="tabPaneGrid" role="tabpanel" aria-labelledby="tabPaneGrid">
-
                                     <a th:href="@{/visualizaPerfilPrestador(idCliente=${emailUser},idPrestador=${prestador.getUserID})}" class="card mb-4">
                                         <div class="card-body">
                                             <div class="text-center mb-2">
@@ -158,7 +157,6 @@
                                                      style="max-width: 120px; max-height: 120px;"
                                                      th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}"
                                                      alt="Foto do prestador"/>
-
                                                 <h4 class="mb-0"><span th:text="${prestador.getUserNome}"></span></h4>
                                                 <p class="mb-0" style="color: #504ce5">
                                                     <span th:text="${prestador.getUserSegmento}"></span>
@@ -166,20 +164,21 @@
                                             </div>
                                             <div class="d-flex justify-content-between border-bottom py-2">
                                                 <span style="color: #64748b">Avaliação</span>
-                                                <span class="text-warning">4.2 <i
-                                                        class="mdi mdi-star"></i></span>
+                                                <!-- Supondo que você esteja percorrendo a lista de prestadores -->
+                                                <span th:with="projetoCount=${avaliacoesPorPortfolio.get(portfolio.getPortID())}" th:text="${projetoCount}"></span>
+
+
+
                                             </div>
                                             <div class="d-flex justify-content-between pt-2">
                                                 <span style="color: #64748b">Projetos</span>
-                                                <span class="text-dark"> 12 </span>
+                                                <span th:with="projetoCount=${projetosPorPrestador.get(prestador)}" th:text="${projetoCount}"></span>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -41,5 +43,8 @@ public class Portfolio {
     @ManyToOne
     @JoinColumn(name = "prestador_ID")
     private Prestador prestador;
+
+    @OneToMany(mappedBy = "portfolio")
+    private List<AvaliacaoPortfolio> avaliacoes;
 
 }

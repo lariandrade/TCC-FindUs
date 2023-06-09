@@ -1,7 +1,9 @@
 package com.findus.controller;
 
+import com.findus.models.AvaliacaoPortfolio;
 import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
+import com.findus.repository.AvaliarPortfolioRepository;
 import com.findus.repository.PortfolioRepository;
 import com.findus.service.PortfolioService;
 import com.findus.service.PrestadorService;
@@ -17,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class PortfolioController {
@@ -27,6 +30,9 @@ public class PortfolioController {
 
     @Autowired
     private PortfolioService portfolioService;
+
+    @Autowired
+    private AvaliarPortfolioRepository avaliarPortfolioRepository;
 
 
     @Autowired
@@ -72,6 +78,10 @@ public class PortfolioController {
 
         Prestador prestador = prestadorService.findById(portfolio.getPrestador().getUserID());
 
+        List<AvaliacaoPortfolio> avaliacoes = avaliarPortfolioRepository.findByAvaIdProjeto(idProjeto);
+        long totalAvaliacoes = avaliacoes.size();
+
+        model.addAttribute("totalAvaliacoes", totalAvaliacoes);
         model.addAttribute("portfolio", portfolio);
         model.addAttribute("prestador", prestador);
         return "perfil/projetos/visualizar-projeto";
