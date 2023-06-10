@@ -59,9 +59,7 @@ public class PerfilController {
                     model.addAttribute("prestadorContatado", prestadorContatado);
                 }
             } catch (UsuarioException e) {
-                // Tratamento quando nenhum contato é encontrado
-                // Pode ser um redirecionamento para outra página, uma mensagem de erro, etc.
-                // Por exemplo:
+
                 model.addAttribute("erroContato", "Nenhum contato encontrado.");
             }
 

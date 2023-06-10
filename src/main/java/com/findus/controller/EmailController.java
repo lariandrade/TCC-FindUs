@@ -1,5 +1,6 @@
 package com.findus.controller;
 
+import com.findus.exception.UsuarioException;
 import com.findus.models.Cliente;
 import com.findus.models.ContatoPrestador;
 import com.findus.models.Prestador;
@@ -108,11 +109,17 @@ public class EmailController {
 
         if (cliente != null) {
 
-            ContatoPrestador contatoPrestador = contatoPrestadorService.findById(cliente.getUserID());
+            try {
 
-            if (contatoPrestador != null) {
-                Prestador prestadorContatado = prestadorService.findById(contatoPrestador.getContIdPrestador());
-                model.addAttribute("prestadorContatado", prestadorContatado);
+                ContatoPrestador contatoPrestador = contatoPrestadorService.findById(cliente.getUserID());
+
+                if (contatoPrestador != null) {
+                    Prestador prestadorContatado = prestadorService.findById(contatoPrestador.getContIdPrestador());
+                    model.addAttribute("prestadorContatado", prestadorContatado);
+                }
+            } catch (UsuarioException e) {
+
+                model.addAttribute("erroContato", "Nenhum contato encontrado.");
             }
 
             model.addAttribute("cliente", cliente);
