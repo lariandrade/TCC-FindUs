@@ -33,12 +33,12 @@ public class EmailService {
     }
 
     @Async
-    public void enviarEmail(String destinatario, String telefone, Long idCliente, Long idPrestador, String assunto, String mensagemFormatada) throws MessagingException {
+    public void enviarEmail(String destinatario, String telefone, Long idCliente, Long idPrestador, String assunto, String mensagemFormatada, String emailPrestador) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
         helper.setFrom(emailUsername);
-        helper.setTo(destinatario);
+        helper.setTo(emailPrestador);
         helper.setSubject(assunto);
         helper.setText(mensagemFormatada, true); // Defina como true para permitir HTML no corpo do e-mail
 
@@ -46,7 +46,6 @@ public class EmailService {
             javaMailSender.send(message);
 
             ContatoPrestador contatoPrestador = new ContatoPrestador();
-
 
             contatoPrestador.setContTelefone(telefone);
             contatoPrestador.setContEmail(destinatario);

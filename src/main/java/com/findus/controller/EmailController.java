@@ -62,13 +62,15 @@ public class EmailController {
     }
 
     @PostMapping("/enviar-email")
-    public String enviarEmail(@RequestParam("emailCliente") String destinatario,
+    public String enviarEmail(@RequestParam("emailCliente") String emailCliente,
                               @RequestParam("telefoneCliente") String telefone,
                               @RequestParam("corpo") String corpo,
                               @RequestParam("idCliente") Long idCliente,
                               @RequestParam("idPrestador") Long idPrestador,
                               @RequestParam("nomePrestador") String nomePrestador,
                               @RequestParam("nomeCliente") String nomeCliente) throws MessagingException {
+
+        Prestador prestador = prestadorService.findById(idPrestador);
 
         String assunto = "Você tem uma nova solicitação de serviço.";
 
@@ -85,15 +87,15 @@ public class EmailController {
                 + "<p>Você tem uma nova mensagem de " + nomeCliente + ":</p>"
                 + "<p style=\"font-style: italic;\">" + corpo + "</p>"
                 + "<p style=\"font-weight: bold;\">Informações do cliente para contato:</p>"
-                + "<p>Email: " + destinatario + "</p>"
+                + "<p>Email: " + emailCliente + "</p>"
                 + "<p>Telefone: " + telefone + "</p>"
                 + "<a href=\"http://localhost:8090/visualizarCliente?idCliente="+idCliente+"&idPrestador="+idPrestador+"\">"
                 + "<button class=\"button\">Visualizar Cliente</button>"
                 + "</a></body></html>";
 
-        emailService.enviarEmail(destinatario, telefone, idCliente, idPrestador, assunto, mensagemFormatada);
+        emailService.enviarEmail(emailCliente, telefone, idCliente, idPrestador, assunto, mensagemFormatada, prestador.getUserEmail());
 
-        return "redirect:/visualizaPerfilPrestador?idCliente=" + destinatario + "&idPrestador=" + idPrestador;
+        return "redirect:/visualizaPerfilPrestador?idCliente=" + emailCliente + "&idPrestador=" + idPrestador;
 
     }
 
