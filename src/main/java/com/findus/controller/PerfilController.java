@@ -1,5 +1,6 @@
 package com.findus.controller;
 
+import com.findus.exception.UsuarioException;
 import com.findus.models.*;
 import com.findus.repository.AvaliarPortfolioRepository;
 import com.findus.repository.ClienteRepository;
@@ -42,7 +43,7 @@ public class PerfilController {
 
 
     @GetMapping("/visualizarPerfil/{id}")
-    public String visualizarPrestador(@PathVariable("id") String email, Model model) {
+    public String visualizarPerfil(@PathVariable("id") String email, Model model) {
 
 
         Cliente cliente = clienteRepository.findByUserEmail(email);
@@ -50,11 +51,18 @@ public class PerfilController {
 
         if (cliente != null) {
 
-            ContatoPrestador contatoPrestador = contatoPrestadorService.findById(cliente.getUserID());
+            try {
+                ContatoPrestador contatoPrestador = contatoPrestadorService.findById(cliente.getUserID());
 
-            if(contatoPrestador != null){
-                Prestador prestadorContatado = prestadorService.findById(contatoPrestador.getContIdPrestador());
-                model.addAttribute("prestadorContatado", prestadorContatado);
+                if (contatoPrestador != null) {
+                    Prestador prestadorContatado = prestadorService.findById(contatoPrestador.getContIdPrestador());
+                    model.addAttribute("prestadorContatado", prestadorContatado);
+                }
+            } catch (UsuarioException e) {
+                // Tratamento quando nenhum contato é encontrado
+                // Pode ser um redirecionamento para outra página, uma mensagem de erro, etc.
+                // Por exemplo:
+                model.addAttribute("erroContato", "Nenhum contato encontrado.");
             }
 
             model.addAttribute("cliente", cliente);
