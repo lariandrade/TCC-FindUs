@@ -171,8 +171,9 @@
 
                                                         <!-- Calcular a média das avaliações -->
                                                         <div th:with="mediaAvaliacoes=${#aggregates.avg(avaliacoes)}">
-                                                            <span class="text-warning" th:text="${#numbers.formatDecimal(mediaAvaliacoes, 0, 'COMMA',2,'POINT')}"></span>
+                                                            <span class="text-warning" th:text="${mediaAvaliacoes != null && mediaAvaliacoes != 0 ? #numbers.formatDecimal(mediaAvaliacoes, 0, 'COMMA', 2, 'POINT') : '0.00'}"></span>
                                                         </div>
+
 
                                                     </div>
                                                 </div>
