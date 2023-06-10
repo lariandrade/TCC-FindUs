@@ -161,7 +161,7 @@ background-size: contain;
             <div class="row">
                 <div class="container mt-n16 mb-4 mb-lg-0">
                     <div class="d-flex justify-content-end mb-4 gap-2">
-                        <a class="btn btn-light" th:href="@{/avaliarProjeto/__${portfolio.portID}__}">Avaliar Projeto</a>
+                        <a class="btn btn-light" th:href="@{/avaliarProjeto/{id}(id=${portfolio.portID},userID=${cliente.userID})}">Avaliar Projeto</a>
                     </div>
                     <!-- Card -->
                     <div class="card rounded-3">
