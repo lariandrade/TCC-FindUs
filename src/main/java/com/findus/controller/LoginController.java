@@ -55,8 +55,6 @@ public class LoginController {
         Cliente cliente = clienteRepository.findByUserEmailAndUserSenha(email, senha);
         Prestador prestador = prestadorRepository.findByUserEmailAndUserSenha(email, senha);
 
-        String tipoUsuario;
-
         if (cliente != null) {
 
             model.addAttribute("nomeUsuario", cliente.getUserNome());
@@ -105,11 +103,58 @@ public class LoginController {
 
 
         } else if (prestador != null) {
+
+
+            //tras todos os prestadores exeto o atual
+            List<Prestador> prestadores = prestadorRepository.findAllExceptId(prestador.getUserID());
+
+
+            Map<Prestador, Integer> projetosPorPrestador = new HashMap<>();
+
+            Map<Long, Map<Long, Integer>> avaliacoesPorPrestador = new HashMap<>();
+
+            for (Prestador prest : prestadores) {
+                List<Portfolio> portfolios = portfolioRepository.findByPrestador(prest);
+                Map<Long, Integer> avaliacoesPorPortfolio = new HashMap<>();
+
+                int somaAvaliacoes = 0; // Variável para armazenar a soma das avaliações por prestador
+
+                for (Portfolio portfolio : portfolios) {
+                    List<AvaliacaoPortfolio> avaliacoes = avaliacaoRepository.findByPortfolio(portfolio);
+                    int totalNotas = 0;
+
+                    if (avaliacoes != null && !avaliacoes.isEmpty()) {
+                        for (AvaliacaoPortfolio avaliacao : avaliacoes) {
+                            totalNotas += avaliacao.getAvaNota();
+                        }
+                        somaAvaliacoes += totalNotas; // Atualiza a soma das avaliações
+                    }
+
+                    avaliacoesPorPortfolio.put(portfolio.getPortID(), totalNotas);
+                }
+
+                avaliacoesPorPrestador.put(prest.getUserID(), avaliacoesPorPortfolio);
+                projetosPorPrestador.put(prest, portfolios.size());
+
+                // Armazena a soma das avaliações no modelo
+                model.addAttribute("somaAvaliacoes", somaAvaliacoes);
+            }
+
+            model.addAttribute("avaliacoesPorPrestador", avaliacoesPorPrestador);
+            model.addAttribute("prestadores", prestadores);
+            model.addAttribute("projetosPorPrestador", projetosPorPrestador);
+
+
             model.addAttribute("nomeUsuario", prestador.getUserNome());
             model.addAttribute("fotoPerfil", "prestadorFotoPerfil");
             model.addAttribute("emailUser", prestador.getUserEmail());
             return "geral/home";
+
+
+
+
         } else {
+
             model.addAttribute("erro", "Usuário ou senha inválidos.");
             return "login/login";
         }
