@@ -1,7 +1,9 @@
 package com.findus.controller;
 
 import com.findus.exception.UsuarioException;
+import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
+import com.findus.repository.AvaliarPortfolioRepository;
 import com.findus.repository.PortfolioRepository;
 import com.findus.repository.PrestadorRepository;
 import com.findus.service.PrestadorService;
@@ -21,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class PrestadorController {
@@ -33,6 +36,10 @@ public class PrestadorController {
 
     @Autowired
     private PrestadorRepository prestadorRepository;
+
+
+    @Autowired
+    private AvaliarPortfolioRepository avaliarPortfolioRepository;
 
 
 
@@ -124,13 +131,23 @@ public class PrestadorController {
 
         Long idPrest = Long.parseLong(prestID);
 
+        //filtra o prestador por ID
         Prestador prestador = prestadorService.findById(idPrest);
 
+        //lista todos os projetos do prestador
+        List<Portfolio> portfolios = prestador.getProjetos();
+
+        //deleta todas as avaliações dos projetos do prestador
+        for (Portfolio portfolio : portfolios) {
+            avaliarPortfolioRepository.deleteByPortfolio(portfolio);
+        }
+
+        //deleta todos os projetos do prestador
         portfolioRepository.deleteByPrestador(prestador);
+        //deleta o prestador
         prestadorService.deleteById(idPrest);
 
         return "redirect:/login";
-
 
     }
 
