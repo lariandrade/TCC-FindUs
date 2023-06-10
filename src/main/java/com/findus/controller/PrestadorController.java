@@ -1,9 +1,11 @@
 package com.findus.controller;
 
 import com.findus.exception.UsuarioException;
+import com.findus.models.ContatoPrestador;
 import com.findus.models.Portfolio;
 import com.findus.models.Prestador;
 import com.findus.repository.AvaliarPortfolioRepository;
+import com.findus.repository.ContatoPrestadorRepository;
 import com.findus.repository.PortfolioRepository;
 import com.findus.repository.PrestadorRepository;
 import com.findus.service.PrestadorService;
@@ -40,6 +42,10 @@ public class PrestadorController {
 
     @Autowired
     private AvaliarPortfolioRepository avaliarPortfolioRepository;
+
+    @Autowired
+    private ContatoPrestadorRepository contatoPrestadorRepository;
+
 
 
 
@@ -129,7 +135,17 @@ public class PrestadorController {
     @GetMapping("/deletaPrestador/{id}")
     public String excluirPrestador(@PathVariable("id") String prestID) {
 
+
         Long idPrest = Long.parseLong(prestID);
+
+
+        //filtra todos os contatos feitos ao prestador
+        List<ContatoPrestador> contatos = contatoPrestadorRepository.findByContIdPrestador(idPrest);
+
+        //deleta todos os contatos
+        for (ContatoPrestador contato : contatos) {
+            contatoPrestadorRepository.delete(contato);
+        }
 
         //filtra o prestador por ID
         Prestador prestador = prestadorService.findById(idPrest);
