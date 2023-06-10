@@ -13,4 +13,6 @@ public interface AvaliarPortfolioRepository extends JpaRepository<AvaliacaoPortf
 
     List<AvaliacaoPortfolio> findByPortfolio(Portfolio portfolio);
 
+    void deleteByPortfolio(Portfolio portfolio);
+
 }

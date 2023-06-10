@@ -8,13 +8,6 @@
     <meta name="keywords" content="">
     <meta name="Larissa e Lucas" content="Codescandy">
 
-    <!-- Libs CSS -->
-    <link href="../assets/fonts/feather/feather.css" rel="stylesheet">
-    <link href="../assets/libs/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
-    <link href="../assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet"/>
-    <link href="../assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet">
-
-
     <!-- Theme CSS -->
     <link rel="stylesheet" href="/css/theme.min.css">
     <title>Avaliar | Find Us - Digitalização de Negócios </title>
@@ -57,6 +50,7 @@ background-size: contain;
                                 </div>
                             </div>
                             <input type="hidden" name="idProjeto" th:value="${projeto.getPortID()}">
+                            <input type="hidden" name="userID" th:value="${userID}">
                             <!-- Button -->
                             <div class="modal-footer gap-2">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar
