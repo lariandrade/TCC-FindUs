@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public interface PrestadorRepository extends JpaRepository<Prestador, Long> {
     Prestador findByUserEmailAndUserSenha(String userEmail, String userSenha);
@@ -17,5 +18,11 @@ public interface PrestadorRepository extends JpaRepository<Prestador, Long> {
     boolean existsByUserCpf_Cnpj(@Param("userCpf_Cnpj") String userCpf_Cnpj);
 
     List<Prestador> findByUserSegmentoIn(List<String> userSegmentos);
+
+    default List<Prestador> findAllExceptId(Long idEsconder) {
+        return findAll().stream()
+                .filter(prestador -> !prestador.getUserID().equals(idEsconder))
+                .collect(Collectors.toList());
+    }
 
 }
