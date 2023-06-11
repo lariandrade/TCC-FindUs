@@ -1,77 +1,72 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Find Us</title>
-    <meta name="Larissa e Lucas"/>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-
-
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="Larissa e Lucas"/>
+	<link rel="stylesheet" href="/css/theme.min.css" />
+	<title>Login | Find Us - Digitalização de Negócios</title>
 </head>
 
-<body>
+<body
+		style="
+			background-color: #f5f5f3;
+			background-image: url(images/background.svg);
+			background-repeat: repeat;
+			background-size: contain;
+		"
+>
+<!-- Page content -->
+<main>
+	<section class="container d-flex flex-column">
+		<div
+				class="row align-items-center justify-content-center g-0 min-vh-100"
+		>
+			<div class="col-lg-5 col-md-8 py-8 py-xl-0">
+				<!-- Card -->
+				<div class="card shadow">
+					<!-- Card body -->
+					<div class="card-body p-6">
+						<div class="mb-3">
+							<h1 class="mb-1 fw-bold">Bem-vindo(a) de volta!</h1>
+						</div>
+						<!-- Form -->
+						<form action="/home" method="GET">
+							<div class="mb-3">
+								<label for="email" class="form-label">E-mail</label>
+								<input type="email" id="email" class="form-control" name="userEmail" placeholder="Insira aqui seu e-mail" required/>
+							</div>
+							<div class="mb-3">
+								<label for="password" class="form-label">Senha</label>
+								<input type="password" id="password" class="form-control" name="userSenha" placeholder="Insira aqui sua senha" required/>
 
-	<header class="header-area light-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<nav class="main-nav">
-						<a href="index.html" class="logo">
-							<img src="images/logo.svg" class="dark-logo" alt="Logo FindUs"/>
-							<img src="images/logo-white.svg" class="light-logo" alt="Logo FindUs"/>
-						</a>
-					</nav>
+							</div>
+							<div th:if="${erro != null}" th:text="${erro}" class="alert alert-danger" role="alert"></div>
+							<div class="d-lg-flex align-items-center mb-4" style="text-align: end;">
+								<div>
+									<a th:href="@{/remember}">Esqueceu a senha?</a>
+								</div>
+							</div>
+							<div>
+								<!-- Button -->
+								<div class="d-grid">
+									<button type="submit" class="btn btn-warning">
+										Entrar
+									</button>
+								</div>
+							</div>
+							<hr class="my-4" />
+							<div class="mt-4 text-center">
+										<span>Não possui uma conta ainda?
+											<a th:href="@{/cliente}" class="ms-1">Cadastre-se</a>
+										</span>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</header>
-	<div class="container" id="login">
-		<div class="row">
-			<div class="col-lg-6 mobile-bottom-fix align-self-center">
-				<br><br><br>
-				<h2>Bem vindo(a) de volta!</h2>
-				<br>
-				<br>
-				<form action="/home" method="GET">
-					<div class="contact-form">
-						<div class="row">
-							<div class="col-lg-12">
-								<label>E-mail</label>
-								<input type="text" name="userEmail" placeholder="Insira aqui seu e-mail">
-							</div>
-							<div class="col-lg-12">
-								<label>Senha</label>
-								<input type="password" name="userSenha" placeholder="Insira aqui sua senha">
-								<div th:if="${erro != null}" th:text="${erro}" class="alert alert-danger"
-									 role="alert"></div>
-							</div>
-
-							<div class="col-lg-12">
-								<button class="primary-btn" style="width: 100%;">Entrar</button>
-							</div>
-							<div class="col-lg-12">
-								<br>
-								<a th:href="@{/remember}">Esqueceu sua senha?</a>
-							</div>
-							<div class="col-lg-12" style="align-items: center;">
-								<br>
-								<p>Não possui uma conta? <a th:href="@{/cliente}">Cadastre-se</a></p>
-							</div>
-						</div>
-					</div>
-				</form>
-
-			</div>
-
-			<div class="col-lg-6 mobile-bottom-fix align-self-center">
-				<img src="images/photos/screen/1.jpg" alt="" class="img-fluid">
-			</div>
-		</div>
-	</div>
+	</section>
+</main>
 </body>
 </html>
