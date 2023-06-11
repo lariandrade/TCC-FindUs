@@ -60,7 +60,7 @@ public class AvaliacaoController {
         Cliente cliente = clienteService.findById(idCliente);
 
 
-       return "redirect:/visualizaPerfilPrestador?idCliente=" + cliente.getUserEmail() + "&idPrestador=" + idPrestador;
+       return "redirect:/visualizaPerfilPrestador?idUsuario=" + cliente.getUserEmail() + "&idPrestador=" + idPrestador;
 
 
 

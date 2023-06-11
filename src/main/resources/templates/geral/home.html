@@ -150,7 +150,7 @@
                         <div th:each="prestador : ${prestadores}" class="col-xl-3 col-lg-6 col-md-6 col-12">
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="tabPaneGrid" role="tabpanel" aria-labelledby="tabPaneGrid">
-                                    <a th:href="@{/visualizaPerfilPrestador(idCliente=${emailUser},idPrestador=${prestador.getUserID})}" class="card mb-4">
+                                    <a th:href="@{/visualizaPerfilPrestador(idUsuario=${emailUser},idPrestador=${prestador.getUserID})}" class="card mb-4">
                                         <div class="card-body">
                                             <div class="text-center mb-2">
                                                 <img class="rounded-circle avatar-xl mb-3 img-fluid"

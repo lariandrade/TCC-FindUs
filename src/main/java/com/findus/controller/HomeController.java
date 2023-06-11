@@ -7,6 +7,7 @@ import com.findus.models.Prestador;
 import com.findus.repository.AvaliarPortfolioRepository;
 import com.findus.repository.ClienteRepository;
 import com.findus.repository.PortfolioRepository;
+import com.findus.repository.PrestadorRepository;
 import com.findus.service.ClienteService;
 import com.findus.service.PortfolioService;
 import com.findus.service.PrestadorService;
@@ -30,6 +31,10 @@ public class HomeController {
     @Autowired
     private PrestadorService prestadorService;
 
+    @Autowired
+    private PrestadorRepository prestadorRepository;
+
+
 
     @Autowired
     private PortfolioService portfolioService;
@@ -48,30 +53,56 @@ public class HomeController {
     private AvaliarPortfolioRepository avaliarPortfolioRepository;
 
     @GetMapping("/visualizaPerfilPrestador")
-    public String visualizarPrestador(@RequestParam("idCliente") String idCliente, @RequestParam("idPrestador") Long idPrestador, Model model) {
+    public String visualizarPrestador(@RequestParam("idUsuario") String idUser, @RequestParam("idPrestador") Long idPrestador, Model model) {
 
         Prestador prestador = prestadorService.findById(idPrestador);
 
-        Cliente cliente = clienteRepository.findByUserEmail(idCliente);
+        Cliente cliente = clienteRepository.findByUserEmail(idUser);
+
+        if(cliente != null){
 
 
-        List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
+            List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
 
-        model.addAttribute("cliente", cliente);
-        model.addAttribute("prestador", prestador);
-        model.addAttribute("projetos", projetos);
+            model.addAttribute("cliente", cliente);
+            model.addAttribute("prestador", prestador);
+            model.addAttribute("projetos", projetos);
 
-        Map<Long, Integer> totalAvaliacoesPorProjeto = new HashMap<>();
-        for (Portfolio projeto : projetos) {
-            List<AvaliacaoPortfolio> avaliacoes = avaliarPortfolioRepository.findByAvaIdProjeto(projeto.getPortID());
-            int totalAvaliacoes = avaliacoes.size();
-            totalAvaliacoesPorProjeto.put(projeto.getPortID(), totalAvaliacoes);
+            Map<Long, Integer> totalAvaliacoesPorProjeto = new HashMap<>();
+            for (Portfolio projeto : projetos) {
+                List<AvaliacaoPortfolio> avaliacoes = avaliarPortfolioRepository.findByAvaIdProjeto(projeto.getPortID());
+                int totalAvaliacoes = avaliacoes.size();
+                totalAvaliacoesPorProjeto.put(projeto.getPortID(), totalAvaliacoes);
+            }
+
+            model.addAttribute("totalAvaliacoesPorProjeto", totalAvaliacoesPorProjeto);
+
+
+            return "geral/visualizar-prestador";
+
+        } else {
+
+            List<Portfolio> projetos = portfolioRepository.findByPrestador(prestador);
+
+            model.addAttribute("prestador", prestador);
+            model.addAttribute("projetos", projetos);
+
+            Map<Long, Integer> totalAvaliacoesPorProjeto = new HashMap<>();
+            for (Portfolio projeto : projetos) {
+                List<AvaliacaoPortfolio> avaliacoes = avaliarPortfolioRepository.findByAvaIdProjeto(projeto.getPortID());
+                int totalAvaliacoes = avaliacoes.size();
+                totalAvaliacoesPorProjeto.put(projeto.getPortID(), totalAvaliacoes);
+            }
+
+            model.addAttribute("totalAvaliacoesPorProjeto", totalAvaliacoesPorProjeto);
+
+            Prestador usuario = prestadorRepository.findByUserEmail(idUser);
+
+            model.addAttribute("usuario", usuario);
+
+
+            return "geral/visualizar-perfil-prestador";
         }
-
-        model.addAttribute("totalAvaliacoesPorProjeto", totalAvaliacoesPorProjeto);
-
-
-        return "geral/visualizar-prestador";
 
     }
 

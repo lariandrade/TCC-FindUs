@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Visualizar Perfil</title>
+
+
+    <link rel="stylesheet" href="/css/theme.min.css"/>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<style>
+    .card-img-custom {
+        width: 350px;
+        height: 200px;
+    }
+
+
+</style>
+
+
+<header>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-default">
+        <div class="container-fluid px-0">
+            <img src="../images/logo.svg" class="dark-logo" alt="Logo FindUs"/>
+
+            <!-- Button -->
+            <button
+                    class="navbar-toggler collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbar-default"
+                    aria-controls="navbar-default"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <span class="icon-bar top-bar mt-0"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbar-default">
+
+                <div class="ms-auto d-flex align-items-center">
+                    <form class="mt-3 mt-lg-0 ms-lg-3 d-flex align-items-center">
+                        <span class="position-absolute ps-3 search-icon">
+                         <i class="bi bi-search"></i>
+                        </span>
+                        <input type="search" class="form-control ps-6" placeholder="Pesquisar"/>
+                    </form>
+
+                    <ul class="navbar-nav navbar-right-wrap ms-2 d-none d-lg-block">
+                        <li class="dropdown ms-2 d-inline-block">
+                            <a class="rounded-circle" href="#" data-bs-toggle="dropdown" data-bs-display="static"
+                               aria-expanded="false">
+                                <div class="avatar avatar-md avatar-indicators avatar-online">
+                                    <div class="avatar avatar-md avatar-indicators avatar-online">
+                                        <img alt="avatar" th:src="@{/prestadorFotoPerfil/__${usuario.getUserEmail}__}"
+                                             class="rounded-circle"/>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <div class="dropdown-item">
+                                    <div class="d-flex">
+                                        <div class="avatar avatar-md avatar-indicators avatar-online">
+                                            <div class="avatar avatar-md avatar-indicators avatar-online">
+                                                <img alt="avatar" th:src="@{/prestadorFotoPerfil/__${usuario.getUserEmail}__}" class="rounded-circle"/>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3 lh-1">
+                                            <h5 class="mb-1"><span th:text="${usuario.getUserNome}"></span></h5>
+                                            <p class="mb-0 text-muted"><span th:text="${usuario.getUserEmail}"></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-divider"></div>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="dropdown-item" href="../pages/profile-edit.html">
+                                            <i class="bi bi-house me-2"></i>Home
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="dropdown-divider"></div>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="dropdown-item" th:href="@{/logout}">
+                                            <i class="bi bi-power me-2"></i>Sair
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</header>
+<main role="main">
+
+    <!-- Page header -->
+    <section
+            class="pt-lg-20 pb-lg-16 pt-8 pb-12 h-20"
+            id="main-banner"
+            style="
+          background-image: url(../images/banners/);
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        "></section>
+
+    <br>
+
+    <section class="container-sm d-flex">
+
+        <div class="col-lg-4 col-md-12 col-12">
+            <!-- Card -->
+            <div class="card">
+                <!-- Card body -->
+                <div class="card-body">
+                    <img class="img-fluid rounded-circle mb-3" th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}"
+                         alt="Foto do usuário"/>
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <span th:text="${prestador.getUserNome}"></span>
+                        </h3>
+                        <p id="job"><span th:text="${prestador.getUserSegmento}"></span></p>
+                        <div>
+                        </div>
+                        <p class="card-text">
+                            <span th:text="${prestador.getUserDescricao}"></span>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="col m-4">
+            <div class="d-flex align-items-center me-2 mb-4">
+                <h5 class="me-4">Filtrar por</h5>
+                <select class="form-select w-25 me-4" aria-label="Filtro1">
+                    <option selected></option>
+                    <option value="Alimentos">Alimentos</option>
+                    <option value="Eventos">Eventos</option>
+                    <option value="Eventos">Serviços</option>
+                    <option value="Eventos">Tecnologia</option>
+                    <option value="Eventos">Moda e Beleza</option>
+                    <option value="Eventos">Saúde</option>
+                </select>
+            </div>
+
+            <div class="container-fluid mw-100">
+                <div th:if="${not #lists.isEmpty(projetos)}" class="row">
+                    <div th:each="portfolio : ${projetos}" class="col-md-6">
+                        <a th:href="@{/projeto/{id}(id=${portfolio.portID},idcliente=${usuario.userID})}"
+                            style="color: black; text-decoration: none;">
+                            <div class="card m-3">
+                                <img class="card-img-top img-fluid card-img-custom"
+                                     th:src="@{/projetoImagem/__${portfolio.portID}__}"
+                                     alt="Foto do projeto"/>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5><span class="badge bg-secondary" th:text="${portfolio.portSegmento}"></span>
+                                        </h5>
+                                    </div>
+                                    <h5 class="card-title"><span th:text="${portfolio.portTituloPrj}"></span></h5>
+                                    <div>
+                                        <p><span th:text="${totalAvaliacoesPorProjeto[portfolio.portID]}"></span> avaliações</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </section>
+</main>
+<footer class="pt-lg-10 pt-5 footer bg-white">
+    <div class="container">
+        <div class="row align-items-center g-0 border-top py-2">
+            <!-- Desc -->
+            <div class="col-md-6 col-12 text-center text-md-start">
+                <span>© <span id="copyright">
+                    <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                </span>Find Us. Todos Direitos Reservados.</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Banner Img -->
+<script>
+      const job = document.getElementById("job").textContent;
+
+      switch (job) {
+        case "Analista de Marketing":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/analista-de-marketing.png')";
+          break;
+
+        case "Consultor de Marketing":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/consultor-de-marketing.png')";
+          break;
+
+        case "Designer Gráfico":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/designer-grafico.png')";
+          break;
+
+        case "Designer UI/UX":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/designer-uiux.png')";
+          break;
+
+        case "Desenvolvedor WEB":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/dev-web.png')";
+          break;
+
+        case "Desenvolvedor Mobile":
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/dev-mobile.png')";
+          break;
+
+        default:
+          document.getElementById("main-banner").style.backgroundImage =
+            "url('../images/banners/prestador/outros.png')";
+          break;
+      }
+
+</script>
+
+</body>
+</html>
