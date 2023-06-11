@@ -1,67 +1,262 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
-
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml" style="overflow-x: hidden;">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Find Us</title>
-    <meta name="Larissa e Lucas"/>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme.min.css" />
+    <link href="../../assets/libs/tiny-slider/dist/tiny-slider.css" rel="stylesheet"
+    />
+    <title>Find Us - Digitalização de Negócios</title>
 </head>
 
-<body>
+<body class="bg-white">
 
-<header class="header-area light-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <a href="#" class="logo">
-                        <img src="images/logo.svg" class="dark-logo" alt="Logo FindUs"/>
-                        <img src="images/logo-white.svg" class="light-logo" alt="Logo FindUs"/>
-                    </a>
+<!-- navbar login -->
+<nav class="navbar navbar-expand-lg navbar-default">
+    <div class="container-fluid px-0">
+        <div class="d-flex">
+            <a class="navbar-brand" href="#"><img src="images/logo.svg" alt="Find Us - Digitalização de Negócios"/></a>
+        </div>
 
-                    <ul class="header-buttons">
-                        <li><a class="btn-nav-line" th:href="@{/login}" style="border: none;">Login</a></li>
-                        <li><a class="btn-nav-primary" th:href="@{/prestador}">Divulgar</a></li>
-                        <li><a class="btn-nav-primary" th:href="@{/cliente}"
-                               style="background-color: #FF8E66; border: #FF8E66; color: white;">Contratar</a>
-                        </li>
-                    </ul>
-                </nav>
+        <!-- Button -->
+        <button
+                class="navbar-toggler collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbar-default"
+                aria-controls="navbar-default"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="icon-bar top-bar mt-0"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+        </button>
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="navbar-default">
+            <div class="ms-auto mt-3 mt-lg-0">
+                <div class="d-flex align-items-center">
+                    <a th:href="@{/login}" class="btn btn-primary-ligh ms-3">Entrar</a>
+                    <a th:href="@{/prestador}" class="btn btn-light-primary ms-3">Divulgar Serviços</a>
+                    <a th:href="@{/cliente}" class="btn btn-primary ms-1">Contratar Serviços</a>
+                </div>
             </div>
         </div>
     </div>
-</header>
+</nav>
 
+<!-- section -->
 <main>
-    <div class="welcome-area-two" id="welcome">
-        <div class="bg">
-            <img src="images/welcome-bg-two.svg" alt="" class="img-fluid">
+    <section class="py-lg-13 py-8">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row align-items-center">
+                <!-- col -->
+                <div class="col-lg-6">
+                    <div class="">
+                        <!-- heading -->
+                        <div class="position-relative">
+                            <img
+                                    src="images/leaf_index.svg"
+                                    class="position-absolute ms-xl-12 ms-n6 mt-n18"
+                                    style="z-index: -100 !important"
+                            />
+                            <h1 class="display-3 fw-bold mb-3">
+                                Transforme seu negócio para a Era Digital.
+                            </h1>
+                        </div>
+
+                        <!-- para -->
+                        <p class="pe-lg-10 mb-5">
+                            Encontre os melhores profissionais para expandir sua presença
+                            online e atingir novos clientes!
+                        </p>
+                        <!-- btn -->
+                        <a th:href="@{/cliente}" class="btn btn-primary"
+                        >Comece agora <i class="fe fe-arrow-right"></i
+                        ></a>
+                    </div>
+                </div>
+                <!-- col -->
+                <div class="col-lg-6 d-flex justify-content-center">
+                    <!-- images -->
+                    <div class="">
+                        <img src="images/Landing_Banner.svg" style="width: 50vw;margin-top: -5rem;margin-left: 10rem;z-index: -100;"
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 col-md-5 col-sm-12 align-self-center">
-                        <div class="text">
-                            <h1>Conecte-se, colabore e e desenvolva seu negócio</h1>
-                            <p>Encontre os profissionais ideais para transformar seu negócio físico em virtual!</p>
-                            <a th:href="@{/cliente}">CONTRATAR</a>
+    </section>
+    <!-- container -->
+    <section class="">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div
+                        class="col-md-6 col-lg-3 border-top-md border-bottom border-end-md"
+                >
+                    <!-- text -->
+                    <div class="py-7 text-center">
+                        <div class="mb-3">
+                            <i class="fe fe-globe fs-2 text-info"> </i>
+                        </div>
+                        <div class="lh-1">
+                            <h2 class="mb-1">Conecte-se</h2>
+                            <span>com os melhores profissionais</span>
                         </div>
                     </div>
-                    <div class="offset-lg-1 offset-md-1 col-lg-6 col-md-6 col-sm-12 align-self-center">
-                        <div class="player" style="box-shadow: none;">
-                            <img src="images/photos/screen/1.jpg" alt="" class="img-fluid">
+                </div>
+                <div
+                        class="col-md-6 col-lg-3 border-top-md border-bottom border-end-lg"
+                >
+                    <!-- icon -->
+                    <div class="py-7 text-center">
+                        <div class="mb-3">
+                            <i class="fe fe-dollar-sign fs-2 text-warning"> </i>
+                        </div>
+                        <!-- text -->
+                        <div class="lh-1">
+                            <h2 class="mb-1">Economize</h2>
+                            <span>tempo e recursos</span>
+                        </div>
+                    </div>
+                </div>
+                <div
+                        class="col-md-6 col-lg-3 border-top-lg border-bottom border-end-md"
+                >
+                    <!-- icon -->
+                    <div class="py-7 text-center">
+                        <div class="mb-3">
+                            <i class="fe fe-users fs-2 text-primary"> </i>
+                        </div>
+                        <!-- text -->
+                        <div class="lh-1">
+                            <h2 class="mb-1">Expanda</h2>
+                            <span>sua presença digital e física</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 border-top-lg border-bottom">
+                    <!-- icon -->
+                    <div class="py-7 text-center">
+                        <div class="mb-3">
+                            <i class="fe fe-book-open fs-2 text-success"> </i>
+                        </div>
+                        <!-- text -->
+                        <div class="lh-1">
+                            <h2 class="mb-1">Relaxe!</h2>
+                            <span>com uma experiência tranquila</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Instructor -->
+    <section class="py-8 py-lg-16">
+        <div class="container">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-lg-11 col-md-12">
+                    <div class="row align-items-center">
+                        <!-- heading -->
+                        <div class="col-lg-4 col-md-5 col-12 mb-6">
+                            <h1 class="display-3 fw-bold">Procure e Seja Encontrado</h1>
+                        </div>
+                        <div class="offset-lg-1 col-lg-6 col-md-7 col-12 mb-6">
+                            <!-- para -->
+                            <p class="lead mb-0">
+                                Com Find Us, empreendedores e prestadores de serviços podem
+                                se conectar e expandir seus negócios, oferecendo uma
+                                experiência única aos clientes e aumentando sua visibilidade
+                                no mercado
+                            </p>
+                        </div>
+                    </div>
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-12 mb-3">
+                            <!-- text -->
+                            <h3 class="fw-semi-bold mb-2">Encontre novos clientes</h3>
+                            <p class="fs-4 mb-0">
+                                Expanda seu negócio com Find Us - a plataforma que conecta
+                                empreendedores e prestadores de serviço em todo o Brasil.
+                            </p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12 mb-3">
+                            <!-- text -->
+                            <h3 class="fw-semi-bold mb-2">Tenha visibilidade</h3>
+                            <p class="fs-4 mb-0">
+                                Seja encontrado por clientes em potencial ou encontre
+                                prestadores de serviço confiáveis em sua região - tudo em um
+                                só lugar com Find Us.
+                            </p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-12 mb-3">
+                            <!-- text -->
+                            <h3 class="fw-semi-bold mb-2">Aumente suas oportunidades</h3>
+                            <p class="fs-4 mb-0">
+                                Tenha acesso a uma plataforma simples e eficaz para
+                                encontrar novas oportunidades de negócio e fazer parcerias
+                                de sucesso.
+                            </p>
+                        </div>
+                        <!-- btn -->
+                        <div class="col-md-12 mt-3">
+                            <a th:href="@{/cliente}" class="btn btn-primary"
+                            >Comece agora <i class="fe fe-arrow-right"></i
+                            ></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- call to action -->
+    <section class="py-lg-16 py-10 bg-gray-200">
+        <div class="container">
+            <!-- row -->
+            <div class="row justify-content-center text-center">
+                <div class="col-md-9 col-12">
+                    <!-- heading -->
+                    <h2 class="display-4">
+                        O futuro está apenas a alguns cliques de distância
+                    </h2>
+                    <p class="lead px-lg-12 mb-6">
+                        Experimente agora mesmo as vantagens do Find Us e descubra como
+                        podemos ajudá-lo a se conectar com clientes e profissionais.
+                    </p>
+                    <!-- button -->
+                    <div class="d-grid d-md-block">
+                        <a
+                                th:href="@{/prestador}"
+                                class="btn btn-warning mb-2 mb-md-0"
+                        >Divulgar Serviços</a
+                        >
+                        <a th:href="@{/cliente}" class="btn btn-primary"
+                        >Contratar Serviços</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
-</body>
+<script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/libs/simplebar/dist/simplebar.min.js"></script>
 
+<script src="../../assets/js/theme.min.js"></script>
+
+<script src="../../assets/libs/tiny-slider/dist/min/tiny-slider.js"></script>
+<script src="../../assets/js/vendors/tnsSlider.js"></script>
+<script src="../../assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+<script src="../../assets/js/vendors/popup.js"></script>
+</body>
 </html>
