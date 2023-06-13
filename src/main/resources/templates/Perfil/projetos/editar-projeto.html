@@ -1,134 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
-  <head>
+<head>
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="Codescandy" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content="Larissa e Lucas">
 
     <!-- Theme CSS-->
-    <link rel="stylesheet" href="../css/theme.min.css" />
+    <link rel="stylesheet" href="../css/theme.min.css"/>
 
     <title>Seu Perfil | Find Us - Digitalização de Negócios</title>
-  </head>
+</head>
 
-  <header>
+<header>
     <div class="navbar shadow-sm">
-      <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-          <img src="../images/logo.svg" class="dark-logo" alt="Logo FindUs" />
-        </a>
-      </div>
+        <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center">
+                <img src="../images/logo.svg" class="dark-logo" alt="Logo FindUs"/>
+            </a>
+        </div>
     </div>
-  </header>
+</header>
 
-  <body style=" background-color: #f5f5f3;
+<body style=" background-color: #f5f5f3;
         background-image: url(../assets/images/background/background.svg);
         background-repeat: repeat;
-        background-size: contain;" >
-    <main>
-      <section class="pt-5 pb-5">
+        background-size: contain;">
+<main>
+    <section class="pt-5 pb-5">
         <div class="container">
-          <div class="row mt-0 mt-md-4">
-            <div class="col-lg-9 col-md-8 col-12" style="margin:0 auto;">
-              <div class="card mb-4">
-                <div class="card-header">
-                  <h3 class="mb-0">Dados do Projeto</h3>
-                  <p class="mb-0">
-                    Altere os detalhes do seu projeto de portfólio.
-                  </p>
-                </div>
-                <div class="card-body">
-                  <div>
-                    <!-- Form -->
-                    <form class="row" th:action="@{/alterarDadosProjeto/{id}(id=${portfolio.getPortID})}" method="POST" enctype="multipart/form-data">
-
-                      <!-- Title -->
-                      <div class="mb-3 col-12 col-md-6">
-                        <label class="form-label">Título do projeto</label>
-                        <input type="text" name="portTituloPrj" class="form-control"  th:value="${portfolio.portTituloPrj}" required />
-                      </div>
-
-                      <!-- Price -->
-                      <div class="mb-3 col-12 col-md-6">
-                        <label class="form-label" for="portOrcamento">Orçamento do projeto</label>
-                        <select id="portOrcamento" name="portOrcamento" aria-label="Price select" class="form-select">
-                          <option value="Baixo">
-                            Baixo (Menos de R$ 1.000)
-                          </option>
-                          <option value="Medio">
-                            Médio (De R$ 1.000 a R$ 3.000)
-                          </option>
-                          <option value="Alto">
-                            Alto (De R$ 3.000 a R$ 5.000)
-                          </option>
-                          <option value="Muito Alto">
-                            Muito Alto (Acima de R$ 5.000)
-                          </option>
-                        </select>
-                      </div>
-                      <br>
-                      <br>
-                      <div class="d-lg-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center mb-4 mb-lg-0">
-                          <img th:src="@{/projetoImagem/__${portfolio.portID}__}"
-                               id="img-uploaded" class="avatar-xl rounded-circle" alt=""/>
-                          <div class="ms-3">
-                            <h4 class="mb-0">Imagem atual do projeto</h4>
-                          </div>
+            <div class="row mt-0 mt-md-4">
+                <div class="col-lg-9 col-md-8 col-12" style="margin:0 auto;">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h3 class="mb-0">Dados do Projeto</h3>
+                            <p class="mb-0">
+                                Altere os detalhes do seu projeto de portfólio.
+                            </p>
                         </div>
-                        <div class="ms-3">
-                          <h4 class="mb-0">Alterar imagem</h4>
-                          <input type="file" name="file" id="file">
+                        <div class="card-body">
+                            <div>
+                                <!-- Form -->
+                                <form class="row" th:action="@{/alterarDadosProjeto/{id}(id=${portfolio.getPortID})}"
+                                      method="POST" enctype="multipart/form-data">
+
+                                    <!-- Title -->
+                                    <div class="mb-3 col-12 col-md-6">
+                                        <label class="form-label">Título do projeto</label>
+                                        <input type="text" name="portTituloPrj" class="form-control"
+                                               th:value="${portfolio.portTituloPrj}" required/>
+                                    </div>
+
+                                    <!-- Price -->
+                                    <div class="mb-3 col-12 col-md-6">
+                                        <label class="form-label" for="portOrcamento">Orçamento do projeto</label>
+                                        <select id="portOrcamento" name="portOrcamento" aria-label="Price select"
+                                                class="form-select">
+                                            <option value="Baixo">
+                                                Baixo (Menos de R$ 1.000)
+                                            </option>
+                                            <option value="Medio">
+                                                Médio (De R$ 1.000 a R$ 3.000)
+                                            </option>
+                                            <option value="Alto">
+                                                Alto (De R$ 3.000 a R$ 5.000)
+                                            </option>
+                                            <option value="Muito Alto">
+                                                Muito Alto (Acima de R$ 5.000)
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="d-lg-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center mb-4 mb-lg-0">
+                                            <img th:src="@{/projetoImagem/__${portfolio.portID}__}"
+                                                 id="img-uploaded" class="avatar-xl rounded-circle" alt=""/>
+                                            <div class="ms-3">
+                                                <h4 class="mb-0">Imagem atual do projeto</h4>
+                                            </div>
+                                        </div>
+                                        <div class="ms-3">
+                                            <h4 class="mb-0">Alterar imagem</h4>
+                                            <input type="file" name="file" id="file">
+                                        </div>
+                                    </div>
+
+                                    <!-- Segment -->
+
+                                    <div class="mb-3 col-12 col-md-6 mt-3">
+                                        <label class="form-label" for="portSegmento">Segmento</label>
+                                        <select id="portSegmento" name="portSegmento" aria-label="Segment select"
+                                                class="form-select">
+                                            <option value="Alimentos e Bebidas"
+                                                    th:selected="${portfolio.portSegmento == 'Alimentos e Bebidas'}">
+                                                Alimentos e Bebidas
+                                            </option>
+                                            <option value="Arte e Decoração"
+                                                    th:selected="${portfolio.portSegmento == 'Arte e Decoração'}">Arte e
+                                                Decoração
+                                            </option>
+                                            <option value="Automóveis"
+                                                    th:selected="${portfolio.portSegmento == 'Automóveis'}">Automóveis
+                                            </option>
+                                            <option value="Construção e Reforma"
+                                                    th:selected="${portfolio.portSegmento == 'Construção e Reforma'}">
+                                                Construção e Reforma
+                                            </option>
+                                            <option value="Conveniência e Presentes"
+                                                    th:selected="${portfolio.portSegmento == 'Conveniência e Presentes'}">
+                                                Conveniência e Presentes
+                                            </option>
+                                            <option value="Educação"
+                                                    th:selected="${portfolio.portSegmento == 'Educação'}">Educação
+                                            </option>
+                                            <option value="Moda e Estética"
+                                                    th:selected="${portfolio.portSegmento == 'Moda e Estética'}">Moda e
+                                                Estética
+                                            </option>
+                                            <option value="Tecnologia e Inovação"
+                                                    th:selected="${portfolio.portSegmento == 'Tecnologia e Inovação'}">
+                                                Tecnologia e Inovação
+                                            </option>
+                                            <option value="Saúde" th:selected="${portfolio.portSegmento == 'Saúde'}">
+                                                Saúde
+                                            </option>
+                                            <option value="Natureza e Pets"
+                                                    th:selected="${portfolio.portSegmento == 'Natureza e Pets'}">
+                                                Natureza e Pets
+                                            </option>
+                                            <option value="Serviços"
+                                                    th:selected="${portfolio.portSegmento == 'Serviços'}">Serviços
+                                            </option>
+                                        </select>
+                                    </div>
+
+
+                                    <!-- Time -->
+                                    <div class="mb-3 col-12 col-md-6 mt-3">
+                                        <label class="form-label">Tempo de Trabalho</label>
+                                        <input type="number" name="portTempo" class="form-control"
+                                               th:value="${portfolio.portTempo}" required/>
+                                    </div>
+
+                                    <div class="mb-3 col-12 col-md-12">
+                                        <label class="form-label">Descrição do projeto</label>
+                                        <textarea type="text" name="portDescricao" class="form-control"
+                                                  th:text="${portfolio.portDescricao}" required></textarea>
+                                    </div>
+
+                                    <div class="col-12 d-flex justify-content-end gap-2">
+                                        <!--<button class="btn btn-secondary">Cancelar</button>-->
+                                        <button type="submit" class="btn btn-primary">Publicar</button>
+                                    </div>
+
+                                </form>
+                            </div>
                         </div>
-                      </div>
-
-                      <!-- Segment -->
-
-                      <div class="mb-3 col-12 col-md-6 mt-3">
-                        <label class="form-label" for="portSegmento">Segmento</label>
-                        <select id="portSegmento" name="portSegmento" aria-label="Segment select" class="form-select">
-                          <option value="Alimentos e Bebidas" th:selected="${portfolio.portSegmento == 'Alimentos e Bebidas'}">Alimentos e Bebidas</option>
-                          <option value="Arte e Decoração" th:selected="${portfolio.portSegmento == 'Arte e Decoração'}">Arte e Decoração</option>
-                          <option value="Automóveis" th:selected="${portfolio.portSegmento == 'Automóveis'}">Automóveis</option>
-                          <option value="Construção e Reforma" th:selected="${portfolio.portSegmento == 'Construção e Reforma'}">Construção e Reforma</option>
-                          <option value="Conveniência e Presentes" th:selected="${portfolio.portSegmento == 'Conveniência e Presentes'}">Conveniência e Presentes</option>
-                          <option value="Educação" th:selected="${portfolio.portSegmento == 'Educação'}">Educação</option>
-                          <option value="Moda e Estética" th:selected="${portfolio.portSegmento == 'Moda e Estética'}">Moda e Estética</option>
-                          <option value="Tecnologia e Inovação" th:selected="${portfolio.portSegmento == 'Tecnologia e Inovação'}">Tecnologia e Inovação</option>
-                          <option value="Saúde" th:selected="${portfolio.portSegmento == 'Saúde'}">Saúde</option>
-                          <option value="Natureza e Pets" th:selected="${portfolio.portSegmento == 'Natureza e Pets'}">Natureza e Pets</option>
-                          <option value="Serviços" th:selected="${portfolio.portSegmento == 'Serviços'}">Serviços</option>
-                        </select>
-                      </div>
-
-
-                      <!-- Time -->
-                      <div class="mb-3 col-12 col-md-6 mt-3">
-                        <label class="form-label">Tempo de Trabalho</label>
-                        <input type="number" name="portTempo" class="form-control" th:value="${portfolio.portTempo}"  required/>
-                      </div>
-
-                      <div class="mb-3 col-12 col-md-12">
-                        <label class="form-label">Descrição do projeto</label>
-                        <textarea type="text" name="portDescricao" class="form-control" th:text="${portfolio.portDescricao}"   required></textarea>
-                      </div>
-
-                      <div class="col-12 d-flex justify-content-end gap-2">
-                        <!--<button class="btn btn-secondary">Cancelar</button>-->
-                        <button type="submit" class="btn btn-primary">Publicar</button>
-                      </div>
-
-                    </form>
-                  </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
-    </main>
-  </body>
+    </section>
+</main>
+</body>
 </html>

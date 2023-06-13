@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Larissa e Lucas">
 
-    <title>Visualizar Perfil</title>
+    <title>Seu Perfil | Find Us - Digitalização de Negócios </title>
 
 
     <link rel="stylesheet" href="/css/theme.min.css"/>
@@ -112,8 +112,9 @@
           background-image: url(../images/banners/);
           background-size: cover;
           background-position: center;
-          background-repeat: no-repeat;
-        "></section>
+          background-repeat: no-repeat;">
+
+    </section>
 
     <br>
     <!-- Page content -->
@@ -178,9 +179,11 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="tab-content">
-                        <div class="tab-pane fade show active" id="tabPaneGrid" role="tabpanel" aria-labelledby="tabPaneGrid">
+                        <div class="tab-pane fade show active" id="tabPaneGrid" role="tabpanel"
+                             aria-labelledby="tabPaneGrid">
                             <div class="row">
-                                <div th:each="prestadorContatado : ${prestadorContatado}" class="col-xl-4 col-lg-6 col-md-6 col-12">
+                                <div th:each="prestadorContatado : ${prestadorContatado}"
+                                     class="col-xl-4 col-lg-6 col-md-6 col-12">
                                     <div class="card mb-4">
                                         <div class="card-body">
                                             <div class="text-center">
@@ -188,7 +191,8 @@
                                                      class="rounded-circle avatar-xl mb-3"
                                                      alt="Foto do prestador"/>
                                                 <h4 class="mb-0" th:text="${prestadorContatado.getUserNome}"></h4>
-                                                <p class="mb-0" style="color: #504ce5" th:text="${prestadorContatado.getUserSegmento}"></p>
+                                                <p class="mb-0" style="color: #504ce5"
+                                                   th:text="${prestadorContatado.getUserSegmento}"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -255,8 +259,6 @@
             "url('../images/banners/prestador/outros.png')";
           break;
       }
-
-
 
 </script>
 </body>

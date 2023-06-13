@@ -6,24 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-    <meta name="Larissa e Lucas" content="Codescandy"/>
+    <meta name="author" content="Larissa e Lucas">
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="/css/theme.min.css"/>
     <title>Cadastro | Find Us - Digitalização de Negócios</title>
+
 </head>
 
 <body style="background-color: #FFF;">
-<!-- Page content -->
+
 <main>
     <form action="/cadastrarCliente" method="POST" enctype="multipart/form-data">
         <section class="d-flex no-wrap">
-            <!-- Register Content -->
-            <div
-                    class="row align-items-center justify-content-center g-0 min-vh-100 col-6"
-            >
+            <div class="row align-items-center justify-content-center g-0 min-vh-100 col-6">
                 <div class="col-lg-12">
-                    <!-- Card -->
                     <div class="card container" style="box-shadow: none;">
                         <nav class="navbar navbar-expand-lg mb-3">
                             <div class="container-fluid px-0">
@@ -32,108 +29,62 @@
                                 </a>
                             </div>
                         </nav>
-                        <!-- Card header -->
-
                         <div class="card-header">
                             <h1 class="mb-1 fw-bold">Seja muito bem-vindo ao Find Us</h1>
                             <span>Fale um pouco sobre você</span>
                         </div>
-                        <!-- Card body -->
                         <div class="card-body">
-
-                            <!-- DADOS PESSOAIS -->
                             <div class="row">
                                 <h4 class="mb-4">Detalhes Pessoais</h4>
-                                <!-- Username -->
                                 <div class="mb-3">
                                     <label class="form-label">Nome completo</label>
                                     <input type="text" class="form-control" name="userNome"
-                                            placeholder="Insira seu nome e sobrenome"
-                                            required
-                                    />
+                                           placeholder="Insira seu nome e sobrenome" required/>
                                 </div>
-                                <!-- CPF/CNPJ -->
                                 <div class="mb-3 col-12 col-md-6">
                                     <label class="form-label">CPF/CNPJ</label>
-                                    <input
-                                            type="text"
-											name="userCPF_CNPJ"
-											class="form-control"
-                                            placeholder="000.000.000-00"
-                                            required
-                                    />
+                                    <input type="text" name="userCPF_CNPJ" class="form-control"
+                                           placeholder="000.000.000-00" required/>
                                 </div>
-                                <!-- Phone -->
                                 <div class="mb-3 col-12 col-md-6">
                                     <label class="form-label">Telefone</label>
-                                    <input
-                                            class="form-control"
-                                            type="phone"
-                                            placeholder="(DD) 0 0000-0000"
-											name= "userTelefone"
-											required
-                                    />
+                                    <input class="form-control" type="phone" placeholder="(DD) 0 0000-0000"
+                                           name="userTelefone" required/>
                                 </div>
-                                <!-- Email -->
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
-                                    <input
-                                            type="email"
-                                            class="form-control"
-											name="userEmail"
-                                            placeholder="example@email.com"
-                                            required
-                                    />
+                                    <input type="email" class="form-control" name="userEmail"
+                                           placeholder="example@email.com" required/>
                                 </div>
-                                <!-- Phone -->
                                 <div class="mb-3 col-12 col-md-6">
                                     <div class="mb-3 password-field">
                                         <label class="form-label">Senha</label>
-                                        <input type="password" name="userSenha"
-                                                class="form-control mb-2"
-                                                placeholder="******"
-                                                required
-                                        />
+                                        <input type="password" name="userSenha" class="form-control mb-2"
+                                               placeholder="******" required/>
                                         <div class="row align-items-center g-0">
                                             <div class="col-6">
-                          <span
-                                  data-bs-toggle="tooltip"
-                                  data-placement="right"
-                                  title="Teste digitando uma senha no campo acima. Para atingir força total, use pelo menos 6 caracteres, uma letra maiúscula e um dígito, por exemplo 'Teste01'"
-                          >Força da senha
-                            <i class="fe fe-help-circle ms-1"></i
-                            ></span>
+                                              <span data-bs-toggle="tooltip" data-placement="right">Força da senha<i class="fe fe-help-circle ms-1"></i></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- E-mail -->
                                 <div class="mb-3 col-12 col-md-6">
-                                    <label class="form-label"
-                                    >Confirme a senha</label
-                                    >
-                                    <input
-											id="confirmarSenha"
-											type="password"
-                                            name="confirmpassword"
-                                            class="form-control mb-2"
-                                            placeholder="******"
-                                            required
-                                    />
+                                    <label class="form-label">Confirme a senha</label>
+                                    <input id="confirmarSenha" type="password" name="confirmpassword" class="form-control mb-2" placeholder="******" required/>
                                 </div>
                             </div>
 
 
-							<div class="mb-3">
-								<label class="form-label">Descrição</label>
-								<input type="text" class="form-control" name="userDescricao"
-									   placeholder="Fale sobre você"
-									   required
-								/>
-							</div>
+                            <div class="mb-3">
+                                <label class="form-label">Descrição</label>
+                                <input type="text" class="form-control" name="userDescricao"
+                                       placeholder="Fale sobre você"
+                                       required/>
+                            </div>
 
-							<br>
-							<div class="d-lg-flex align-items-center justify-content-between">
+                            <br>
+                            <div class="d-lg-flex align-items-center justify-content-between">
                                 <div class="d-flex align-items-center mb-4 mb-lg-0">
                                     <img src="images/avatar.jpg" id="img-uploaded" class="avatar-xl rounded-circle"
                                          alt="">
@@ -142,31 +93,18 @@
                                     </div>
                                 </div>
                                 <div>
-									<input type="file" name="file" id="file">
+                                    <input type="file" name="file" id="file">
                                 </div>
                             </div>
 
-							<hr class="my-4"/>
+                            <hr class="my-4"/>
 
-
-                            <!-- DADOS DO NEGÓCIO -->
                             <div class="row">
                                 <h4 class="mb-4">Detalhes do Negócio</h4>
-                                <!-- Business Name -->
                                 <div class="mb-3">
-                                    <label for="bname" class="form-label"
-                                    >Nome do negócio</label
-                                    >
-                                    <input
-                                            type="text"
-                                            id="bname"
-                                            class="form-control"
-                                            name="userNomeNegocio"
-                                            placeholder="Razão social"
-                                            required
-                                    />
+                                    <label for="bname" class="form-label">Nome do negócio</label>
+                                    <input type="text" id="bname" class="form-control" name="userNomeNegocio" placeholder="Razão social" required/>
                                 </div>
-                                <!-- Business Segment -->
                                 <div class="mb-6 col-12 col-md-12">
                                     <label class="form-label">Segmento de trabalho</label>
                                     <select name="userSegmento" aria-label="Segment select" class="form-select">
@@ -200,11 +138,12 @@
                                         </option>
                                     </select>
                                 </div>
-								<input type="hidden" name = "userTipo" value="cliente">
+                                <input type="hidden" name="userTipo" value="cliente">
                                 <div>
                                     <!-- Button -->
                                     <div class="d-grid">
-                                        <div th:if="${error != null}" th:text="${error}" class="alert alert-danger" role="alert"></div>
+                                        <div th:if="${error != null}" th:text="${error}" class="alert alert-danger"
+                                             role="alert"></div>
                                         <button type="submit" class="btn btn-primary">
                                             Criar Conta
                                         </button>

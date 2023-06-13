@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-    <meta name="author" content="Codescandy"/>
+    <meta name="author" content="Larissa e Lucas">
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="/css/theme.min.css"/>
@@ -164,31 +164,55 @@
                                         <label class="form-label" for="career">Segmento</label>
                                         <select type="text" id="career" name="userSegmento" class="form-select"
                                                 aria-label="Insira sua profissão">
-                                            <option value="Alimentos e Bebidas" th:selected="${cliente.userSegmento == 'Alimentos e Bebidas'}">Alimentos e Bebidas</option>
-                                            <option value="Arte e Decoração" th:selected="${cliente.userSegmento == 'Arte e Decoração'}">Arte e Decoração</option>
-                                            <option value="Automóveis" th:selected="${cliente.userSegmento == 'Automóveis'}">Automóveis</option>
-                                            <option value="Construção e Reforma" th:selected="${cliente.userSegmento == 'Construção e Reforma'}">Construção e Reforma</option>
-                                            <option value="Conveniência e Presentes" th:selected="${cliente.userSegmento == 'Conveniência e Presentes'}">Conveniência e Presentes</option>
-                                            <option value="Educação" th:selected="${cliente.userSegmento == 'Educação'}">Educação</option>
-                                            <option value="Moda e Estética" th:selected="${cliente.userSegmento == 'Moda e Estética'}">Moda e Estética</option>
-                                            <option value="Tecnologia e Inovação" th:selected="${cliente.userSegmento == 'Tecnologia e Inovação'}">Tecnologia e Inovação</option>
-                                            <option value="Saúde" th:selected="${cliente.userSegmento == 'Saúde'}">Saúde</option>
-                                            <option value="Natureza e Pets" th:selected="${cliente.userSegmento == 'Natureza e Pets'}">Natureza e Pets</option>
-                                            <option value="Serviços" th:selected="${cliente.userSegmento == 'Serviços'}">Serviços</option>
+                                            <option value="Alimentos e Bebidas"
+                                                    th:selected="${cliente.userSegmento == 'Alimentos e Bebidas'}">
+                                                Alimentos e Bebidas
+                                            </option>
+                                            <option value="Arte e Decoração"
+                                                    th:selected="${cliente.userSegmento == 'Arte e Decoração'}">Arte e
+                                                Decoração
+                                            </option>
+                                            <option value="Automóveis"
+                                                    th:selected="${cliente.userSegmento == 'Automóveis'}">Automóveis
+                                            </option>
+                                            <option value="Construção e Reforma"
+                                                    th:selected="${cliente.userSegmento == 'Construção e Reforma'}">
+                                                Construção e Reforma
+                                            </option>
+                                            <option value="Conveniência e Presentes"
+                                                    th:selected="${cliente.userSegmento == 'Conveniência e Presentes'}">
+                                                Conveniência e Presentes
+                                            </option>
+                                            <option value="Educação"
+                                                    th:selected="${cliente.userSegmento == 'Educação'}">Educação
+                                            </option>
+                                            <option value="Moda e Estética"
+                                                    th:selected="${cliente.userSegmento == 'Moda e Estética'}">Moda e
+                                                Estética
+                                            </option>
+                                            <option value="Tecnologia e Inovação"
+                                                    th:selected="${cliente.userSegmento == 'Tecnologia e Inovação'}">
+                                                Tecnologia e Inovação
+                                            </option>
+                                            <option value="Saúde" th:selected="${cliente.userSegmento == 'Saúde'}">
+                                                Saúde
+                                            </option>
+                                            <option value="Natureza e Pets"
+                                                    th:selected="${cliente.userSegmento == 'Natureza e Pets'}">Natureza
+                                                e Pets
+                                            </option>
+                                            <option value="Serviços"
+                                                    th:selected="${cliente.userSegmento == 'Serviços'}">Serviços
+                                            </option>
                                         </select>
                                     </div>
 
 
                                     <div class="mb-3 col-12 col-md-12">
                                         <label class="form-label">Nome do negocio</label>
-                                        <input class="form-control flatpickr" type="text"
-                                               placeholder="Razão social"
-                                               name="userNomeNegocio"
-                                               th:value="${cliente.userNomeNegocio}"
-                                        />
-
+                                        <input class="form-control flatpickr" type="text" placeholder="Razão social"
+                                               name="userNomeNegocio" th:value="${cliente.userNomeNegocio}"/>
                                     </div>
-
 
                                     <div class="mb-3 col-12 col-md-12">
                                         <label class="form-label">Descrição</label>
@@ -215,8 +239,7 @@
         <div class="row align-items-center g-0 border-top py-2">
             <!-- Desc -->
             <div class="col-md-6 col-12 text-center text-md-start">
-            <span
-            >©
+            <span>©
               <span id="copyright">
                 <script>
                   document
@@ -225,28 +248,11 @@
                       document.createTextNode(new Date().getFullYear())
                     );
                 </script> </span
-              >Find Us. Todos Direitos Reservados.</span
-            >
+              >Find Us. Todos Direitos Reservados.</span>
             </div>
         </div>
     </div>
 </footer>
 
-<!-- Scripts -->
-
-<!-- Libs JS -->
-<script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-<script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/libs/simplebar/dist/simplebar.min.js"></script>
-
-<!-- Theme JS -->
-<script src="../assets/js/theme.min.js"></script>
-
-<script src="../assets/libs/@popperjs/core/dist/umd/popper.min.js"></script>
-<script src="../assets/libs/tippy.js/dist/tippy-bundle.umd.min.js"></script>
-
-<script src="../assets/js/vendors/tooltip.js"></script>
-<script src="../assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-<script src="../assets/js/vendors/popup.js"></script>
 </body>
 </html>

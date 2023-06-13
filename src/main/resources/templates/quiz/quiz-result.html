@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>  <!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="Codescandy">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Larissa e Lucas">
 
-<!-- Theme CSS -->
-<link rel="stylesheet" href="/css/theme.min.css">
-  <title>Login | Find Us - Digitalização de Negócios </title>
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/css/theme.min.css">
+    <title>Login | Find Us - Digitalização de Negócios </title>
 </head>
 
 <body style="
@@ -20,73 +20,79 @@ background-repeat: repeat;
 background-size: contain;
 ">
 <main>
-  <section class="container d-flex flex-column">
-    <div class="row align-items-center justify-content-center g-0 min-vh-100">
+    <section class="container d-flex flex-column">
+        <div class="row align-items-center justify-content-center g-0 min-vh-100">
 
-      <div class="col-lg-8 col-md-8 py-8 py-xl-0">
-        <!-- Card -->
-        <div class="card shadow ">
-          <!-- Card body -->
-          <div class="card-body p-6">
-            <div class="mb-3">
-              <div class="d-flex justify-content-center mb-6">
-                <img src="../assets/images/svg/suggestion-drawn.svg" alt="">
-              </div>
-              
-              <span>Obrigado por responder ao questionário!</span>
-              <h2 class="mb-1 fw-bold">Nossas sugestões para você:</h2>
+            <div class="col-lg-8 col-md-8 py-8 py-xl-0">
+                <!-- Card -->
+                <div class="card shadow ">
+                    <!-- Card body -->
+                    <div class="card-body p-6">
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-center mb-6">
+                                <img src="../assets/images/svg/suggestion-drawn.svg" alt="">
+                            </div>
+
+                            <span>Obrigado por responder ao questionário!</span>
+                            <h2 class="mb-1 fw-bold">Nossas sugestões para você:</h2>
+                        </div>
+
+                        <input type="hidden" name="resultadoRecomendacao" id="resultadoRecomendacao"
+                               th:value="${resultadoQuiz}">
+
+                        <div class="d-grid mb-4" id="Dev-WEB">
+                            <h4 class="fw-bold">Desenvolvimento WEB</h4>
+                            <p>Desenvolva um site corporativo, sistema especializado ou um blog na internet.</p>
+                        </div>
+
+                        <div class="d-grid mb-4" id="Dev-Mob">
+                            <h4 class="fw-bold">Desenvolvimento Mobile</h4>
+                            <p>Desenvolva um aplicativo para especializado para o seu negócio.</p>
+                        </div>
+
+                        <div class="d-grid mb-4" id="Marketplace">
+                            <h4 class="fw-bold">Marketplace e E-commerce</h4>
+                            <p>Anunciar seus produtos ou serviços em plataformas similares ao Mercado Livre e
+                                Amazon.</p>
+                        </div>
+
+                        <div class="d-grid mb-4" id="Marketing-digital">
+                            <h4 class="fw-bold">Marketing Digital</h4>
+                            <p>Aumente sua visibilidade por criar anúncios no ambiente virtual e melhorar sua posição no
+                                Google.</p>
+                        </div>
+
+                        <div class="d-grid mb-4" id="Consultoria">
+                            <h4 class="fw-bold">Consultoria de Marketing</h4>
+                            <p>Tenha ajuda profissional para avaliar as direções necessárias para aumentar o desempenho
+                                de seu empreendimento.</p>
+                        </div>
+
+                        <div class="d-grid mb-4" id="Social">
+                            <h4 class="fw-bold">Redes Sociais</h4>
+                            <p>Produza conteúdo para criar desejo e necessidade do seu produto e serviço. Ótimo método
+                                para obter maior alcance.</p>
+                        </div>
+
+                        <div class="d-grid mb-4" id="Id-visual">
+                            <h4 class="fw-bold">Identidade Visual da Marca</h4>
+                            <p>Faça uma repaginação da identidade visual para criar reconhecimento, diferenciação,
+                                confiança e uma comunicação eficaz.</p>
+                        </div>
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <form action="/cadastraServicoDesejado" method="POST">
+                                <input type="hidden" name="jobs" id="jobsInput">
+                                <input type="hidden" name="idCliente" th:value="${idCliente}">
+                                <button type="submit" class="btn btn-dark">Iniciar navegação</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <input type="hidden" name="resultadoRecomendacao" id="resultadoRecomendacao"   th:value="${resultadoQuiz}">
-
-            <div class="d-grid mb-4" id="Dev-WEB">
-              <h4 class="fw-bold">Desenvolvimento WEB</h4>
-              <p>Desenvolva um site corporativo, sistema especializado ou um blog na internet.</p>
-            </div>
-
-            <div class="d-grid mb-4" id="Dev-Mob">
-              <h4 class="fw-bold">Desenvolvimento Mobile</h4>
-              <p>Desenvolva um aplicativo para especializado para o seu negócio.</p>
-            </div>
-
-            <div class="d-grid mb-4" id="Marketplace">
-              <h4 class="fw-bold">Marketplace e E-commerce</h4>
-              <p>Anunciar seus produtos ou serviços em plataformas similares ao Mercado Livre e Amazon.</p>
-            </div>
-
-            <div class="d-grid mb-4" id="Marketing-digital">
-              <h4 class="fw-bold">Marketing Digital</h4>
-              <p>Aumente sua visibilidade por criar anúncios no ambiente virtual e melhorar sua posição no Google.</p>
-            </div>
-
-            <div class="d-grid mb-4" id="Consultoria">
-              <h4 class="fw-bold">Consultoria de Marketing</h4>
-              <p>Tenha ajuda profissional para avaliar as direções necessárias para aumentar o desempenho de seu empreendimento.</p>
-            </div>
-
-            <div class="d-grid mb-4" id="Social">
-              <h4 class="fw-bold">Redes Sociais</h4>
-              <p>Produza conteúdo para criar desejo e necessidade do seu produto e serviço. Ótimo método para obter maior alcance.</p>
-            </div>
-
-            <div class="d-grid mb-4" id="Id-visual">
-              <h4 class="fw-bold">Identidade Visual da Marca</h4>
-              <p>Faça uma repaginação da identidade visual para criar reconhecimento, diferenciação, confiança e uma comunicação eficaz.</p>
-            </div>
-
-            <div class="d-flex justify-content-end gap-2">
-              <form action="/cadastraServicoDesejado" method="POST">
-                <input type="hidden" name="jobs" id="jobsInput">
-                <input type="hidden" name="idCliente" th:value="${idCliente}">
-                <button type="submit" class="btn btn-dark">Iniciar navegação</button>
-              </form>
-
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </main>
 
 <!-- Theme JS -->
@@ -157,8 +163,8 @@ background-size: contain;
 
   document.getElementById('jobsInput').value = JSON.stringify(servicosDesejados);
 
-</script>
 
+</script>
 
 
 </body>

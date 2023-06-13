@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Larissa e Lucas">
 
-    <title>Visualizar Perfil</title>
+    <title>Perfil | Find Us - Digitalização de Negócios</title>
 
 
     <link rel="stylesheet" href="/css/theme.min.css"/>
@@ -24,7 +24,6 @@
         width: 350px;
         height: 200px;
     }
-
 
 </style>
 
@@ -77,7 +76,9 @@
                                     <div class="d-flex">
                                         <div class="avatar avatar-md avatar-indicators avatar-online">
                                             <div class="avatar avatar-md avatar-indicators avatar-online">
-                                                <img alt="avatar" th:src="@{/clienteFotoPerfil/__${cliente.getUserEmail}__}" class="rounded-circle"/>
+                                                <img alt="avatar"
+                                                     th:src="@{/clienteFotoPerfil/__${cliente.getUserEmail}__}"
+                                                     class="rounded-circle"/>
                                             </div>
                                         </div>
                                         <div class="ms-3 lh-1">
@@ -134,7 +135,8 @@
             <div class="card">
                 <!-- Card body -->
                 <div class="card-body">
-                    <img class="img-fluid rounded-circle mb-3" th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}"
+                    <img class="img-fluid rounded-circle mb-3"
+                         th:src="@{/prestadorFotoPerfil/__${prestador.getUserEmail}__}"
                          alt="Foto do usuário"/>
                     <div class="card-body">
                         <h3 class="card-title">
@@ -149,13 +151,15 @@
 
 
                         <div class="mt-2 d-grid gap-2 mx-auto">
-                            <a th:href="@{/contatarPrestador(idprestador=${prestador.userID},idcliente=${cliente.userID})}" class="btn btn-primary">
+                            <a th:href="@{/contatarPrestador(idprestador=${prestador.userID},idcliente=${cliente.userID})}"
+                               class="btn btn-primary">
                                 <i class="bi bi-envelope ms-1"></i> Contatar
                             </a>
                         </div>
 
                         <div class="mt-4 d-flex justify-content-center">
-                            <a th:href="@{/denunciarCliente(idprestador=${prestador.userID},idcliente=${cliente.userID})}" class="btn btn-outline-primary d-grid align-items-center justify-content-center lh-1">
+                            <a th:href="@{/denunciarCliente(idprestador=${prestador.userID},idcliente=${cliente.userID})}"
+                               class="btn btn-outline-primary d-grid align-items-center justify-content-center lh-1">
                                 <i class="bi bi-exclamation-octagon mx-auto"></i> Denunciar
                             </a>
                         </div>
@@ -184,7 +188,7 @@
                 <div th:if="${not #lists.isEmpty(projetos)}" class="row">
                     <div th:each="portfolio : ${projetos}" class="col-md-6">
                         <a th:href="@{/projeto/{id}(id=${portfolio.portID},idcliente=${cliente.userID})}"
-                            style="color: black; text-decoration: none;">
+                           style="color: black; text-decoration: none;">
                             <div class="card m-3">
                                 <img class="card-img-top img-fluid card-img-custom"
                                      th:src="@{/projetoImagem/__${portfolio.portID}__}"
@@ -196,20 +200,16 @@
                                     </div>
                                     <h5 class="card-title"><span th:text="${portfolio.portTituloPrj}"></span></h5>
                                     <div>
-                                        <p><span th:text="${totalAvaliacoesPorProjeto[portfolio.portID]}"></span> avaliações</p>
+                                        <p><span th:text="${totalAvaliacoesPorProjeto[portfolio.portID]}"></span>
+                                            avaliações</p>
                                     </div>
                                 </div>
                             </div>
                         </a>
-
                     </div>
                 </div>
             </div>
-
-
         </div>
-
-
     </section>
 </main>
 <footer class="pt-lg-10 pt-5 footer bg-white">
@@ -265,6 +265,7 @@
             "url('../images/banners/prestador/outros.png')";
           break;
       }
+
 
 </script>
 

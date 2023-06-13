@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Larissa e Lucas">
 
-    <title>Visualizar Perfil</title>
+    <title>Perfil | Find Us - Digitalização de Negócios</title>
 
 
     <link rel="stylesheet" href="/css/theme.min.css"/>
@@ -124,7 +124,8 @@
             <div class="card">
                 <!-- Card body -->
                 <div class="card-body">
-                    <img class="img-fluid rounded-circle mb-3" th:src="@{/clienteFotoPerfil/__${cliente.getUserEmail}__}"
+                    <img class="img-fluid rounded-circle mb-3"
+                         th:src="@{/clienteFotoPerfil/__${cliente.getUserEmail}__}"
                          alt="Foto do usuário"/>
                     <div class="card-body">
                         <h3 class="card-title">
@@ -136,7 +137,8 @@
                         </p>
 
                         <div class="mt-4 d-flex justify-content-center">
-                            <a th:href="@{/denunciarPrestador(idprestador=${prestador.userID},idcliente=${cliente.userID})}" class="btn btn-outline-primary d-grid align-items-center justify-content-center lh-1">
+                            <a th:href="@{/denunciarPrestador(idprestador=${prestador.userID},idcliente=${cliente.userID})}"
+                               class="btn btn-outline-primary d-grid align-items-center justify-content-center lh-1">
                                 <i class="bi bi-exclamation-octagon mx-auto"></i> Denunciar
                             </a>
                         </div>
@@ -254,9 +256,6 @@
             "url('../images/banners/prestador/outros.png')";
           break;
       }
-
-
-
 
 </script>
 </body>
