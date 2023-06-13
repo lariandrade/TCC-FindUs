@@ -84,7 +84,7 @@ public class DenunciaController {
 
         denunciaService.enviarDenuncia(mensagemFormatada, idUsuario, idDenunciado, assunto, motivoDenuncia);
 
-        return "redirect:/visualizaPerfilPrestador?idCliente=" + cliente.getUserEmail() + "&idPrestador=" + idDenunciado;
+        return "redirect:/visualizaPerfilPrestador?idUsuario=" + cliente.getUserEmail() + "&idPrestador=" + idDenunciado;
 
     }
 

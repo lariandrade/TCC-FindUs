@@ -96,7 +96,7 @@ public class EmailController {
 
         emailService.enviarEmail(emailCliente, telefone, idCliente, idPrestador, assunto, mensagemFormatada, prestador.getUserEmail());
 
-        return "redirect:/visualizaPerfilPrestador?idCliente=" + emailCliente + "&idPrestador=" + idPrestador;
+        return "redirect:/visualizaPerfilPrestador?idUsuario=" + emailCliente + "&idPrestador=" + idPrestador;
 
     }
 
