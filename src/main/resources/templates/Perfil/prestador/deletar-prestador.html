@@ -109,8 +109,9 @@ background-size: contain;
                                 Ao excluir sua conta você perderá todos os dados cadastrados e seu o acesso da
                                 plataforma por meio destas credenciais de forma permanente.
                             </p>
-                            <a class="btn btn-danger" th:href="@{/deletaPrestador/{id}(id=${userID})}">Excluir Minha
-                                Conta</a>
+
+                            <a class="btn btn-danger" th:href="@{/deletaPrestador/{id}(id=${userID})}"
+                               onclick="return confirm('Tem certeza de que deseja excluir sua conta?');">Excluir Minha Conta</a>
                         </div>
                     </div>
                 </div>

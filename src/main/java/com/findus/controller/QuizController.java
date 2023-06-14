@@ -51,9 +51,7 @@ public class QuizController {
             clienteRepository.save(cliente); // Salvar o objeto Cliente atualizado no banco de dados
         }
 
-        // Redirecionar para a página de sucesso (rota /home) com os parâmetros userEmail e userSenha
         redirectAttributes.addAttribute("userEmail", cliente.getUserEmail());
-        redirectAttributes.addAttribute("userSenha", cliente.getUserSenha());
 
         return "redirect:/home";
     }

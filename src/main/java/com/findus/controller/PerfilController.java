@@ -51,8 +51,7 @@ public class PerfilController {
 
         if (cliente != null) {
 
-            try {
-                ContatoPrestador contatoPrestador = contatoPrestadorService.findById(cliente.getUserID());
+            try {ContatoPrestador contatoPrestador = contatoPrestadorService.findByContIdCliente(cliente.getUserID());
 
                 if (contatoPrestador != null) {
                     Prestador prestadorContatado = prestadorService.findById(contatoPrestador.getContIdPrestador());

@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface ContatoPrestadorRepository extends JpaRepository<ContatoPrestador,Long> {
     List<ContatoPrestador> findByContIdPrestador(Long idPrestador);
+    ContatoPrestador findByContIdCliente(Long contIdCliente);
 }

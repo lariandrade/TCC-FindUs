@@ -23,7 +23,13 @@ public class ContatoPrestadorService {
     public ContatoPrestador findById(Long id) {
         Optional<ContatoPrestador> ContatoPrestador = ContatoPrestadorRepository.findById(id);
         return ContatoPrestador.orElseThrow(() -> new UsuarioException("Não encontrato nenhum contato."));
-
     }
+
+    public ContatoPrestador findByContIdCliente(Long contIdCliente) {
+        return ContatoPrestadorRepository.findByContIdCliente(contIdCliente);
+    }
+
+
+
 
 }

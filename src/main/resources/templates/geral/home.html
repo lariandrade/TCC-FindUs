@@ -112,9 +112,10 @@
                         </h1>
                     </div>
                     <!-- Form -->
-                    <form class="row px-md-20">
+                    <form class="row px-md-20" action="/barraPesquisa" method="GET" >
                         <div class="mb-6 col ps-3">
-                            <input type="search" class="form-control" placeholder="Pesquisar" required=""/>
+                            <input type="hidden" name="emailUser" th:value="${emailUser}">
+                            <input type="search" class="form-control" placeholder="Pesquisar" name = "pesquisa" required=""/>
                         </div>
                     </form>
                     <div class="d-flex gap-2 justify-content-center">
@@ -131,6 +132,10 @@
                         <button type="button" class="btn btn-light mb-2">
                             Identidade Visual
                         </button>
+                        <button type="button" class="btn btn-light mb-2">
+                            Todos
+                        </button>
+
                     </div>
                 </div>
             </div>

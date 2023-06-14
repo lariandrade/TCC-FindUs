@@ -7,6 +7,7 @@ import com.findus.repository.AvaliarPortfolioRepository;
 import com.findus.repository.PortfolioRepository;
 import com.findus.service.PortfolioService;
 import com.findus.service.PrestadorService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -120,16 +121,17 @@ public class PortfolioController {
 
         return "redirect:/visualizarProjeto/" + portfolio.getPortID();
     }
-
+    @Transactional
     @GetMapping("/excluirProjeto/{id}")
     public String excluirProjeto(@PathVariable Long id, RedirectAttributes redirectAttributes) {
 
         Portfolio portfolio = portfolioService.findById(id);
 
+        avaliarPortfolioRepository.deleteByPortfolio(portfolio);
+
         String idPrestador = portfolio.getPrestador().getUserEmail();
 
         portfolioRepository.deleteById(id);
-        System.out.println(idPrestador);
 
         redirectAttributes.addAttribute("id", idPrestador);
         return "redirect:/visualizarPerfil/{id}";

@@ -100,14 +100,15 @@ background-size: contain;
                         <div class="card-body p-4">
                             <span class="text-danger h4">Atenção</span>
                             <p>
-                                Ao excluir sua conta você perderá todos os dados cadastrados e seu o acesso da
-                                plataforma por meio destas credenciais de forma permanente.
+                                Ao excluir sua conta você perderá todos os dados cadastrados e seu acesso à plataforma por meio destas
+                                credenciais de forma permanente.
                             </p>
-                            <a class="btn btn-danger" th:href="@{/deletaCliente/{id}(id=${userID})}">Excluir Minha
-                                Conta</a>
+                            <a class="btn btn-danger" th:href="@{/deletaCliente/{id}(id=${userID})}"
+                               onclick="return confirm('Tem certeza de que deseja excluir sua conta?');">Excluir Minha Conta</a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>

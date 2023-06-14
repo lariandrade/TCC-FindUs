@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,11 +50,67 @@ public class LoginController {
         return mv;
     }
 
-    @GetMapping("/home")
-    public String autenticarUsuario(Model model, @RequestParam("userEmail") String email, @RequestParam("userSenha") String senha) {
+    @GetMapping("/barraPesquisa")
+    public String pesquisarServico(Model model, @RequestParam("emailUser") String email, @RequestParam("pesquisa") String pesquisa){
 
-        Cliente cliente = clienteRepository.findByUserEmailAndUserSenha(email, senha);
-        Prestador prestador = prestadorRepository.findByUserEmailAndUserSenha(email, senha);
+
+        Cliente cliente = clienteRepository.findByUserEmail(email);
+
+        if (cliente != null) {
+
+            model.addAttribute("nomeUsuario", cliente.getUserNome());
+            model.addAttribute("fotoPerfil", "clienteFotoPerfil");
+            model.addAttribute("emailUser", cliente.getUserEmail());
+
+            List<Prestador> listaPrestadores = prestadorRepository.findByUserSegmentoIn(Collections.singletonList(pesquisa));
+
+            Map<Prestador, Integer> projetosPorPrestador = new HashMap<>();
+
+
+            Map<Long, Map<Long, Integer>> avaliacoesPorPrestador = new HashMap<>();
+
+            for (Prestador prest : listaPrestadores) {
+                List<Portfolio> portfolios = portfolioRepository.findByPrestador(prest);
+                Map<Long, Integer> avaliacoesPorPortfolio = new HashMap<>();
+
+                int somaAvaliacoes = 0; // Variável para armazenar a soma das avaliações por prestador
+
+                for (Portfolio portfolio : portfolios) {
+                    List<AvaliacaoPortfolio> avaliacoes = avaliacaoRepository.findByPortfolio(portfolio);
+                    int totalNotas = 0;
+
+                    if (avaliacoes != null && !avaliacoes.isEmpty()) {
+                        for (AvaliacaoPortfolio avaliacao : avaliacoes) {
+                            totalNotas += avaliacao.getAvaNota();
+                        }
+                        somaAvaliacoes += totalNotas; // Atualiza a soma das avaliações
+                    }
+
+                    avaliacoesPorPortfolio.put(portfolio.getPortID(), totalNotas);
+                }
+
+                avaliacoesPorPrestador.put(prest.getUserID(), avaliacoesPorPortfolio);
+                projetosPorPrestador.put(prest, portfolios.size());
+
+                // Armazena a soma das avaliações no modelo
+                model.addAttribute("somaAvaliacoes", somaAvaliacoes);
+            }
+
+            model.addAttribute("avaliacoesPorPrestador", avaliacoesPorPrestador);
+            model.addAttribute("prestadores", listaPrestadores);
+            model.addAttribute("projetosPorPrestador", projetosPorPrestador);
+
+        }
+
+        return "geral/home";
+
+    }
+
+    @GetMapping("/home")
+    public String autenticarUsuario(Model model, @RequestParam("userEmail") String email) {
+
+        Cliente cliente = clienteRepository.findByUserEmail(email);
+        Prestador prestador = prestadorRepository.findByUserEmail(email);
 
         if (cliente != null) {
 
@@ -100,7 +157,6 @@ public class LoginController {
             model.addAttribute("projetosPorPrestador", projetosPorPrestador);
 
             return "geral/home";
-
 
         } else if (prestador != null) {
 
@@ -149,8 +205,6 @@ public class LoginController {
             model.addAttribute("fotoPerfil", "prestadorFotoPerfil");
             model.addAttribute("emailUser", prestador.getUserEmail());
             return "geral/home";
-
-
 
 
         } else {
