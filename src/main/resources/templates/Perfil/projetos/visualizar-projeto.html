@@ -177,7 +177,9 @@ background-size: contain;
                                  th:src="@{/projetoImagem/__${portfolio.portID}__}"
                                  alt="Foto do projeto"/>
                             <br>
-                            <p><span th:text="${portfolio.getPortDescricao()}"></span></p>
+                            <p class="mx-20" style="text-align: justify;">
+                                <span th:text="${portfolio.getPortDescricao()}"></span>
+                            </p>
 
                         </section>
 
