@@ -95,8 +95,6 @@ public class PerfilController {
 
             model.addAttribute("totalAvaliacoesPorProjeto", totalAvaliacoesPorProjeto);
 
-            System.out.println(totalAvaliacoesPorProjeto);
-
             return "perfil/prestador/perfil-prestador";
 
         }
