@@ -1,5 +1,6 @@
 <p align="center">
-    <img src="https://github.com/lariandrade/TCC-FindUs/assets/44838761/c9398773-6b18-4b39-887f-3bd86e76e1cf"/>
+    <img src="https://github.com/lariandrade/TCC-FindUs/assets/44838761/a25488f0-ef9d-421f-baef-7fff76749d10" weight="250" height="200"/>
+    <h1 align="center">Find Us - Digitalização de Negócios</h1>
 </p>
 
 <p align="center">
