@@ -52,6 +52,7 @@ public class QuizController {
         }
 
         redirectAttributes.addAttribute("userEmail", cliente.getUserEmail());
+        redirectAttributes.addAttribute("userSenha", cliente.getUserSenha());
 
         return "redirect:/home";
     }
