@@ -74,7 +74,7 @@ public class ClienteController {
     }
 
     @PostMapping("/alterarDadosCliente/{id}")
-    public String atualizarPrestador(@PathVariable("id") Long id, @ModelAttribute("cliente") Cliente clienteAtualizado, MultipartFile file) throws IOException {
+    public String atualizarCliente(@PathVariable("id") Long id, @ModelAttribute("cliente") Cliente clienteAtualizado, MultipartFile file) throws IOException {
 
         Cliente cliente = clienteService.findById(id);
 
@@ -83,12 +83,12 @@ public class ClienteController {
             cliente.setUserFoto(fotoNova);
         }
 
-
         cliente.setUserNome(clienteAtualizado.getUserNome());
         cliente.setUserTelefone(clienteAtualizado.getUserTelefone());
         cliente.setUserEmail(clienteAtualizado.getUserEmail());
         cliente.setUserSenha(clienteAtualizado.getUserSenha());
         cliente.setUserSegmento(clienteAtualizado.getUserSegmento());
+        cliente.setUserNomeNegocio(clienteAtualizado.getUserNomeNegocio());
         cliente.setUserDescricao(clienteAtualizado.getUserDescricao());
 
         clienteService.update(cliente);
