@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/lariandrade/TCC-FindUs/assets/44838761/7e9efdaa-9887-4f3b-9ddd-6f0aa12224da" width="600" height="300"/>
+    <img src="https://github.com/lariandrade/TCC-FindUs/assets/44838761/c9398773-6b18-4b39-887f-3bd86e76e1cf"/>
 </p>
 
 <p align="center">
