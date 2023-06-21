@@ -51,10 +51,10 @@ public class LoginController {
 
 
     @GetMapping("/home")
-    public String autenticarUsuario(Model model, @RequestParam("userEmail") String email) {
+    public String autenticarUsuario(Model model, @RequestParam("userEmail") String email, @RequestParam("userSenha") String senha) {
 
-        Cliente cliente = clienteRepository.findByUserEmail(email);
-        Prestador prestador = prestadorRepository.findByUserEmail(email);
+        Cliente cliente = clienteRepository.findByUserEmailAndUserSenha(email, senha);
+        Prestador prestador = prestadorRepository.findByUserEmailAndUserSenha(email, senha);
 
         if (cliente != null) {
 
