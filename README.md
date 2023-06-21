@@ -27,6 +27,21 @@ Digitalização de negócios se torna uma realidade acessível e eficiente com o
     
     ![quiz](https://github.com/lariandrade/TCC-FindUs/assets/44838761/10850992-f895-48da-9995-430e3002d6ad)
 
+    Ao clicar em "Iniciar Navegação", o cliente será redirecionado para a página inicial, onde encontrará uma lista de prestadores filtrada com base nos resultados obtidos no formulário preenchido anteriormente. Essa filtragem permitirá que o cliente visualize apenas os prestadores de serviços que melhor correspondam às suas preferências e necessidades.
+
+    ![home-quiz](https://github.com/lariandrade/TCC-FindUs/assets/44838761/4e329bc0-ec74-48a8-91c7-5da6dc61ba84)
+
+  - Visualização e Edição
+
+    ![edicao e visualizacao](https://github.com/lariandrade/TCC-FindUs/assets/44838761/b40f5389-3df1-4d22-ba35-af48ab50ac35)
+
+  - Exclusão da conta
+    
+    ![delete-cliente](https://github.com/lariandrade/TCC-FindUs/assets/44838761/872063bb-3771-44cc-9209-648eb3a9b483)
+
+
+
+
 
 - `Funcionalidade 2`: CRUD Prestador
 - `Funcionalidade 2`: CRUD Projetos
