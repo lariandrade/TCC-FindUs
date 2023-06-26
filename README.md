@@ -82,7 +82,7 @@ O projeto foi construído utilizando as seguintes ferramentas e tecnologias:
 - Thymeleaf
 - Java 17
 - Mysql
-- Bootsrap 5
+- Bootstrap 5
 - CSS3
 - HTML5
 - JavaScript
