@@ -25,11 +25,11 @@ Digitalização de negócios se torna uma realidade acessível e eficiente com o
 
 ## Demonstração
 
-## Pré-requisitos
+##  :warning: Pré-requisitos
 - Java 17
 - MySQL 8.0
 
-## Rodar a aplicação
+## :arrow_forward: Rodar a aplicação
 
 Siga as instruções abaixo para executar a aplicação:
 
