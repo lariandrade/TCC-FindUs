@@ -37,6 +37,9 @@ Siga as instruções abaixo para executar a aplicação:
 ```
 git clone https://github.com/lariandrade/TCC-FindUs.git
 ```
+<p>Abra o projeto na IDE.</p>
+
+**Recomendo o uso do IntelliJ IDEA, mas você pode usar qualquer outra IDE que seja compatível com projetos Spring Boot.**
 
 **2. Configurando o Banco de Dados**
 
@@ -62,10 +65,9 @@ spring.mail.username=<insira o endereço de email>
 spring.mail.password=<insira a senha>
 ```
 
-A aplicação estará funcionando no endereço http://localhost:8090/.
-
-
 **Observação:** eu recomendado utilizar o hotmail como provedor de email.
+
+A aplicação estará funcionando no endereço http://localhost:8090/.
 
 ## ✅ Tecnologias utilizadas
 
