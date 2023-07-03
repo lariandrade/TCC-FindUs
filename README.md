@@ -18,7 +18,11 @@ Digitalização de negócios se torna uma realidade acessível e eficiente com o
 <div align="center">
     <img src="https://github.com/lariandrade/TCC-FindUs/assets/44838761/a12c9b65-d60f-44f7-8fcb-500194c6c219"/>
 </div>
-</p>
+
+## Diagrama de Classe
+<div align="center">
+ <img src="https://github.com/lariandrade/TCC-FindUs/assets/44838761/f49efeed-99d6-4e66-9f51-37aaf5f6f6a9"/>
+</div>
 
 ## Funcionalidades
 - `Funcionalidade 1`: CRUD Cliente
