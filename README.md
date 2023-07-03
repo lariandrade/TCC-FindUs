@@ -21,7 +21,8 @@ Digitalização de negócios se torna uma realidade acessível e eficiente com o
 
 ## Diagrama de Classe
 <div align="center">
- <img src="https://github.com/lariandrade/TCC-FindUs/assets/44838761/f49efeed-99d6-4e66-9f51-37aaf5f6f6a9"/>
+ <img src="https://github.com/lariandrade/TCC-FindUs/assets/44838761/0dd4c8f7-8a4d-458c-9afc-c886fcacb371"/>
+    
 </div>
 
 ## Funcionalidades
@@ -31,6 +32,7 @@ Digitalização de negócios se torna uma realidade acessível e eficiente com o
 - `Funcionalidade 3`: Atribuição de notas aos projetos
 - `Funcionalidade 4`: Denúncia de conteúdo inadequado.
 - `Funcionalidade 5`: Envio de e-mails para prestador.
+
 
 ## Demonstração
 
