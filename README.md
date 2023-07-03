@@ -42,24 +42,15 @@ https://github.com/lariandrade/TCC-FindUs/assets/44838761/18fbb281-53c0-4701-bb1
 
 https://github.com/lariandrade/TCC-FindUs/assets/44838761/24fa6990-f4f0-4efd-b179-bd13574c449a
 
-
-
-
-
-
-
-### Prestador
-#### Projetos
-![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/7e170c75-76e1-483b-bd59-ab6abad6c260)
-![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/58f7aacb-ace5-4269-8378-3490dafbe62b)
-![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/90e93453-8b0d-47d1-ac12-5d5129ecd104)
-
-#### Perfil
-![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/d4958cb3-8f76-4bd9-86d1-c2a74f1465df)
-![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/84bfe71a-cefd-4f0f-a6ac-c59836c2b71f)
-
 ### Home
 ![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/14b0d21d-2538-4552-b4bf-72e5358bef4f)
+
+### Avaliação, Contato e Denuncia
+
+https://github.com/lariandrade/TCC-FindUs/assets/44838761/7d020ab8-4611-42bf-b247-35136fac7aa3
+
+
+
 
 ##  :warning: Pré-requisitos
 - Java 17
