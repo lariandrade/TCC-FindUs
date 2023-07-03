@@ -43,11 +43,10 @@ Digitalização de negócios se torna uma realidade acessível e eficiente com o
 
 #### Perfil
 ![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/d4958cb3-8f76-4bd9-86d1-c2a74f1465df)
-Edição
 ![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/84bfe71a-cefd-4f0f-a6ac-c59836c2b71f)
 
-
-
+### Home
+![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/14b0d21d-2538-4552-b4bf-72e5358bef4f)
 
 ##  :warning: Pré-requisitos
 - Java 17
