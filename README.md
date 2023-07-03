@@ -49,6 +49,9 @@ https://github.com/lariandrade/TCC-FindUs/assets/44838761/24fa6990-f4f0-4efd-b17
 
 https://github.com/lariandrade/TCC-FindUs/assets/44838761/7d020ab8-4611-42bf-b247-35136fac7aa3
 
+![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/0178b566-83b0-4250-8838-0c2128535e0d)
+
+![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/9fe16288-b28e-401c-be79-ee895248fda3)
 
 
 
