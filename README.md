@@ -35,7 +35,7 @@ Digitalização de negócios se torna uma realidade acessível e eficiente com o
 
 
 ## Demonstração
-
+🚧 em andamento
 ##  :warning: Pré-requisitos
 - Java 17
 - MySQL 8.0
