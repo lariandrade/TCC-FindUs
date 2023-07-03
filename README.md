@@ -34,8 +34,21 @@ Digitalização de negócios se torna uma realidade acessível e eficiente com o
 - `Funcionalidade 5`: Envio de e-mails para prestador.
 
 
-## Demonstração
-🚧 em andamento
+## Screenshots
+### Prestador
+#### Projetos
+![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/7e170c75-76e1-483b-bd59-ab6abad6c260)
+![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/58f7aacb-ace5-4269-8378-3490dafbe62b)
+![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/90e93453-8b0d-47d1-ac12-5d5129ecd104)
+
+#### Perfil
+![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/d4958cb3-8f76-4bd9-86d1-c2a74f1465df)
+Edição
+![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/84bfe71a-cefd-4f0f-a6ac-c59836c2b71f)
+
+
+
+
 ##  :warning: Pré-requisitos
 - Java 17
 - MySQL 8.0
