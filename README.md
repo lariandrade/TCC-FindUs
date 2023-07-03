@@ -34,7 +34,20 @@ Digitalização de negócios se torna uma realidade acessível e eficiente com o
 - `Funcionalidade 5`: Envio de e-mails para prestador.
 
 
-## Screenshots
+## Demonstração
+
+![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/5cb89cb8-d573-4a0f-bb49-e639eba0fcf7)
+
+https://github.com/lariandrade/TCC-FindUs/assets/44838761/18fbb281-53c0-4701-bb1a-5e3eb959902f
+
+https://github.com/lariandrade/TCC-FindUs/assets/44838761/24fa6990-f4f0-4efd-b179-bd13574c449a
+
+
+
+
+
+
+
 ### Prestador
 #### Projetos
 ![image](https://github.com/lariandrade/TCC-FindUs/assets/44838761/7e170c75-76e1-483b-bd59-ab6abad6c260)
